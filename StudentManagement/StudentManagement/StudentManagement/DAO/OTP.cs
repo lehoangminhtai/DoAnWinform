@@ -15,7 +15,7 @@ namespace StudentManagement
         private static byte[] secretKey;
         private static Totp totp;
        
-
+        public static int role {  get; set; }
        public static string Email {  get; set; }
 
        public static int numOTP { get; set; }

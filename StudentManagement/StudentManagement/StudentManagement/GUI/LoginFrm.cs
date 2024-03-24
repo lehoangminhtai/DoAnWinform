@@ -25,6 +25,7 @@ namespace StudentManagement
         private void Form1_Load(object sender, EventArgs e)
         {
             txtPassLogin.ForeColor = Color.Black;
+            
         }
 
         private void txtPassLogin_TextChanged(object sender, EventArgs e)
@@ -44,6 +45,25 @@ namespace StudentManagement
 
             txtIdLogin.ForeColor = Color.Black;
             txtIdLogin.Font = new Font(txtIdLogin.Font.FontFamily, 8f);
+        }
+
+        private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegisterFrm registerFrm = new RegisterFrm();
+            //registerFrm.ShowDialog();
+            if(registerFrm.ShowDialog() == DialogResult.OK)
+            {
+                frmOTP otp = new frmOTP();
+                if(otp.ShowDialog() == DialogResult.OK)
+                {
+                    otp.Close();
+                }
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

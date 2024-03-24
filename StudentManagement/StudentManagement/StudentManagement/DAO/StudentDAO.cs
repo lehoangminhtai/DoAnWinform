@@ -22,10 +22,9 @@ namespace StudentManagement.DAO
             try
             {
                 
-                SqlCommand cmd_Insert_Login = new SqlCommand(String.Format("Insert into DangNhap(MaDN) values ('{0}')",STUDENT.ID),db.getConnection);
+                
                 db.openConnection();
-                if(CheckUserExist())
-                    cmd_Insert_Login.ExecuteNonQuery();
+
                 String sql = "INSERT INTO HocSinh(MaSV, Ho, Ten, CCCD, SDT,NgaySinh, GioiTinh, Khoa, NgayTaoTK, Email) " +
                 "VALUES(@id,@fname, @lname,@cccd, @phone,@bod, @gender, @fac,@datecreate, '" + STUDENT.ID + "@student.hcmute.edu.vn')";
                // XJDBC.Update(sql, STUDENT.ID, STUDENT.Fname, STUDENT.Lname, STUDENT.CCCD, STUDENT.BOD, STUDENT.Phone, STUDENT.Image, STUDENT.GioiTinh, STUDENT.Faculity, STUDENT.DateCreate);
@@ -45,7 +44,14 @@ namespace StudentManagement.DAO
                 {
                     if ((command.ExecuteNonQuery() == 1))
                     {
-                        
+                        if(STUDENT.Image !=null)
+                        {
+                            SqlCommand cmd = new SqlCommand("insert into HocSinh(HinhAnh) values (@image) where MaSV =@MaSV",db.getConnection);
+                            command.Parameters.Add("@image", SqlDbType.Image).Value = STUDENT.Image.ToArray();
+                            command.Parameters.Add("@MaSV", SqlDbType.VarChar).Value = STUDENT.ID;
+                            cmd.ExecuteNonQuery();
+
+                        }
                         return true;
                     }
                     else
@@ -75,8 +81,8 @@ namespace StudentManagement.DAO
             {
                 XJDBC db = new XJDBC();
                 db.openConnection();
-                SqlCommand cmd = new SqlCommand("select * from DangNhap where MaDN = @id", db.getConnection);
-                cmd.Parameters.Add("@id", SqlDbType.Int).Value = LOGIN.ID;
+                SqlCommand cmd = new SqlCommand("select * from HocSinh where MaSV = @id", db.getConnection);
+                cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = STUDENT.ID;
                 var result = cmd.ExecuteReader();
                 if (result.HasRows)
                 {

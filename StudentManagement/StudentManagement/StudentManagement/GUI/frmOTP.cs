@@ -14,6 +14,7 @@ namespace StudentManagement
     public partial class frmOTP : Form
     {
         StudentDAO studentDAO = new StudentDAO();
+        TeacherDao teacherDao = new TeacherDao();
         public frmOTP()
         {
             InitializeComponent();
@@ -159,9 +160,21 @@ namespace StudentManagement
             {
                 if(OTP.numOTP ==OTP.numOTP_Client)
                 {
-                    if (studentDAO.Insert())
+                    if (OTP.role == 1)
                     {
-                        MessageBox.Show("Đăng ký thành công, vui lòng chờ thông báo xác nhận admin qua email!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (studentDAO.Insert())
+                        {
+                            MessageBox.Show("Đăng ký thành công, vui lòng chờ thông báo xác nhận admin qua email!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    if (OTP.role == 2)
+                    {
+                        if (teacherDao.Insert())
+                        {
+                            MessageBox.Show("Đăng ký thành công, vui lòng chờ thông báo xác nhận admin qua email!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.DialogResult= DialogResult.OK;
+                        }
                     }
                    
                 }
@@ -169,7 +182,7 @@ namespace StudentManagement
                 {
                     int num = OTP.numOTP_Client;
                     MessageBox.Show(OTP.numOTP.ToString()+" "+num.ToString());
-                    MessageBox.Show("Wrong OTP!!!\nPlease input right OTP code.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sai OTP!!!\nVui lòng nhập đúng mã OTP.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

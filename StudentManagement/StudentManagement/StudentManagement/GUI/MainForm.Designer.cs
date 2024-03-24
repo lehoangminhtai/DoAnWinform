@@ -51,6 +51,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -90,6 +92,7 @@
             // 
             // panelMain
             // 
+            this.panelMain.AutoScroll = true;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 75);
             this.panelMain.Name = "panelMain";
@@ -156,6 +159,8 @@
             // 
             this.panel9.AutoScroll = true;
             this.panel9.AutoSize = true;
+            this.panel9.Controls.Add(this.button7);
+            this.panel9.Controls.Add(this.button2);
             this.panel9.Controls.Add(this.button1);
             this.panel9.Controls.Add(this.button6);
             this.panel9.Controls.Add(this.button5);
@@ -173,20 +178,20 @@
             // 
             this.button1.AutoSize = true;
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 498);
+            this.button1.Location = new System.Drawing.Point(0, 372);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 83);
+            this.button1.Size = new System.Drawing.Size(220, 62);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Thoát";
+            this.button1.Text = "Thông báo";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
             this.button6.AutoSize = true;
             this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.Location = new System.Drawing.Point(0, 415);
+            this.button6.Location = new System.Drawing.Point(0, 310);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(194, 83);
+            this.button6.Size = new System.Drawing.Size(220, 62);
             this.button6.TabIndex = 5;
             this.button6.Text = "Diễn đàn";
             this.button6.UseVisualStyleBackColor = true;
@@ -195,9 +200,9 @@
             // 
             this.button5.AutoSize = true;
             this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.Location = new System.Drawing.Point(0, 332);
+            this.button5.Location = new System.Drawing.Point(0, 248);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(194, 83);
+            this.button5.Size = new System.Drawing.Size(220, 62);
             this.button5.TabIndex = 4;
             this.button5.Text = "Xem điểm";
             this.button5.UseVisualStyleBackColor = true;
@@ -206,9 +211,9 @@
             // 
             this.button4.AutoSize = true;
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.Location = new System.Drawing.Point(0, 249);
+            this.button4.Location = new System.Drawing.Point(0, 186);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(194, 83);
+            this.button4.Size = new System.Drawing.Size(220, 62);
             this.button4.TabIndex = 3;
             this.button4.Text = "Danh sách khoá học";
             this.button4.UseVisualStyleBackColor = true;
@@ -217,20 +222,21 @@
             // 
             this.button3.AutoSize = true;
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(0, 166);
+            this.button3.Location = new System.Drawing.Point(0, 124);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(194, 83);
+            this.button3.Size = new System.Drawing.Size(220, 62);
             this.button3.TabIndex = 2;
             this.button3.Text = "Đăng ký học phần";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnInfor
             // 
             this.btnInfor.AutoSize = true;
             this.btnInfor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfor.Location = new System.Drawing.Point(0, 83);
+            this.btnInfor.Location = new System.Drawing.Point(0, 62);
             this.btnInfor.Name = "btnInfor";
-            this.btnInfor.Size = new System.Drawing.Size(194, 83);
+            this.btnInfor.Size = new System.Drawing.Size(220, 62);
             this.btnInfor.TabIndex = 1;
             this.btnInfor.Text = "Thông tin cá nhân";
             this.btnInfor.UseVisualStyleBackColor = true;
@@ -246,7 +252,7 @@
             this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Name = "btnHome";
             this.btnHome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnHome.Size = new System.Drawing.Size(194, 83);
+            this.btnHome.Size = new System.Drawing.Size(220, 62);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.UseVisualStyleBackColor = false;
@@ -311,6 +317,28 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Location = new System.Drawing.Point(0, 434);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(220, 62);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Admin";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.AutoSize = true;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.Location = new System.Drawing.Point(0, 496);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(220, 62);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "Đăng xuất";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -367,5 +395,7 @@
         private System.Windows.Forms.Label lblChucVu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button7;
     }
 }

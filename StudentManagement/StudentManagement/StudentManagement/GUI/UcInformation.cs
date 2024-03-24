@@ -44,7 +44,7 @@ namespace StudentManagement.GUI
 
         private void UcInformation_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label17_Click(object sender, EventArgs e)

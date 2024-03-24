@@ -5,19 +5,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace StudentManagement
 {
     public partial class RegisterFrm : Form
     {
         StudentDAO studentDAO = new StudentDAO();
+        TeacherDao teacherDao = new TeacherDao();  
         public RegisterFrm()
         {
             InitializeComponent();
@@ -45,20 +47,31 @@ namespace StudentManagement
 
         private void RegisterFrm_Load(object sender, EventArgs e)
         {
+            pictureBox1.Image = Image.FromFile("../../Image/bg_login.jpg");
             radMale.Checked = true;
+            radMaleGV.Checked = true;
+            tabPage1.Text = "Sinh Viên";
+            tabPage2.Text = "Giảng viên";
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try
             {
-                if(CheckNotNull(txtId)&& CheckNotNull(txtFname) && CheckNotNull(txtLname) && CheckNotNull(txtPhone) && CheckNotNull(txtCCCD)) {
-                    STUDENT.ID = txtId.Text.ToString().Trim();
+                if(CheckNotNull(txtId)&& CheckNotNull(txtFname) && CheckNotNull(txtLname) && CheckNotNull(txtPhone) && CheckNotNull(txtCCCD) && cmbFaculity.SelectedItem!=null) {
+                    if(txtId.Text.Trim().Length == 8) { 
+                        STUDENT.ID = txtId.Text.ToString().Trim();
+                    
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập đúng mã SV!!!", "Lỗi Mã SV",MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                    }
                     
                     if (!Regex.IsMatch(txtFname.Text.Trim(), @"^[\p{L}\s]+$"))
                     {
                         
-                        MessageBox.Show("Please enter a valid First Name", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("vVui lòng nhập họ hợp lệ", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
@@ -69,7 +82,7 @@ namespace StudentManagement
                     string lname = txtLname.Text.Trim();
                     if (!Regex.IsMatch(lname, @"^[\p{L}\s]+$"))
                     {
-                        MessageBox.Show("Please enter a valid First Name", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Vui lòng nhập tên hợp lệ!!!", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
@@ -90,7 +103,17 @@ namespace StudentManagement
                     
                     
                     STUDENT.Faculity = cmbFaculity.Text.ToString().Trim();
-                    STUDENT.CCCD = txtCCCD.Text.ToString().Trim();
+                    string cccd = txtCCCD.Text.Trim();
+                    if (!Regex.IsMatch(cccd, @"^\d{12}$"))
+                    {
+                        MessageBox.Show("Vui lòng nhập đúng số CCCD", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        STUDENT.CCCD = txtCCCD.Text.ToString().Trim();
+                    }
+                   
                     
                     STUDENT.BOD = DateTimeBOD.Value;
                     STUDENT.GioiTinh = "Male";
@@ -100,14 +123,43 @@ namespace StudentManagement
                     }
                    
                     STUDENT.DateCreate = DateTime.Now;
+                    int born_year = DateTimeBOD.Value.Year;
+                    int this_year = DateTime.Now.Year;
+                    //  sv tu 10-100,  co the thay doi
+                    if (((this_year - born_year) < 10) || ((this_year - born_year) > 100))
+                    {
+                        MessageBox.Show("Sinh viên phải từ 10 tuổi đến 100 tuổi!!!", "Invalid Birth Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        OTP.role = 1;
+                        STUDENT.Email = STUDENT.ID.ToString().Trim() + "@student.hcmute.edu.vn";
+                        string receiveMail = "21102003tai@gmail.com";
+                        if (studentDAO.CheckUserExist())
+                        {
+                            if(picCaptured.Image != null)
+                            {
+                                MemoryStream pic = new MemoryStream();
+                                picCaptured.Image.Save(pic, picCaptured.Image.RawFormat);
+                                STUDENT.Image = pic;
+                            }
+                            OTP.Email = receiveMail;
+
+                            OTP.SendEmail(receiveMail);
+                            //frmOTP otp = new frmOTP();
+
+                            this.DialogResult = DialogResult.OK;
+                            //otp.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã SV: " + STUDENT.ID + " đã đăng ký hoặc đang chờ xác nhận từ ADMIN!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                           
+                        }
+                       
+                    }
                    
-                    STUDENT.Email = STUDENT.ID.ToString().Trim() + "@student.hcmute.edu.vn";
-                    string receiveMail = "21102003tai@gmail.com";
-                    OTP.Email = receiveMail;
-                    OTP.SendEmail(receiveMail);
-                    frmOTP otp = new frmOTP(); 
-                    otp.ShowDialog();
-                    this.DialogResult = DialogResult.OK;
+                    
                 }
                 else
                 {
@@ -145,10 +197,7 @@ namespace StudentManagement
 
         }
 
-        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
         private bool CheckNotNull(TextBox txt)
         {
             if (txt.Text.Trim() != "") { return true; }
@@ -241,6 +290,7 @@ namespace StudentManagement
 
         private void txtCCCD_TextChanged(object sender, EventArgs e)
         {
+            labelCCCD.Visible = false;  
             TextBox textBox = (TextBox)sender;
             if (textBox.Text.Length == 12)
             {
@@ -277,6 +327,7 @@ namespace StudentManagement
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
+            lblSDT.Visible = false;
             TextBox textBox = (TextBox)sender;
             if (textBox.Text.Length == 10)
             {
@@ -309,6 +360,175 @@ namespace StudentManagement
             labelTen.Visible = false;
             TextBox textBox = (TextBox)sender;
             textBox.Text = RemoveNonAlphabeticCharacters(textBox.Text);
+        }
+
+        private void btnDKGV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CheckNotNull(txtIdGV) && CheckNotNull(txtHoGV) && CheckNotNull(txtTenGV) && CheckNotNull(txtSDTGV) && CheckNotNull(txtCCCDGV) )
+                {
+                    
+                    TEACHER.ID = txtIdGV.Text.ToString().Trim();
+
+                    if (!Regex.IsMatch(txtHoGV.Text.Trim(), @"^[\p{L}\s]+$"))
+                    {
+
+                        MessageBox.Show("Vui lòng nhập họ hợp lệ", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        TEACHER.Fname = txtHoGV.Text.ToString().Trim();
+                    }
+
+                    string lname = txtTenGV.Text.Trim();
+                    if (!Regex.IsMatch(lname, @"^[\p{L}\s]+$"))
+                    {
+                        MessageBox.Show("Vui lòng nhập tên hợp lệ!!!", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        TEACHER.Lname = txtTenGV.Text.ToString().Trim();
+                    }
+                    string phone = txtSDTGV.Text.Trim();
+                    if (!Regex.IsMatch(phone, @"^\d{10}$"))
+                    {
+                        MessageBox.Show("Vui lòng nhập đúng số ĐT (VN)", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        TEACHER.Phone = txtSDTGV.Text.ToString().Trim();
+                    }
+
+
+
+                    string cccd = txtCCCDGV.Text.Trim();
+                    if (!Regex.IsMatch(cccd, @"^\d{12}$"))
+                    {
+                        MessageBox.Show("Vui lòng nhập đúng số CCCD", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        TEACHER.CCCD = txtCCCDGV.Text.ToString().Trim();
+                    }
+
+
+                    TEACHER.BOD = dateTimeBODGV.Value;
+                    TEACHER.GioiTinh = "Male";
+                    if (radFemaleGV.Checked)
+                    {
+                        TEACHER.GioiTinh = "Female";
+                    }
+                    int born_year = dateTimeBODGV.Value.Year;
+                    int this_year = DateTime.Now.Year;
+
+                    
+
+                    if (((this_year - born_year) < 22) || ((this_year - born_year) > 100))
+                    {
+                        MessageBox.Show("Độ tuổi không hợp lệ!!!", "Invalid Birth Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        TEACHER.DateCreate = DateTime.Now;
+
+                        TEACHER.Email = TEACHER.ID.ToString().Trim() + "@hcmute.edu.vn";
+                        string receiveMail = "21102003tai@gmail.com";
+                        if (teacherDao.CheckUserExist())
+                        {
+                            OTP.Email = receiveMail;
+                            OTP.role = 2;
+
+                            OTP.SendEmail(receiveMail);
+                            //frmOTP otp = new frmOTP();
+                            this.DialogResult = DialogResult.OK;
+                            //otp.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã GV: " + TEACHER.ID + " đã đăng ký hoặc đang chờ xác nhận từ ADMIN!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            
+                        }
+
+                    }
+                    
+                   
+                }
+                else
+                {
+                    if (CheckNotNull(txtIdGV) == false)
+                    {
+                        lblMaGV.Visible = true;
+                    }
+                    if (CheckNotNull(txtCCCDGV) == false)
+                    {
+                        lblCCCDGV.Visible = true;
+                    }
+                    if (CheckNotNull(txtHoGV) == false)
+                    {
+                        lblHoGV.Visible = true;
+                    }
+                    if (CheckNotNull(txtTenGV) == false)
+                    {
+                        lblTenGV.Visible = true;
+                    }
+                   
+                    if (CheckNotNull(txtSDTGV) == false)
+                    {
+                        lblSDTGV.Visible = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtIdGV_TextChanged(object sender, EventArgs e)
+        {
+            lblMaGV.Visible=false;
+        }
+
+        private void txtHoGV_TextChanged(object sender, EventArgs e)
+        {
+            lblHoGV.Visible=false;
+            TextBox textBox = (TextBox)sender;
+            textBox.Text = RemoveNonAlphabeticCharacters(textBox.Text);
+        }
+
+        private void txtTenGV_TextChanged(object sender, EventArgs e)
+        {
+            lblTenGV.Visible=false;
+            TextBox textBox = (TextBox)sender;
+            textBox.Text = RemoveNonAlphabeticCharacters(textBox.Text);
+        }
+
+        private void txtCCCDGV_TextChanged(object sender, EventArgs e)
+        {
+            lblCCCDGV.Visible = false;
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text.Length == 12)
+            {
+
+                txtSDTGV.Focus();
+            }
+        }
+
+        private void txtSDTGV_TextChanged(object sender, EventArgs e)
+        {
+            lblSDTGV.Visible = false;
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text.Length == 10)
+            {
+
+                btnCamGV.Focus();
+            }
         }
     }
 }

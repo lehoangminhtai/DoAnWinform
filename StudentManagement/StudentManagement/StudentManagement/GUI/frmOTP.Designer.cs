@@ -45,7 +45,7 @@
             // 
             // btnSendOTP
             // 
-            this.btnSendOTP.Location = new System.Drawing.Point(235, 321);
+            this.btnSendOTP.Location = new System.Drawing.Point(235, 319);
             this.btnSendOTP.Name = "btnSendOTP";
             this.btnSendOTP.Size = new System.Drawing.Size(93, 41);
             this.btnSendOTP.TabIndex = 10;
@@ -182,6 +182,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "frmOTP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOTP";
             this.Load += new System.EventHandler(this.frmOTP_Load);
             this.ResumeLayout(false);

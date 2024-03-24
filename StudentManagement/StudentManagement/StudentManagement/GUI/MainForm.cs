@@ -34,11 +34,47 @@ namespace StudentManagement
 
         private void btnInfor_Click(object sender, EventArgs e)
         {
-           
+
             UcInformation ucInformation = new UcInformation();
             ucInformation.Dock = DockStyle.Fill;
             panelMain.Controls.Clear();
             panelMain.Controls.Add(ucInformation);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+
+            int numberOfCourses = 10; // Số lượng khóa học
+            int panelHeight = 100;
+            int panelSpacing = 10;
+            int initialY = 10;
+            for (int i = 1; i <= numberOfCourses; i=i+1)
+            {
+                // Tạo mật khẩu ngẫu nhiên cho mỗi khóa học
+
+
+                // Tạo một panel mới chứa thông tin về khóa học và mật khẩu
+                Panel coursePanel = new Panel();
+                coursePanel.BorderStyle = BorderStyle.FixedSingle;
+                coursePanel.Width = 200;
+                coursePanel.Height = 40;
+                coursePanel.Location = new System.Drawing.Point(10, initialY + (panelHeight + panelSpacing) * (i - 1));
+
+                Label lblCourse = new Label();
+                lblCourse.Text = "Khóa học " + i.ToString();
+                lblCourse.Location = new System.Drawing.Point(10, 10);
+
+                Label lblPassword = new Label();
+                lblPassword.Text = "Mật khẩu";
+                lblPassword.Location = new System.Drawing.Point(10, 30);
+
+                coursePanel.Controls.Add(lblCourse);
+                coursePanel.Controls.Add(lblPassword);
+
+                // Thêm panel vào container
+                panelMain.Controls.Add(coursePanel);
+            }
         }
     }
 }
