@@ -128,6 +128,7 @@
             this.label1.Size = new System.Drawing.Size(108, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Nhập mã OTP";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -148,6 +149,7 @@
             this.lblTimeRemain.Name = "lblTimeRemain";
             this.lblTimeRemain.Size = new System.Drawing.Size(0, 17);
             this.lblTimeRemain.TabIndex = 12;
+            this.lblTimeRemain.Click += new System.EventHandler(this.lblTimeRemain_Click);
             // 
             // lnkLblOTP
             // 

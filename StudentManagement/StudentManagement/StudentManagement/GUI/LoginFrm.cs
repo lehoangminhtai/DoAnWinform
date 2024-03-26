@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentManagement.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,6 +65,12 @@ namespace StudentManagement
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnLoginByFace_Click(object sender, EventArgs e)
+        {
+            DetectFaceForm detectFace = new DetectFaceForm();
+            detectFace.ShowDialog();
         }
     }
 }

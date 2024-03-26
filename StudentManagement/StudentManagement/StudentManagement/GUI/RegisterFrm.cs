@@ -1,4 +1,6 @@
-﻿using StudentManagement.DAO;
+﻿
+using Emgu.CV;
+using StudentManagement.DAO;
 using StudentManagement.Entity;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,8 @@ namespace StudentManagement
 {
     public partial class RegisterFrm : Form
     {
+        FaceRec faceRec = new FaceRec();
+        private Emgu.CV.Capture capture = new Emgu.CV.Capture();
         StudentDAO studentDAO = new StudentDAO();
         TeacherDao teacherDao = new TeacherDao();  
         public RegisterFrm()
@@ -47,11 +51,14 @@ namespace StudentManagement
 
         private void RegisterFrm_Load(object sender, EventArgs e)
         {
+
             pictureBox1.Image = Image.FromFile("../../Image/bg_login.jpg");
             radMale.Checked = true;
             radMaleGV.Checked = true;
             tabPage1.Text = "Sinh Viên";
             tabPage2.Text = "Giảng viên";
+
+            
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -137,12 +144,12 @@ namespace StudentManagement
                         string receiveMail = "21102003tai@gmail.com";
                         if (studentDAO.CheckUserExist())
                         {
-                            if(picCaptured.Image != null)
+                            /*if(picCaptured.Image != null)
                             {
                                 MemoryStream pic = new MemoryStream();
                                 picCaptured.Image.Save(pic, picCaptured.Image.RawFormat);
                                 STUDENT.Image = pic;
-                            }
+                            }*/
                             OTP.Email = receiveMail;
 
                             OTP.SendEmail(receiveMail);
@@ -441,7 +448,7 @@ namespace StudentManagement
                         if (teacherDao.CheckUserExist())
                         {
                             OTP.Email = receiveMail;
-                            OTP.role = 2;
+                            OTP.role = 2; //là giáo viên
 
                             OTP.SendEmail(receiveMail);
                             //frmOTP otp = new frmOTP();
@@ -528,6 +535,61 @@ namespace StudentManagement
             {
 
                 btnCamGV.Focus();
+            }
+        }
+
+        private void btnOpenCam_Click(object sender, EventArgs e)
+        {
+            faceRec.openCamera(picCam, picCaptured);
+        }
+
+        private void btnCap_Click(object sender, EventArgs e)
+        {
+            StudentDAO stdDao= new StudentDAO();
+            string id = txtId.Text.Trim();
+            if (id !="" && id.Length==8)
+            {
+                if (stdDao.CheckUserExist(id))
+                {
+                    faceRec.Save_IMAGE(txtId.Text.Trim());
+                    picCaptured.Image = picCam.Image;
+                    MessageBox.Show("Xác thực khuôn mặt thành công!!!","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản đã đăng ký hoặc đang xác thực. \nVui lòng đăng ký nhận dạng khuông mặt trong hồ sơ cá nhân!!!","Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đúng mã sinh viên để xác thực!!!","Thông tin",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            
+
+           
+            
+        }
+
+        private void btnCapturedGV_Click(object sender, EventArgs e)
+        {
+            TeacherDao teacherDao = new TeacherDao();
+            string id = txtIdGV.Text.Trim();
+            if (id != "")
+            {
+                if (teacherDao.CheckUserExist(id))
+                {
+                    faceRec.Save_IMAGE(id);
+                    picCapturedGV.Image = picCamGV.Image;
+                    MessageBox.Show("Xác thực khuôn mặt thành công!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản đã đăng ký hoặc đang xác thực. \nVui lòng đăng ký nhận dạng khuông mặt trong hồ sơ cá nhân!!!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đúng mã giảng viên để xác thực!!!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

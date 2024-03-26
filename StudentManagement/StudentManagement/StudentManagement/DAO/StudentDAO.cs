@@ -98,7 +98,30 @@ namespace StudentManagement.DAO
             }
 
         }
+        public bool CheckUserExist(String id)
+        {
 
+            try
+            {
+                XJDBC db = new XJDBC();
+                db.openConnection();
+                SqlCommand cmd = new SqlCommand("select * from HocSinh where MaSV = @id", db.getConnection);
+                cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                var result = cmd.ExecuteReader();
+                if (result.HasRows)
+                {
+                    db.closeConnection();
+                    return false;
+                }
+                db.closeConnection();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
     }
     
     

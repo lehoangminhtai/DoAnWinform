@@ -30,12 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterFrm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabDKi = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelKhoa = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -77,6 +73,7 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -96,9 +93,11 @@
             this.label32 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnCapturedGV = new System.Windows.Forms.Button();
+            this.btnCamGV = new System.Windows.Forms.Button();
+            this.picCapturedGV = new System.Windows.Forms.PictureBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.picCamGV = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -112,26 +111,27 @@
             this.btnDKGV = new System.Windows.Forms.Button();
             this.txtIdGV = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
-            this.btnCapturedGV = new System.Windows.Forms.Button();
-            this.btnCamGV = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabDKi.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCaptured)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCam)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCapturedGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCamGV)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,26 +141,6 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Name = "panel1";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel3.Controls.Add(this.label1);
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Name = "label1";
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // tabDKi
             // 
@@ -176,13 +156,6 @@
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.panel4);
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -359,6 +332,7 @@
             resources.ApplyResources(this.btnCap, "btnCap");
             this.btnCap.Name = "btnCap";
             this.btnCap.UseVisualStyleBackColor = false;
+            this.btnCap.Click += new System.EventHandler(this.btnCap_Click);
             // 
             // btnOpenCam
             // 
@@ -366,6 +340,7 @@
             resources.ApplyResources(this.btnOpenCam, "btnOpenCam");
             this.btnOpenCam.Name = "btnOpenCam";
             this.btnOpenCam.UseVisualStyleBackColor = false;
+            this.btnOpenCam.Click += new System.EventHandler(this.btnOpenCam_Click);
             // 
             // picCaptured
             // 
@@ -502,6 +477,13 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.ForeColor = System.Drawing.Color.Gold;
             this.label2.Name = "label2";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel4);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -648,19 +630,34 @@
             // 
             this.groupBox4.Controls.Add(this.btnCapturedGV);
             this.groupBox4.Controls.Add(this.btnCamGV);
-            this.groupBox4.Controls.Add(this.pictureBox3);
+            this.groupBox4.Controls.Add(this.picCapturedGV);
             this.groupBox4.Controls.Add(this.label33);
-            this.groupBox4.Controls.Add(this.pictureBox5);
+            this.groupBox4.Controls.Add(this.picCamGV);
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
-            // pictureBox3
+            // btnCapturedGV
             // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
+            this.btnCapturedGV.BackColor = System.Drawing.Color.Thistle;
+            resources.ApplyResources(this.btnCapturedGV, "btnCapturedGV");
+            this.btnCapturedGV.Name = "btnCapturedGV";
+            this.btnCapturedGV.UseVisualStyleBackColor = false;
+            this.btnCapturedGV.Click += new System.EventHandler(this.btnCapturedGV_Click);
+            // 
+            // btnCamGV
+            // 
+            this.btnCamGV.BackColor = System.Drawing.Color.Pink;
+            resources.ApplyResources(this.btnCamGV, "btnCamGV");
+            this.btnCamGV.Name = "btnCamGV";
+            this.btnCamGV.UseVisualStyleBackColor = false;
+            // 
+            // picCapturedGV
+            // 
+            this.picCapturedGV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.picCapturedGV, "picCapturedGV");
+            this.picCapturedGV.Name = "picCapturedGV";
+            this.picCapturedGV.TabStop = false;
             // 
             // label33
             // 
@@ -668,12 +665,12 @@
             this.label33.ForeColor = System.Drawing.Color.Red;
             this.label33.Name = "label33";
             // 
-            // pictureBox5
+            // picCamGV
             // 
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.pictureBox5, "pictureBox5");
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.TabStop = false;
+            this.picCamGV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.picCamGV, "picCamGV");
+            this.picCamGV.Name = "picCamGV";
+            this.picCamGV.TabStop = false;
             // 
             // label35
             // 
@@ -767,19 +764,25 @@
             this.label41.ForeColor = System.Drawing.Color.Gold;
             this.label41.Name = "label41";
             // 
-            // btnCapturedGV
+            // panel3
             // 
-            this.btnCapturedGV.BackColor = System.Drawing.Color.Thistle;
-            resources.ApplyResources(this.btnCapturedGV, "btnCapturedGV");
-            this.btnCapturedGV.Name = "btnCapturedGV";
-            this.btnCapturedGV.UseVisualStyleBackColor = false;
+            this.panel3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel3.Controls.Add(this.label1);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
             // 
-            // btnCamGV
+            // label1
             // 
-            this.btnCamGV.BackColor = System.Drawing.Color.Pink;
-            resources.ApplyResources(this.btnCamGV, "btnCamGV");
-            this.btnCamGV.Name = "btnCamGV";
-            this.btnCamGV.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Name = "label1";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // RegisterFrm
             // 
@@ -790,14 +793,9 @@
             this.Name = "RegisterFrm";
             this.Load += new System.EventHandler(this.RegisterFrm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabDKi.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -807,6 +805,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCaptured)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCam)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -814,8 +814,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCapturedGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCamGV)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -890,9 +893,9 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox picCapturedGV;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox picCamGV;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;

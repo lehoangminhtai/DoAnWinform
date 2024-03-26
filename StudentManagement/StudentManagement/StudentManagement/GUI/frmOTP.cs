@@ -160,7 +160,7 @@ namespace StudentManagement
             {
                 if(OTP.numOTP ==OTP.numOTP_Client)
                 {
-                    if (OTP.role == 1)
+                    if (OTP.role == 1)//là học sinh
                     {
                         if (studentDAO.Insert())
                         {
@@ -168,7 +168,7 @@ namespace StudentManagement
                             this.DialogResult = DialogResult.OK;
                         }
                     }
-                    if (OTP.role == 2)
+                    if (OTP.role == 2)//là giáo viên
                     {
                         if (teacherDao.Insert())
                         {
@@ -176,6 +176,12 @@ namespace StudentManagement
                             this.DialogResult= DialogResult.OK;
                         }
                     }
+                    if(OTP.role == 3)//nhận thông báo xác thực khuôn mặt
+                    {
+                        MessageBox.Show("Xác thực thành công!", "Xác thực", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                    }
+
                    
                 }
                 else
@@ -192,6 +198,16 @@ namespace StudentManagement
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTimeRemain_Click(object sender, EventArgs e)
         {
 
         }

@@ -73,8 +73,8 @@ namespace StudentManagement
                 string emailFrom = "21110635@student.hcmute.edu.vn"; // Email của bạn
                 string password = "Nguyentam_@1984"; // Mật khẩu email của bạn
                 string emailTo = toAddress; // Email đích
-                string subjectEmail = "Confirm Account"; // Chủ đề của email
-                string bodyEmail = GenerateOTP(); // Nội dung của email
+                string subjectEmail = "[Management App] Confirm Account"; // Chủ đề của email
+                string bodyEmail = "Mã OTP xác thực tài khoản "+GenerateOTP(); // Nội dung của email
                 numOTP = int.Parse(bodyEmail);
                 MailMessage mail = new MailMessage();
 
@@ -91,11 +91,11 @@ namespace StudentManagement
                 smtp.Send(mail);
 
 
-                MessageBox.Show("Email sent successfully.");
+                MessageBox.Show("Vui long kiểm tra email sinh viên để lấy mã OTP.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to send email. Error message: {ex.Message}");
+                MessageBox.Show($"Xảy ra lỗi trong quá trình đăng ký tài khoản !!!");
 
             }
         }

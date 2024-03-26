@@ -38,7 +38,7 @@
             this.lnkRegister = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.lnkForgotPass = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLoginByFace = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassLogin = new System.Windows.Forms.TextBox();
             this.txtIdLogin = new System.Windows.Forms.TextBox();
@@ -96,7 +96,7 @@
             this.panel2.Controls.Add(this.lnkRegister);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.lnkForgotPass);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnLoginByFace);
             this.panel2.Controls.Add(this.btnLogin);
             this.panel2.Controls.Add(this.txtPassLogin);
             this.panel2.Controls.Add(this.txtIdLogin);
@@ -163,17 +163,18 @@
             this.lnkForgotPass.TabStop = true;
             this.lnkForgotPass.Text = "Quên mật khẩu?";
             // 
-            // button1
+            // btnLoginByFace
             // 
-            this.button1.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.button1.Font = new System.Drawing.Font("Sitka Subheading", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(173, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(306, 54);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Đăng nhập bằng khuôn mặt";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnLoginByFace.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnLoginByFace.Font = new System.Drawing.Font("Sitka Subheading", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginByFace.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLoginByFace.Location = new System.Drawing.Point(173, 351);
+            this.btnLoginByFace.Name = "btnLoginByFace";
+            this.btnLoginByFace.Size = new System.Drawing.Size(306, 54);
+            this.btnLoginByFace.TabIndex = 2;
+            this.btnLoginByFace.Text = "Đăng nhập bằng khuôn mặt";
+            this.btnLoginByFace.UseVisualStyleBackColor = false;
+            this.btnLoginByFace.Click += new System.EventHandler(this.btnLoginByFace_Click);
             // 
             // btnLogin
             // 
@@ -273,7 +274,7 @@
         private System.Windows.Forms.LinkLabel lnkRegister;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLoginByFace;
         private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
