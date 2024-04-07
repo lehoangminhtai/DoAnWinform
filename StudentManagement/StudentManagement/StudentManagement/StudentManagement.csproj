@@ -66,6 +66,7 @@
       <HintPath>..\..\..\..\..\Demo\FaceDectect\FaceDetect\packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Demo\FaceDectect\FaceDetect\packages\System.Memory.4.5.5\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -96,6 +97,18 @@
     <Compile Include="Entity\LOGIN.cs" />
     <Compile Include="Entity\STUDENT.cs" />
     <Compile Include="Entity\TEACHER.cs" />
+    <Compile Include="GUI\ADMINForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ADMINForm.Designer.cs">
+      <DependentUpon>ADMINForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ADMINUpdateSTD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ADMINUpdateSTD.Designer.cs">
+      <DependentUpon>ADMINUpdateSTD.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DetectFaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +159,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanLyHocTapDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyHocTapDataSet2.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\ADMINForm.resx">
+      <DependentUpon>ADMINForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ADMINUpdateSTD.resx">
+      <DependentUpon>ADMINUpdateSTD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DetectFaceForm.resx">
       <DependentUpon>DetectFaceForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +202,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
@@ -194,7 +219,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="QuanLyHocTapDataSet2.xsc">
+      <DependentUpon>QuanLyHocTapDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyHocTapDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyHocTapDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyHocTapDataSet2.xss">
+      <DependentUpon>QuanLyHocTapDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\ute_logo.cbcebbf0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\setting.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

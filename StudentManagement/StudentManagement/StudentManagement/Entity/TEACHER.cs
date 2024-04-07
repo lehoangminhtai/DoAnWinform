@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace StudentManagement.Entity
         public static string CCCD { get; set; }
         public static DateTime BOD { get; set; }
         public static string Phone { get; set; }
-        public static byte[] Image { get; set; }
+        public static MemoryStream Image { get; set; }
         public static string GioiTinh { get; set; }
         public static string Adddress { get; set; }
         public static DateTime DateCreate { get; set; }

@@ -69,7 +69,14 @@ namespace StudentManagement.DAO
                 control.Text = setPersonName;
             }
         }
-
+        public void StopCamera()
+        {
+            if (camera != null)
+            {
+                camera.Stop();
+                camera.Dispose();
+            }
+        }
         public void openCamera(PictureBox pictureBox_Camera, PictureBox pictureBox_Trained)
         {
             PictureBox_Frame = pictureBox_Camera;

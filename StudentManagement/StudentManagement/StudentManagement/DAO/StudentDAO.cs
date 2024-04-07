@@ -11,6 +11,7 @@ using static System.Windows.Forms.AxHost;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Windows.Forms;
+using System.IO;
 
 namespace StudentManagement.DAO
 {
@@ -40,18 +41,21 @@ namespace StudentManagement.DAO
                 command.Parameters.Add("@gender", SqlDbType.VarChar).Value = STUDENT.GioiTinh;
                 command.Parameters.Add("@fac", SqlDbType.NVarChar).Value = STUDENT.Faculity;
                 command.Parameters.Add("@datecreate", SqlDbType.Date).Value = STUDENT.DateCreate.ToShortDateString();
+
+                //command.Parameters.Add("pic",SqlDbType.Image).Value = STUDENT.Image.ToArray();
                 try
                 {
                     if ((command.ExecuteNonQuery() == 1))
                     {
                         if(STUDENT.Image !=null)
                         {
-                            SqlCommand cmd = new SqlCommand("insert into HocSinh(HinhAnh) values (@image) where MaSV =@MaSV",db.getConnection);
-                            command.Parameters.Add("@image", SqlDbType.Image).Value = STUDENT.Image.ToArray();
-                            command.Parameters.Add("@MaSV", SqlDbType.VarChar).Value = STUDENT.ID;
+                            SqlCommand cmd = new SqlCommand("update HocSinh set HinhAnh = @image where MaSV =@MaSV",db.getConnection);
+                            cmd.Parameters.Add("@image", SqlDbType.Image).Value = STUDENT.Image.ToArray();
+                            cmd.Parameters.Add("@MaSV", SqlDbType.VarChar).Value = STUDENT.ID;
                             cmd.ExecuteNonQuery();
 
                         }
+                       
                         return true;
                     }
                     else
@@ -73,7 +77,43 @@ namespace StudentManagement.DAO
             }
             finally { db.closeConnection(); }
         }
-        
+
+        public bool updateStudent(string id, string fname, string lname, string CCCD, DateTime date, string phone, MemoryStream picture, string gender,string address, string fac, string nameParents, string phoneParents,string email)
+        {
+            SqlCommand command = new SqlCommand("UPDATE HocSinh SET Ho= @fn, Ten=@ln,CCCD =@cccd, NgaySinh=@bdt, SDT=@phn,HinhAnh=@pic , GioiTinh=@gdr,  DiaChi=@adrs, Khoa= @fac, NguoiThanHT = @fullNamePar, NguoiThanSDT = @phonePar, Email =@email where MaSV=@id", db.getConnection);
+            command.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+            command.Parameters.Add("@fn", SqlDbType.NVarChar).Value = fname;
+            command.Parameters.Add("@ln", SqlDbType.NVarChar).Value = lname;
+            command.Parameters.Add("@cccd", SqlDbType.VarChar).Value = CCCD;
+            command.Parameters.Add("@bdt", SqlDbType.DateTime).Value = date;
+            command.Parameters.Add("@phn", SqlDbType.VarChar).Value = phone;
+            if(picture != null )
+                command.Parameters.Add("@pic", SqlDbType.Image).Value = picture.ToArray();
+            else
+                command.Parameters.Add("@pic", SqlDbType.Image).Value = DBNull.Value;
+
+            command.Parameters.Add("@gdr", SqlDbType.VarChar).Value = gender;
+          
+            command.Parameters.Add("@adrs", SqlDbType.NVarChar).Value = address;
+            command.Parameters.Add("@fac", SqlDbType.NVarChar).Value = fac;
+            command.Parameters.Add("@fullNamePar", SqlDbType.NVarChar).Value = nameParents;
+            command.Parameters.Add("@phonePar", SqlDbType.VarChar).Value = phoneParents;
+            command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+
+            db.openConnection();
+
+            if ((command.ExecuteNonQuery() == 1))
+            {
+                db.closeConnection();
+                return true;
+            }
+            else
+            {
+                db.closeConnection();
+                return false;
+            }
+        }
+
         public bool CheckUserExist()
         {
 

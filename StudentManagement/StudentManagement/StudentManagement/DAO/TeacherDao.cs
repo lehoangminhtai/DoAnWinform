@@ -21,8 +21,8 @@ namespace StudentManagement.DAO
   
                 db.openConnection();
                 
-                    String sql = "INSERT INTO GiangVien(MaGV, Ho, Ten, CCCD, SDT,NgaySinh, GioiTinh, NgayTaoTK, Email) " +
-                "VALUES(@id,@fname, @lname,@cccd, @phone,@bod, @gender,@datecreate, '" + TEACHER.ID + "@hcmute.edu.vn')";
+                    String sql = "INSERT INTO GiangVien(MaGV, Ho, Ten, CCCD, SDT,NgaySinh, GioiTinh, NgayTaoTK, Email, HinhAnh) " +
+                "VALUES(@id,@fname, @lname,@cccd, @phone,@bod, @gender,@datecreate, '" + TEACHER.ID + "@hcmute.edu.vn',@pic)";
 
                     SqlCommand command = new SqlCommand(sql, db.getConnection);
 
@@ -36,11 +36,20 @@ namespace StudentManagement.DAO
                     command.Parameters.Add("@gender", SqlDbType.VarChar).Value = TEACHER.GioiTinh;
 
                     command.Parameters.Add("@datecreate", SqlDbType.Date).Value = TEACHER.DateCreate.ToShortDateString();
+
+                    command.Parameters.Add("@pic",SqlDbType.Image).Value = TEACHER.Image.ToArray();
                     try
                     {
                         if ((command.ExecuteNonQuery() == 1))
                         {
+                            if (TEACHER.Image != null)
+                            {
+                                SqlCommand cmd = new SqlCommand("update GiangVien set HinhAnh = @image where MaGV =@MaGV", db.getConnection);
+                                cmd.Parameters.Add("@image", SqlDbType.Image).Value = TEACHER.Image.ToArray();
+                                cmd.Parameters.Add("@MaGV", SqlDbType.VarChar).Value = TEACHER.ID;
+                                cmd.ExecuteNonQuery();
 
+                            }
                             return true;
                         }
                         else

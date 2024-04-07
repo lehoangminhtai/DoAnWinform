@@ -182,6 +182,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "DetectFaceForm";
             this.Text = "DetectFaceForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DetectFaceForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaptured)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamara)).EndInit();
             this.groupBox1.ResumeLayout(false);

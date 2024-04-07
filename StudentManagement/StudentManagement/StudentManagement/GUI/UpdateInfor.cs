@@ -31,5 +31,20 @@ namespace StudentManagement.GUI
         {
 
         }
+
+        private void UpdateInfor_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((opf.ShowDialog() == DialogResult.OK))
+            {
+                picBoxAnhSV.Image = Image.FromFile(opf.FileName);
+            }
+        }
     }
 }

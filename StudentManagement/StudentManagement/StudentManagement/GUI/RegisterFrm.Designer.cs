@@ -54,10 +54,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCap = new System.Windows.Forms.Button();
-            this.btnOpenCam = new System.Windows.Forms.Button();
             this.picCaptured = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.picCam = new System.Windows.Forms.PictureBox();
             this.cmbFaculity = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -94,10 +92,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnCapturedGV = new System.Windows.Forms.Button();
-            this.btnCamGV = new System.Windows.Forms.Button();
             this.picCapturedGV = new System.Windows.Forms.PictureBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.picCamGV = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -122,14 +118,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCaptured)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCam)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCapturedGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCamGV)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -318,10 +312,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnCap);
-            this.groupBox1.Controls.Add(this.btnOpenCam);
             this.groupBox1.Controls.Add(this.picCaptured);
             this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.picCam);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
@@ -333,14 +325,6 @@
             this.btnCap.Name = "btnCap";
             this.btnCap.UseVisualStyleBackColor = false;
             this.btnCap.Click += new System.EventHandler(this.btnCap_Click);
-            // 
-            // btnOpenCam
-            // 
-            this.btnOpenCam.BackColor = System.Drawing.Color.Pink;
-            resources.ApplyResources(this.btnOpenCam, "btnOpenCam");
-            this.btnOpenCam.Name = "btnOpenCam";
-            this.btnOpenCam.UseVisualStyleBackColor = false;
-            this.btnOpenCam.Click += new System.EventHandler(this.btnOpenCam_Click);
             // 
             // picCaptured
             // 
@@ -354,13 +338,6 @@
             resources.ApplyResources(this.label18, "label18");
             this.label18.ForeColor = System.Drawing.Color.Red;
             this.label18.Name = "label18";
-            // 
-            // picCam
-            // 
-            this.picCam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.picCam, "picCam");
-            this.picCam.Name = "picCam";
-            this.picCam.TabStop = false;
             // 
             // cmbFaculity
             // 
@@ -491,6 +468,7 @@
             this.panel4.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.label33);
             this.panel4.Controls.Add(this.label22);
             this.panel4.Controls.Add(this.label23);
             this.panel4.Controls.Add(this.label24);
@@ -629,10 +607,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnCapturedGV);
-            this.groupBox4.Controls.Add(this.btnCamGV);
             this.groupBox4.Controls.Add(this.picCapturedGV);
-            this.groupBox4.Controls.Add(this.label33);
-            this.groupBox4.Controls.Add(this.picCamGV);
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
@@ -644,13 +619,6 @@
             this.btnCapturedGV.Name = "btnCapturedGV";
             this.btnCapturedGV.UseVisualStyleBackColor = false;
             this.btnCapturedGV.Click += new System.EventHandler(this.btnCapturedGV_Click);
-            // 
-            // btnCamGV
-            // 
-            this.btnCamGV.BackColor = System.Drawing.Color.Pink;
-            resources.ApplyResources(this.btnCamGV, "btnCamGV");
-            this.btnCamGV.Name = "btnCamGV";
-            this.btnCamGV.UseVisualStyleBackColor = false;
             // 
             // picCapturedGV
             // 
@@ -664,13 +632,6 @@
             resources.ApplyResources(this.label33, "label33");
             this.label33.ForeColor = System.Drawing.Color.Red;
             this.label33.Name = "label33";
-            // 
-            // picCamGV
-            // 
-            this.picCamGV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.picCamGV, "picCamGV");
-            this.picCamGV.Name = "picCamGV";
-            this.picCamGV.TabStop = false;
             // 
             // label35
             // 
@@ -804,7 +765,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCaptured)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCam)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -813,9 +773,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCapturedGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCamGV)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -854,10 +812,8 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCap;
-        private System.Windows.Forms.Button btnOpenCam;
         private System.Windows.Forms.PictureBox picCaptured;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.PictureBox picCam;
         private System.Windows.Forms.ComboBox cmbFaculity;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
@@ -895,7 +851,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PictureBox picCapturedGV;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.PictureBox picCamGV;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
@@ -910,6 +865,5 @@
         private System.Windows.Forms.TextBox txtIdGV;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Button btnCapturedGV;
-        private System.Windows.Forms.Button btnCamGV;
     }
 }

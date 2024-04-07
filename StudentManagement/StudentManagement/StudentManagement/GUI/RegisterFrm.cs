@@ -21,7 +21,7 @@ namespace StudentManagement
     public partial class RegisterFrm : Form
     {
         FaceRec faceRec = new FaceRec();
-        private Emgu.CV.Capture capture = new Emgu.CV.Capture();
+        
         StudentDAO studentDAO = new StudentDAO();
         TeacherDao teacherDao = new TeacherDao();  
         public RegisterFrm()
@@ -63,8 +63,8 @@ namespace StudentManagement
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            try
-            {
+            try { 
+            
                 if(CheckNotNull(txtId)&& CheckNotNull(txtFname) && CheckNotNull(txtLname) && CheckNotNull(txtPhone) && CheckNotNull(txtCCCD) && cmbFaculity.SelectedItem!=null) {
                     if(txtId.Text.Trim().Length == 8) { 
                         STUDENT.ID = txtId.Text.ToString().Trim();
@@ -139,23 +139,25 @@ namespace StudentManagement
                     }
                     else
                     {
+                       
+
                         OTP.role = 1;
                         STUDENT.Email = STUDENT.ID.ToString().Trim() + "@student.hcmute.edu.vn";
                         string receiveMail = "21102003tai@gmail.com";
                         if (studentDAO.CheckUserExist())
                         {
-                            /*if(picCaptured.Image != null)
-                            {
+                            
                                 MemoryStream pic = new MemoryStream();
                                 picCaptured.Image.Save(pic, picCaptured.Image.RawFormat);
                                 STUDENT.Image = pic;
-                            }*/
-                            OTP.Email = receiveMail;
+                                OTP.Email = receiveMail;
+                            
+                                OTP.SendEmail(receiveMail);
+                                //frmOTP otp = new frmOTP();
 
-                            OTP.SendEmail(receiveMail);
-                            //frmOTP otp = new frmOTP();
-
-                            this.DialogResult = DialogResult.OK;
+                                this.DialogResult = DialogResult.OK;
+                            
+                          
                             //otp.ShowDialog();
                         }
                         else
@@ -339,7 +341,7 @@ namespace StudentManagement
             if (textBox.Text.Length == 10)
             {
 
-                btnOpenCam.Focus();
+                btnCap.Focus();
             }
         }
 
@@ -430,6 +432,7 @@ namespace StudentManagement
                     {
                         TEACHER.GioiTinh = "Female";
                     }
+                   
                     int born_year = dateTimeBODGV.Value.Year;
                     int this_year = DateTime.Now.Year;
 
@@ -441,25 +444,34 @@ namespace StudentManagement
                     }
                     else
                     {
-                        TEACHER.DateCreate = DateTime.Now;
+                        
+                           
 
-                        TEACHER.Email = TEACHER.ID.ToString().Trim() + "@hcmute.edu.vn";
-                        string receiveMail = "21102003tai@gmail.com";
-                        if (teacherDao.CheckUserExist())
-                        {
-                            OTP.Email = receiveMail;
-                            OTP.role = 2; //là giáo viên
+                            TEACHER.DateCreate = DateTime.Now;
 
-                            OTP.SendEmail(receiveMail);
-                            //frmOTP otp = new frmOTP();
-                            this.DialogResult = DialogResult.OK;
-                            //otp.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Mã GV: " + TEACHER.ID + " đã đăng ký hoặc đang chờ xác nhận từ ADMIN!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            
-                        }
+                            TEACHER.Email = TEACHER.ID.ToString().Trim() + "@hcmute.edu.vn";
+                            string receiveMail = "21102003tai@gmail.com";
+                            if (teacherDao.CheckUserExist())
+                            {
+
+                                MemoryStream pic = new MemoryStream();
+                                picCapturedGV.Image.Save(pic, picCapturedGV.Image.RawFormat);
+                                TEACHER.Image = pic;
+
+                                OTP.Email = receiveMail;
+                                OTP.role = 2; //là giáo viên
+
+                                OTP.SendEmail(receiveMail);
+                                //frmOTP otp = new frmOTP();
+                                this.DialogResult = DialogResult.OK;
+                                //otp.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Mã GV: " + TEACHER.ID + " đã đăng ký hoặc đang chờ xác nhận từ ADMIN!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
+                       
 
                     }
                     
@@ -534,18 +546,24 @@ namespace StudentManagement
             if (textBox.Text.Length == 10)
             {
 
-                btnCamGV.Focus();
+                btnCapturedGV.Focus();
             }
         }
 
-        private void btnOpenCam_Click(object sender, EventArgs e)
-        {
-            faceRec.openCamera(picCam, picCaptured);
-        }
+        
 
         private void btnCap_Click(object sender, EventArgs e)
         {
-            StudentDAO stdDao= new StudentDAO();
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((opf.ShowDialog() == DialogResult.OK))
+            {
+                picCaptured.Image = Image.FromFile(opf.FileName);
+            }
+            //picCaptured.Image = picCam.Image;
+
+            //STUDENT.Image = picCaptured.Image;
+            /*StudentDAO stdDao= new StudentDAO();
             string id = txtId.Text.Trim();
             if (id !="" && id.Length==8)
             {
@@ -563,7 +581,7 @@ namespace StudentManagement
             else
             {
                 MessageBox.Show("Vui lòng nhập đúng mã sinh viên để xác thực!!!","Thông tin",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
+            }*/
             
 
            
@@ -572,7 +590,13 @@ namespace StudentManagement
 
         private void btnCapturedGV_Click(object sender, EventArgs e)
         {
-            TeacherDao teacherDao = new TeacherDao();
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((opf.ShowDialog() == DialogResult.OK))
+            {
+                picCapturedGV.Image = Image.FromFile(opf.FileName);
+            }
+            /*TeacherDao teacherDao = new TeacherDao();
             string id = txtIdGV.Text.Trim();
             if (id != "")
             {
@@ -590,7 +614,9 @@ namespace StudentManagement
             else
             {
                 MessageBox.Show("Vui lòng nhập đúng mã giảng viên để xác thực!!!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            }*/
         }
+
+       
     }
 }

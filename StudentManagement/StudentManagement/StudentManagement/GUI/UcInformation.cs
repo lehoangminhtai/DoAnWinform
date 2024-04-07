@@ -57,5 +57,10 @@ namespace StudentManagement.GUI
             UpdateInfor updateFrm = new UpdateInfor();
             updateFrm.ShowDialog();
         }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

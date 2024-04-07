@@ -1,4 +1,5 @@
 ﻿using StudentManagement.Entity;
+using StudentManagement.GUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,13 @@ namespace StudentManagement
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new RegisterFrm());
-            //STUDENT std = new STUDENT();
-                Form1 loginFrm = new Form1();
+            Application.Run(new ADMINForm());
+            
+                /*Form1 loginFrm = new Form1();
                 if (loginFrm.ShowDialog() == DialogResult.OK)
                 {    
                     Application.Run(new MainForm());
-                } 
+                } */
             }
         }
     }

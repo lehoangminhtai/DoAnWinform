@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
@@ -38,6 +37,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -51,8 +52,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -68,13 +67,12 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1496, 774);
+            this.panel1.Size = new System.Drawing.Size(1385, 744);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -85,18 +83,18 @@
             this.panel3.Controls.Add(this.paneMain);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(220, 0);
+            this.panel3.Location = new System.Drawing.Point(266, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1276, 774);
+            this.panel3.Size = new System.Drawing.Size(1119, 744);
             this.panel3.TabIndex = 1;
             // 
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 75);
+            this.panelMain.Location = new System.Drawing.Point(0, 69);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1276, 699);
+            this.panelMain.Size = new System.Drawing.Size(1119, 675);
             this.panelMain.TabIndex = 2;
             // 
             // paneMain
@@ -105,20 +103,21 @@
             this.paneMain.AutoScrollMinSize = new System.Drawing.Size(100, 0);
             this.paneMain.AutoSize = true;
             this.paneMain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.paneMain.Location = new System.Drawing.Point(0, 75);
+            this.paneMain.Location = new System.Drawing.Point(0, 69);
             this.paneMain.Name = "paneMain";
-            this.paneMain.Size = new System.Drawing.Size(1276, 0);
+            this.paneMain.Size = new System.Drawing.Size(1119, 0);
             this.paneMain.TabIndex = 1;
             // 
             // panel4
             // 
+            this.panel4.AutoSize = true;
             this.panel4.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.ForeColor = System.Drawing.SystemColors.Desktop;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1276, 75);
+            this.panel4.Size = new System.Drawing.Size(1119, 69);
             this.panel4.TabIndex = 0;
             // 
             // label1
@@ -126,7 +125,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Subheading", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(373, 13);
+            this.label1.Location = new System.Drawing.Point(290, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(510, 49);
             this.label1.TabIndex = 0;
@@ -141,7 +140,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(220, 774);
+            this.panel2.Size = new System.Drawing.Size(266, 744);
             this.panel2.TabIndex = 0;
             // 
             // panel6
@@ -152,7 +151,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 100);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(220, 674);
+            this.panel6.Size = new System.Drawing.Size(266, 644);
             this.panel6.TabIndex = 1;
             // 
             // panel9
@@ -169,18 +168,40 @@
             this.panel9.Controls.Add(this.btnInfor);
             this.panel9.Controls.Add(this.btnHome);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 102);
+            this.panel9.Location = new System.Drawing.Point(0, 96);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(220, 572);
+            this.panel9.Size = new System.Drawing.Size(266, 548);
             this.panel9.TabIndex = 1;
+            // 
+            // button7
+            // 
+            this.button7.AutoSize = true;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.Location = new System.Drawing.Point(0, 664);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(240, 83);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "Đăng xuất";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Location = new System.Drawing.Point(0, 581);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(240, 83);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Admin";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
             this.button1.AutoSize = true;
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 372);
+            this.button1.Location = new System.Drawing.Point(0, 498);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 62);
+            this.button1.Size = new System.Drawing.Size(240, 83);
             this.button1.TabIndex = 6;
             this.button1.Text = "Thông báo";
             this.button1.UseVisualStyleBackColor = true;
@@ -189,9 +210,9 @@
             // 
             this.button6.AutoSize = true;
             this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.Location = new System.Drawing.Point(0, 310);
+            this.button6.Location = new System.Drawing.Point(0, 415);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(220, 62);
+            this.button6.Size = new System.Drawing.Size(240, 83);
             this.button6.TabIndex = 5;
             this.button6.Text = "Diễn đàn";
             this.button6.UseVisualStyleBackColor = true;
@@ -200,9 +221,9 @@
             // 
             this.button5.AutoSize = true;
             this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.Location = new System.Drawing.Point(0, 248);
+            this.button5.Location = new System.Drawing.Point(0, 332);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(220, 62);
+            this.button5.Size = new System.Drawing.Size(240, 83);
             this.button5.TabIndex = 4;
             this.button5.Text = "Xem điểm";
             this.button5.UseVisualStyleBackColor = true;
@@ -211,9 +232,9 @@
             // 
             this.button4.AutoSize = true;
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.Location = new System.Drawing.Point(0, 186);
+            this.button4.Location = new System.Drawing.Point(0, 249);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(220, 62);
+            this.button4.Size = new System.Drawing.Size(240, 83);
             this.button4.TabIndex = 3;
             this.button4.Text = "Danh sách khoá học";
             this.button4.UseVisualStyleBackColor = true;
@@ -222,9 +243,9 @@
             // 
             this.button3.AutoSize = true;
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(0, 124);
+            this.button3.Location = new System.Drawing.Point(0, 166);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(220, 62);
+            this.button3.Size = new System.Drawing.Size(240, 83);
             this.button3.TabIndex = 2;
             this.button3.Text = "Đăng ký học phần";
             this.button3.UseVisualStyleBackColor = true;
@@ -234,9 +255,9 @@
             // 
             this.btnInfor.AutoSize = true;
             this.btnInfor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfor.Location = new System.Drawing.Point(0, 62);
+            this.btnInfor.Location = new System.Drawing.Point(0, 83);
             this.btnInfor.Name = "btnInfor";
-            this.btnInfor.Size = new System.Drawing.Size(220, 62);
+            this.btnInfor.Size = new System.Drawing.Size(240, 83);
             this.btnInfor.TabIndex = 1;
             this.btnInfor.Text = "Thông tin cá nhân";
             this.btnInfor.UseVisualStyleBackColor = true;
@@ -252,7 +273,7 @@
             this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Name = "btnHome";
             this.btnHome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnHome.Size = new System.Drawing.Size(220, 62);
+            this.btnHome.Size = new System.Drawing.Size(240, 83);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.UseVisualStyleBackColor = false;
@@ -266,13 +287,13 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(220, 102);
+            this.panel8.Size = new System.Drawing.Size(266, 96);
             this.panel8.TabIndex = 0;
             // 
             // lblHoTen
             // 
             this.lblHoTen.AutoSize = true;
-            this.lblHoTen.Location = new System.Drawing.Point(78, 57);
+            this.lblHoTen.Location = new System.Drawing.Point(100, 51);
             this.lblHoTen.Name = "lblHoTen";
             this.lblHoTen.Size = new System.Drawing.Size(61, 20);
             this.lblHoTen.TabIndex = 0;
@@ -281,7 +302,7 @@
             // lblChucVu
             // 
             this.lblChucVu.AutoSize = true;
-            this.lblChucVu.Location = new System.Drawing.Point(69, 22);
+            this.lblChucVu.Location = new System.Drawing.Point(91, 16);
             this.lblChucVu.Name = "lblChucVu";
             this.lblChucVu.Size = new System.Drawing.Size(77, 20);
             this.lblChucVu.TabIndex = 0;
@@ -294,16 +315,16 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(220, 100);
+            this.panel5.Size = new System.Drawing.Size(266, 100);
             this.panel5.TabIndex = 0;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::StudentManagement.Properties.Resources.ute_logo_cbcebbf0;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(220, 100);
+            this.pictureBox2.Size = new System.Drawing.Size(266, 100);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -313,31 +334,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(266, 100);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.AutoSize = true;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Location = new System.Drawing.Point(0, 434);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(220, 62);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Admin";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.AutoSize = true;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.Location = new System.Drawing.Point(0, 496);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(220, 62);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "Đăng xuất";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -345,7 +344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1496, 774);
+            this.ClientSize = new System.Drawing.Size(1385, 744);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -367,7 +366,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -61,7 +61,7 @@ namespace StudentManagement
             return digits;
 
         }
-        public static void SendEmail(string toAddress)
+        public static void SendEmail(string toaddress)
         {
             
             try
@@ -72,10 +72,11 @@ namespace StudentManagement
                 bool enableSSL = true; // Có sử dụng SSL không
                 string emailFrom = "21110635@student.hcmute.edu.vn"; // Email của bạn
                 string password = "Nguyentam_@1984"; // Mật khẩu email của bạn
-                string emailTo = toAddress; // Email đích
+                string emailTo = toaddress; // Email đích
                 string subjectEmail = "[Management App] Confirm Account"; // Chủ đề của email
-                string bodyEmail = "Mã OTP xác thực tài khoản "+GenerateOTP(); // Nội dung của email
-                numOTP = int.Parse(bodyEmail);
+            string otp = GenerateOTP();
+                string bodyEmail = "Mã OTP xác thực tài khoản "+otp; // Nội dung của email
+                numOTP = int.Parse(otp);
                 MailMessage mail = new MailMessage();
 
                 mail.From = new MailAddress(emailFrom);
@@ -95,7 +96,8 @@ namespace StudentManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Xảy ra lỗi trong quá trình đăng ký tài khoản !!!");
+                //MessageBox.Show($"Xảy ra lỗi trong quá trình đăng ký tài khoản !!!");
+                MessageBox.Show(ex.Message);
 
             }
         }
