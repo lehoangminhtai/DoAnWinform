@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace StudentManagement.DAO
 {
@@ -124,6 +125,39 @@ namespace StudentManagement.DAO
                 return false;
             }
 
+        }
+        public bool updateTeacher(string id, string fname, string lname, string CCCD, DateTime date, string phone, MemoryStream picture, string gender, string address,  string email)
+        {
+            SqlCommand command = new SqlCommand("UPDATE GiangVien SET Ho= @fn, Ten=@ln,CCCD =@cccd, NgaySinh=@bdt, SDT=@phn,HinhAnh=@pic , GioiTinh=@gdr,  DiaChi=@adrs, Email =@email where MaGV=@id", db.getConnection);
+            command.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+            command.Parameters.Add("@fn", SqlDbType.NVarChar).Value = fname;
+            command.Parameters.Add("@ln", SqlDbType.NVarChar).Value = lname;
+            command.Parameters.Add("@cccd", SqlDbType.VarChar).Value = CCCD;
+            command.Parameters.Add("@bdt", SqlDbType.DateTime).Value = date;
+            command.Parameters.Add("@phn", SqlDbType.VarChar).Value = phone;
+            if (picture != null)
+                command.Parameters.Add("@pic", SqlDbType.Image).Value = picture.ToArray();
+            else
+                command.Parameters.Add("@pic", SqlDbType.Image).Value = DBNull.Value;
+
+            command.Parameters.Add("@gdr", SqlDbType.VarChar).Value = gender;
+
+            command.Parameters.Add("@adrs", SqlDbType.NVarChar).Value = address;
+           
+            command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+
+            db.openConnection();
+
+            if ((command.ExecuteNonQuery() == 1))
+            {
+                db.closeConnection();
+                return true;
+            }
+            else
+            {
+                db.closeConnection();
+                return false;
+            }
         }
 
     }

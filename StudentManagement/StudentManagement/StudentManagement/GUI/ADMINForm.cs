@@ -23,40 +23,43 @@ namespace StudentManagement.GUI
 
         private void ADMINForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyHocTapDataSet2.HocSinh' table. You can move, or remove it, as needed.
-            this.hocSinhTableAdapter.Fill(this.quanLyHocTapDataSet2.HocSinh);
-            // TODO: This line of code loads data into the 'quanLyHocTapDataSet1.HocSinh' table. You can move, or remove it, as needed.
-          
-            // TODO: This line of code loads data into the 'quanLyHocTapDataSet.HocSinh' table. You can move, or remove it, as needed.
-            // this.hocSinhTableAdapter.Fill(this.quanLyHocTapDataSet.HocSinh);
+            // TODO: This line of code loads data into the 'giangVien._GiangVien' table. You can move, or remove it, as needed.
+            this.giangVienTableAdapter.Fill(this.giangVien._GiangVien);
+
+            this.hocSinhTableAdapter.Fill(this.quanLyHocTapDataSet.HocSinh);
 
 
-            fillDataGVCourse("SELECT TOP (1000) [MaSV],[Ho],[Ten]   ,[CCCD]    ,[NgaySinh]    ,[SDT]     ,[HinhAnh]     ,[GioiTinh]      ,[DiaChi] ,[Khoa],[NgayTaoTK]    ,[TinhTrangTK]  ,[Email]  FROM [QuanLyHocTap].[dbo].[HocSinh] ");
+
+            fillDataGV("select * from HocSinh", dataGVSVGV);
+            fillDataGV("select * from GiangVien", dataGvGV);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        public void fillDataGVCourse(String command)
+        public void fillDataGV(String command, DataGridView dtgv)
         {
             db.openConnection();
             try
             {
+
+            
+            
                 SqlCommand cmd = new SqlCommand(command, db.getConnection);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataGridViewImageColumn picCol = new DataGridViewImageColumn();
-                picCol = (DataGridViewImageColumn)dataGVSVGV.Columns[6];
+                picCol = (DataGridViewImageColumn)dtgv.Columns[6];
                 picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                dataGVSVGV.DataSource = dt;
+                dtgv.DataSource = dt;
                
                 /*txtCourseID.Text = "";
                 txtCourseName.Text = "";
                 numPeriod.Value = 0;
                 txtDescription.Text = "";*/
-            }
+          }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -75,9 +78,16 @@ namespace StudentManagement.GUI
 
         private void dataGVSVGV_Click(object sender, EventArgs e)
         {
+            
+           
+        }
+
+        private void dataGVSVGV_DoubleClick(object sender, EventArgs e)
+        {
             try
             {
                 ADMINUpdateSTD updateStdFrm = new ADMINUpdateSTD();
+                updateStdFrm.role = 1;
                 if (dataGVSVGV.CurrentRow.Cells[0].Value.ToString() != null)
                     updateStdFrm.lblMa.Text = dataGVSVGV.CurrentRow.Cells[0].Value.ToString();
                 updateStdFrm.txtHo.Text = dataGVSVGV.CurrentRow.Cells[1].Value.ToString();
@@ -123,19 +133,78 @@ namespace StudentManagement.GUI
                 updateStdFrm.txtEmail.Text = dataGVSVGV.CurrentRow.Cells[14].Value.ToString();
 
 
-                if(updateStdFrm.ShowDialog() == DialogResult.OK)
+                if (updateStdFrm.ShowDialog() == DialogResult.OK)
                 {
+                   
                     updateStdFrm.Close();
+                    ADMINForm_Load(sender, e);
                 }
-               
+
             }
             catch
             {
                 MessageBox.Show("Lỗi lấy giá trị!!!");
             }
-           
         }
 
-        
+        private void tabPageGV_Click(object sender, EventArgs e)
+        {
+            //fillDataGV("select * from GiangVien",dataGvGV);
+        }
+
+        private void dataGvGV_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ADMINUpdateSTD updateStdFrm = new ADMINUpdateSTD();
+                updateStdFrm.role = 2;
+                if (dataGvGV.CurrentRow.Cells[0].Value.ToString() != null)
+                    updateStdFrm.lblMa.Text = dataGvGV.CurrentRow.Cells[0].Value.ToString();
+                updateStdFrm.txtHo.Text = dataGvGV.CurrentRow.Cells[1].Value.ToString();
+                updateStdFrm.txtTen.Text = dataGvGV.CurrentRow.Cells[2].Value.ToString();
+                updateStdFrm.txtCCCD.Text = dataGvGV.CurrentRow.Cells[3].Value.ToString();
+                updateStdFrm.dateOfB.Value = (DateTime)dataGvGV.CurrentRow.Cells[4].Value;
+                updateStdFrm.txtSoDT.Text = dataGvGV.CurrentRow.Cells[5].Value.ToString();
+
+                object value = dataGvGV.CurrentRow.Cells[6].Value;
+                if (value != DBNull.Value)
+                {
+                    byte[] pic = (byte[])value;
+                    MemoryStream picture = new MemoryStream(pic);
+                    updateStdFrm.picBoxAnh.Image = Image.FromStream(picture);
+                }
+                else
+                {
+                    updateStdFrm.picBoxAnh.Image = null;
+                }
+
+                if (dataGvGV.CurrentRow.Cells[7].Value.ToString().Trim() == "Male")
+                {
+                    updateStdFrm.radNam.Checked = true;
+                }
+                else
+                {
+                    updateStdFrm.radNu.Checked = true;
+                }
+
+                updateStdFrm.txtDiaChi.Text = dataGvGV.CurrentRow.Cells[8].Value.ToString();
+                
+                updateStdFrm.txtEmail.Text = dataGvGV.CurrentRow.Cells[11].Value.ToString();
+
+                updateStdFrm.groupBoxNT.Visible = false;
+
+                if (updateStdFrm.ShowDialog() == DialogResult.OK)
+                {
+
+                    updateStdFrm.Close();
+                    ADMINForm_Load(sender, e);
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi lấy giá trị!!!");
+            }
+        }
     }
 }

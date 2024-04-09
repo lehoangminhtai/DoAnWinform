@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADMINUpdateSTD));
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblMa = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxNT = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSoDTNT = new System.Windows.Forms.TextBox();
             this.txtHoTenNT = new System.Windows.Forms.TextBox();
@@ -53,17 +53,17 @@
             this.txtCCCD = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radNu = new System.Windows.Forms.RadioButton();
+            this.radNam = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dateOfB = new System.Windows.Forms.DateTimePicker();
-            this.radNam = new System.Windows.Forms.RadioButton();
-            this.radNu = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnUploadImage = new System.Windows.Forms.Button();
             this.picBoxAnh = new System.Windows.Forms.PictureBox();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxNT.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,18 +90,18 @@
             this.lblMa.TabIndex = 23;
             this.lblMa.Text = "Mã ";
             // 
-            // groupBox3
+            // groupBoxNT
             // 
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txtSoDTNT);
-            this.groupBox3.Controls.Add(this.txtHoTenNT);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(16, 139);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(528, 121);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Người thân";
+            this.groupBoxNT.Controls.Add(this.label1);
+            this.groupBoxNT.Controls.Add(this.txtSoDTNT);
+            this.groupBoxNT.Controls.Add(this.txtHoTenNT);
+            this.groupBoxNT.Controls.Add(this.label3);
+            this.groupBoxNT.Location = new System.Drawing.Point(16, 139);
+            this.groupBoxNT.Name = "groupBoxNT";
+            this.groupBoxNT.Size = new System.Drawing.Size(528, 121);
+            this.groupBoxNT.TabIndex = 3;
+            this.groupBoxNT.TabStop = false;
+            this.groupBoxNT.Text = "Người thân";
             // 
             // label1
             // 
@@ -203,7 +203,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBoxNT);
             this.groupBox1.Controls.Add(this.txtSoDT);
             this.groupBox1.Controls.Add(this.txtDiaChi);
             this.groupBox1.Controls.Add(this.label9);
@@ -316,6 +316,28 @@
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             // 
+            // radNu
+            // 
+            this.radNu.AutoSize = true;
+            this.radNu.Location = new System.Drawing.Point(231, 16);
+            this.radNu.Name = "radNu";
+            this.radNu.Size = new System.Drawing.Size(69, 33);
+            this.radNu.TabIndex = 0;
+            this.radNu.TabStop = true;
+            this.radNu.Text = "Nữ";
+            this.radNu.UseVisualStyleBackColor = true;
+            // 
+            // radNam
+            // 
+            this.radNam.AutoSize = true;
+            this.radNam.Location = new System.Drawing.Point(35, 16);
+            this.radNam.Name = "radNam";
+            this.radNam.Size = new System.Drawing.Size(89, 33);
+            this.radNam.TabIndex = 0;
+            this.radNam.TabStop = true;
+            this.radNam.Text = "Nam";
+            this.radNam.UseVisualStyleBackColor = true;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -345,28 +367,6 @@
             this.dateOfB.Size = new System.Drawing.Size(385, 35);
             this.dateOfB.TabIndex = 36;
             // 
-            // radNam
-            // 
-            this.radNam.AutoSize = true;
-            this.radNam.Location = new System.Drawing.Point(35, 16);
-            this.radNam.Name = "radNam";
-            this.radNam.Size = new System.Drawing.Size(89, 33);
-            this.radNam.TabIndex = 0;
-            this.radNam.TabStop = true;
-            this.radNam.Text = "Nam";
-            this.radNam.UseVisualStyleBackColor = true;
-            // 
-            // radNu
-            // 
-            this.radNu.AutoSize = true;
-            this.radNu.Location = new System.Drawing.Point(231, 16);
-            this.radNu.Name = "radNu";
-            this.radNu.Size = new System.Drawing.Size(69, 33);
-            this.radNu.TabIndex = 0;
-            this.radNu.TabStop = true;
-            this.radNu.Text = "Nữ";
-            this.radNu.UseVisualStyleBackColor = true;
-            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
@@ -381,6 +381,7 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdate
             // 
@@ -444,7 +445,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(936, 805);
             this.Controls.Add(this.dateOfB);
@@ -472,8 +473,8 @@
             this.Name = "ADMINUpdateSTD";
             this.Text = "ADMIN";
             this.Load += new System.EventHandler(this.ADMINUpdateSTD_Load);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxNT.ResumeLayout(false);
+            this.groupBoxNT.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -491,7 +492,7 @@
         public System.Windows.Forms.Button btnCancel;
         public System.Windows.Forms.TextBox txtEmail;
         public System.Windows.Forms.Label lblMa;
-        public System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.GroupBox groupBoxNT;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtSoDTNT;
         public System.Windows.Forms.TextBox txtHoTenNT;

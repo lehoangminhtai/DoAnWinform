@@ -14,6 +14,9 @@ namespace StudentManagement.GUI
 {
     public partial class ADMINUpdateSTD : Form
     {
+        public int role {  get; set; }
+        StudentDAO stdDAO = new StudentDAO();
+        TeacherDao teaDao = new TeacherDao();
         public ADMINUpdateSTD()
         {
             InitializeComponent();
@@ -46,7 +49,7 @@ namespace StudentManagement.GUI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            StudentDAO stdDAO = new StudentDAO();
+            
             string id = lblMa.Text;
             string fname = txtHo.Text;
             string lname = txtTen.Text;
@@ -77,17 +80,35 @@ namespace StudentManagement.GUI
 
             try
             {
-                if (stdDAO.updateStudent(id,fname,lname,cccd,date,phone,pic,gender,addr,fac,nameParents,phoneParents,email))
+                if(role == 1)
                 {
-                    MessageBox.Show("Update Student Successfully!!!","Update",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult = DialogResult.OK;
+                    if (stdDAO.updateStudent(id, fname, lname, cccd, date, phone, pic, gender, addr, fac, nameParents, phoneParents, email))
+                    {
+                        MessageBox.Show("Update Student Successfully!!!", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult = DialogResult.OK;
+                    }
+                    
                 }
+                if (role == 2)
+                {
+                    if (teaDao.updateTeacher(id, fname, lname, cccd, date, phone, pic, gender, addr, email))
+                    {
+                        MessageBox.Show("Update Teacher Successfully!!!", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult = DialogResult.OK;
+                    }
+                }
+
             }
             catch (Exception ex){
                 MessageBox.Show(ex.Message);
             }
 
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

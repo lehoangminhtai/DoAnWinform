@@ -38,7 +38,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnADMIN = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -159,7 +159,7 @@
             this.panel9.AutoScroll = true;
             this.panel9.AutoSize = true;
             this.panel9.Controls.Add(this.button7);
-            this.panel9.Controls.Add(this.button2);
+            this.panel9.Controls.Add(this.btnADMIN);
             this.panel9.Controls.Add(this.button1);
             this.panel9.Controls.Add(this.button6);
             this.panel9.Controls.Add(this.button5);
@@ -184,16 +184,17 @@
             this.button7.Text = "Đăng xuất";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnADMIN
             // 
-            this.button2.AutoSize = true;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Location = new System.Drawing.Point(0, 581);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(240, 83);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Admin";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnADMIN.AutoSize = true;
+            this.btnADMIN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnADMIN.Location = new System.Drawing.Point(0, 581);
+            this.btnADMIN.Name = "btnADMIN";
+            this.btnADMIN.Size = new System.Drawing.Size(240, 83);
+            this.btnADMIN.TabIndex = 7;
+            this.btnADMIN.Text = "Admin";
+            this.btnADMIN.UseVisualStyleBackColor = true;
+            this.btnADMIN.Click += new System.EventHandler(this.btnADMIN_Click);
             // 
             // button1
             // 
@@ -238,6 +239,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Danh sách khoá học";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -393,7 +395,7 @@
         private System.Windows.Forms.Label lblChucVu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnADMIN;
         private System.Windows.Forms.Button button7;
     }
 }

@@ -76,5 +76,16 @@ namespace StudentManagement
                 panelMain.Controls.Add(coursePanel);
             }
         }
+
+        private void btnADMIN_Click(object sender, EventArgs e)
+        {
+            ADMINForm form = new ADMINForm();
+            form.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -46,5 +46,10 @@ namespace StudentManagement.GUI
                 picBoxAnhSV.Image = Image.FromFile(opf.FileName);
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

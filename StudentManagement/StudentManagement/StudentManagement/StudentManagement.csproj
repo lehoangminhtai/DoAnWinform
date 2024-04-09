@@ -97,6 +97,17 @@
     <Compile Include="Entity\LOGIN.cs" />
     <Compile Include="Entity\STUDENT.cs" />
     <Compile Include="Entity\TEACHER.cs" />
+    <Compile Include="GiangVien.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiangVien.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ADMINaddCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ADMINaddCourse.Designer.cs">
+      <DependentUpon>ADMINaddCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ADMINForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,11 +170,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyHocTapDataSet2.Designer.cs">
+    <Compile Include="QuanLyHocTapDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyHocTapDataSet2.xsd</DependentUpon>
+      <DependentUpon>QuanLyHocTapDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\ADMINaddCourse.resx">
+      <DependentUpon>ADMINaddCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ADMINForm.resx">
       <DependentUpon>ADMINForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +218,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="GiangVien.xsc">
+      <DependentUpon>GiangVien.xsd</DependentUpon>
+    </None>
+    <None Include="GiangVien.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GiangVien.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GiangVien.xss">
+      <DependentUpon>GiangVien.xsd</DependentUpon>
+    </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -220,16 +245,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="QuanLyHocTapDataSet2.xsc">
-      <DependentUpon>QuanLyHocTapDataSet2.xsd</DependentUpon>
+    <None Include="QuanLyHocTapDataSet.xsc">
+      <DependentUpon>QuanLyHocTapDataSet.xsd</DependentUpon>
     </None>
-    <None Include="QuanLyHocTapDataSet2.xsd">
+    <None Include="QuanLyHocTapDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyHocTapDataSet2.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyHocTapDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="QuanLyHocTapDataSet2.xss">
-      <DependentUpon>QuanLyHocTapDataSet2.xsd</DependentUpon>
+    <None Include="QuanLyHocTapDataSet.xss">
+      <DependentUpon>QuanLyHocTapDataSet.xsd</DependentUpon>
     </None>
     <None Include="Resources\ute_logo.cbcebbf0.png" />
   </ItemGroup>
