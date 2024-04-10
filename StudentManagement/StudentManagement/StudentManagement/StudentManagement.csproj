@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\Auth.cs" />
+    <Compile Include="DAO\Data.cs" />
     <Compile Include="DAO\FaceRec.cs" />
     <Compile Include="DAO\GenerateRandomPass.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
