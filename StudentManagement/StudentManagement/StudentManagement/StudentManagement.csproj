@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\Auth.cs" />
+    <Compile Include="DAO\CourseDAO.cs" />
     <Compile Include="DAO\Data.cs" />
     <Compile Include="DAO\FaceRec.cs" />
     <Compile Include="DAO\GenerateRandomPass.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="DAO\StudentDAO.cs" />
     <Compile Include="DAO\TeacherDao.cs" />
     <Compile Include="DAO\XJDBC.cs" />
+    <Compile Include="Entity\COURSE.cs" />
     <Compile Include="Entity\LOGIN.cs" />
     <Compile Include="Entity\STUDENT.cs" />
     <Compile Include="Entity\TEACHER.cs" />
@@ -108,6 +110,12 @@
     </Compile>
     <Compile Include="GUI\ADMINaddCourse.Designer.cs">
       <DependentUpon>ADMINaddCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ADMINCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ADMINCourse.Designer.cs">
+      <DependentUpon>ADMINCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ADMINForm.cs">
       <SubType>Form</SubType>
@@ -145,6 +153,12 @@
     <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UCCourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCourse.Designer.cs">
+      <DependentUpon>UCCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UcInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -179,6 +193,9 @@
     <EmbeddedResource Include="GUI\ADMINaddCourse.resx">
       <DependentUpon>ADMINaddCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ADMINCourse.resx">
+      <DependentUpon>ADMINCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ADMINForm.resx">
       <DependentUpon>ADMINForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCourse.resx">
+      <DependentUpon>UCCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcInformation.resx">
       <DependentUpon>UcInformation.cs</DependentUpon>

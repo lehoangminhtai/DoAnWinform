@@ -27,7 +27,7 @@ namespace StudentManagement.GUI
 
         private void ADMINaddCourse_Load(object sender, EventArgs e)
         {
-
+            lblIdTeacher.Text = "";
             string sql = "select MaGV, Ho, Ten from GiangVien";
 
             data.fillData(sql, dataGvGV);
@@ -45,25 +45,41 @@ namespace StudentManagement.GUI
 
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
+            addCourse();
+            DialogResult = DialogResult.OK;
+            
+        }
+        public void addCourse()
+        {
+
             string courseId = txtIdCourse.Text.Trim();
             string courseName = txtCourseName.Text.Trim();
-            int numCreadit = Convert.ToInt32(txtNumCreadit.Text.Trim());
+            string numCre = txtNumCreadit.Text.Trim();
+
             string description = txtDescription.Text;
-            string year = txtYearF.Text.Trim()+"-"+txtYearL.Text.Trim();
+            string year = txtYearF.Text.Trim() + "-" + txtYearL.Text.Trim();
             string semester = comboBoxSemester.Text.Trim();
             string idTearcher = lblIdTeacher.Text.Trim();
-            byte[] buffer;
+            byte[] buffer ;
+           
+                
+          
 
-            using(Stream stream = File.OpenRead(file))
+
+            if (data.ValidateNotNull(idTearcher, courseId, courseName, numCre, year, semester, idTearcher, file, nameFile))
             {
-                buffer = new byte[stream.Length];
-                stream.Read(buffer, 0, buffer.Length);
-            }
+                int numCreadit = Convert.ToInt32(numCre);
 
-            Dictionary<string, object> values = new Dictionary<string, object>
+                using (Stream stream = File.OpenRead(file))
+                {
+                    buffer = new byte[stream.Length];
+                    stream.Read(buffer, 0, buffer.Length);
+                }
+
+                Dictionary<string, object> values = new Dictionary<string, object>
             {
                 { "MaKH",  courseId},
-                { "TenKH", courseName }, 
+                { "TenKH", courseName },
                 { "SoTC", numCreadit },
                 {"MoTa",description },
                 {"FileGiaoTrinh",buffer },
@@ -73,13 +89,19 @@ namespace StudentManagement.GUI
                 {"MaGV",idTearcher }
             };
 
-           if (data.InsertData("KhoaHoc", values))
+                if (data.InsertData("KhoaHoc", values))
+                {
+                    MessageBox.Show("Thêm Khoá Học thành công");
+                }
+            }
+            else
             {
-                MessageBox.Show("Thêm Khoá Học thành công");
+                MessageBox.Show("Vui lòng nhập đủ thông tin");
             }
 
-        }
 
+
+        }
         private void txtNumCreadit_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))

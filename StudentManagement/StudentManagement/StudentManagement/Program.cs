@@ -19,7 +19,7 @@ namespace StudentManagement
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ADMINaddCourse());
+            Application.Run(new MainForm());
             
                 /*Form1 loginFrm = new Form1();
                 if (loginFrm.ShowDialog() == DialogResult.OK)

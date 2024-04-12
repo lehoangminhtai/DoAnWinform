@@ -80,7 +80,7 @@ namespace StudentManagement.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Khoá Học đã tồn tại!!!");
                 return false;
             }
             finally
@@ -89,6 +89,98 @@ namespace StudentManagement.DAO
             }
         }
 
+        public bool Delete(string tableName, Dictionary<string, object> values)
+        {
+            try
+            {
+                string sql = $"DELETE FROM {tableName} WHERE {string.Join(", ", values.Keys)} = {string.Join(", ", values.Keys.Select(key => "@" + key))}";
+
+                using (SqlCommand cmd = new SqlCommand(sql, db.getConnection))
+                {
+                    db.openConnection();
+
+                    // Add parameters to the command
+                    foreach (var param in values)
+                    {
+                        cmd.Parameters.AddWithValue("@" + param.Key, param.Value);
+                    }
+
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Khoá Học đã tồn tại!!!");
+                return false;
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
+
+        public List<Dictionary<string, object>> SelectData(string tableName, List<string> columns, string condition = null)
+        {
+            try
+            {
+                string columnList = string.Join(", ", columns);
+                string sql = $"SELECT {columnList} FROM {tableName}";
+
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    sql += $" WHERE {condition}";
+                }
+
+                using (SqlCommand cmd = new SqlCommand(sql, db.getConnection))
+                {
+                    db.openConnection() ;
+
+                    List<Dictionary<string, object>> results = new List<Dictionary<string, object>>();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Dictionary<string, object> row = new Dictionary<string, object>();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row[reader.GetName(i)] = reader.GetValue(i);
+                            }
+                            results.Add(row);
+                        }
+                    }
+
+                    return results;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi khi thực hiện truy vấn!");
+                return null;
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
+
+        public bool ValidateNotNull(params object[] properties)
+        {
+            foreach (object property in properties)
+            {
+                if (property == null)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public void downloadFile(string fileName)
+        {
+            db.openConnection();
+
+        }
 
     }
 

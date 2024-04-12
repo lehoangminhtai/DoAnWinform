@@ -72,7 +72,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1385, 744);
+            this.panel1.Size = new System.Drawing.Size(1678, 744);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -85,7 +85,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(266, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1119, 744);
+            this.panel3.Size = new System.Drawing.Size(1412, 744);
             this.panel3.TabIndex = 1;
             // 
             // panelMain
@@ -94,7 +94,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 69);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1119, 675);
+            this.panelMain.Size = new System.Drawing.Size(1412, 675);
             this.panelMain.TabIndex = 2;
             // 
             // paneMain
@@ -105,7 +105,7 @@
             this.paneMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.paneMain.Location = new System.Drawing.Point(0, 69);
             this.paneMain.Name = "paneMain";
-            this.paneMain.Size = new System.Drawing.Size(1119, 0);
+            this.paneMain.Size = new System.Drawing.Size(1412, 0);
             this.paneMain.TabIndex = 1;
             // 
             // panel4
@@ -117,15 +117,16 @@
             this.panel4.ForeColor = System.Drawing.SystemColors.Desktop;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1119, 69);
+            this.panel4.Size = new System.Drawing.Size(1412, 69);
             this.panel4.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Subheading", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(290, 20);
+            this.label1.Location = new System.Drawing.Point(437, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(510, 49);
             this.label1.TabIndex = 0;
@@ -346,11 +347,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1385, 744);
+            this.ClientSize = new System.Drawing.Size(1678, 744);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(1700, 800);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

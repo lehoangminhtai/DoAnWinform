@@ -16,6 +16,8 @@ namespace StudentManagement.GUI
     public partial class ADMINForm : Form
     {
         XJDBC db = new XJDBC();
+        Data data = new Data();
+        public string id {  get; set; }
         public ADMINForm()
         {
             InitializeComponent();
@@ -32,6 +34,11 @@ namespace StudentManagement.GUI
 
             fillDataGV("select * from HocSinh", dataGVSVGV);
             fillDataGV("select * from GiangVien", dataGvGV);
+            fillDataCourse();
+                }
+        public void fillDataCourse()
+        {
+            data.fillData("select k.MaKH, k.TenKH, k.SoTC, k.MoTa, k.HocKy, k.NamHoc, k.TenFile as GiaoTrinh,CONCAT(v.Ho, ' ', v.Ten) as GiangVien from KhoaHoc k join GiangVien v on k.MaGV = v.MaGV", dataGvCourse);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -204,6 +211,67 @@ namespace StudentManagement.GUI
             catch
             {
                 MessageBox.Show("Lỗi lấy giá trị!!!");
+            }
+        }
+
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+            ADMINaddCourse addC = new ADMINaddCourse();
+            if (addC.ShowDialog() == DialogResult.OK)
+            {
+                fillDataCourse();
+            }
+        
+            
+        }
+
+        private void dataGvCourse_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                UCCourse.id = dataGvCourse.CurrentRow.Cells[0].Value.ToString();
+                UCCourse.name = dataGvCourse.CurrentRow.Cells[1].Value.ToString();
+                UCCourse.numCrea = dataGvCourse.CurrentRow.Cells[2].Value.ToString();
+                UCCourse.des = dataGvCourse.CurrentRow.Cells[3].Value.ToString();
+               
+                UCCourse.semester = dataGvCourse.CurrentRow.Cells[4].Value.ToString();
+                UCCourse.year = dataGvCourse.CurrentRow.Cells[5].Value.ToString();
+                UCCourse.filename = dataGvCourse.CurrentRow.Cells[6].Value.ToString();
+                UCCourse.teacherName = dataGvCourse.CurrentRow.Cells[7].Value.ToString();
+
+                ADMINCourse coursefrm = new ADMINCourse();
+                coursefrm.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi lấy giá trị!!!");
+            }
+        }
+
+        private void dataGvCourse_Click(object sender, EventArgs e)
+        {
+            id = dataGvCourse.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void btnDeleteCourse_Click(object sender, EventArgs e)
+        {
+            
+            if (id != "") {
+                DialogResult result=MessageBox.Show("Người dùng và dữ liệu thuộc về khoá học sẽ bị xoá!!!\nBạn có chắc xoá khoá học?", "Xoá khoá học", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    
+                    Dictionary<string, object> values = new Dictionary<string, object>
+                {
+                { "MaKH",  id}
+                };
+                    if (data.Delete("KhoaHoc", values))
+                    {
+                        MessageBox.Show("Xoá khoá học thành công!!!");
+                        fillDataCourse();
+                    }
+
+                }
             }
         }
     }

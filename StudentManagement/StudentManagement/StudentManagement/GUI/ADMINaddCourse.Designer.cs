@@ -274,7 +274,7 @@
             this.btnAddCourse.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAddCourse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddCourse.BackgroundImage")));
             this.btnAddCourse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddCourse.Location = new System.Drawing.Point(575, 726);
+            this.btnAddCourse.Location = new System.Drawing.Point(250, 749);
             this.btnAddCourse.Name = "btnAddCourse";
             this.btnAddCourse.Size = new System.Drawing.Size(125, 75);
             this.btnAddCourse.TabIndex = 6;
@@ -331,7 +331,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1324, 804);
+            this.ClientSize = new System.Drawing.Size(1324, 836);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAddCourse);
             this.Controls.Add(this.comboBoxSemester);
