@@ -51,7 +51,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.label1);
             this.Name = "UcNotification";
-            this.Size = new System.Drawing.Size(1057, 693);
+            this.Size = new System.Drawing.Size(1111, 669);
             this.ResumeLayout(false);
             this.PerformLayout();
 

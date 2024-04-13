@@ -17,7 +17,7 @@ namespace StudentManagement.GUI
     {
         XJDBC db = new XJDBC();
         Data data = new Data();
-        public string id {  get; set; }
+        public string idCourse {  get; set; }
         public ADMINForm()
         {
             InitializeComponent();
@@ -250,20 +250,20 @@ namespace StudentManagement.GUI
 
         private void dataGvCourse_Click(object sender, EventArgs e)
         {
-            id = dataGvCourse.CurrentRow.Cells[0].Value.ToString();
+            idCourse = dataGvCourse.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void btnDeleteCourse_Click(object sender, EventArgs e)
         {
             
-            if (id != "") {
+            if (idCourse != "") {
                 DialogResult result=MessageBox.Show("Người dùng và dữ liệu thuộc về khoá học sẽ bị xoá!!!\nBạn có chắc xoá khoá học?", "Xoá khoá học", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     
                     Dictionary<string, object> values = new Dictionary<string, object>
                 {
-                { "MaKH",  id}
+                { "MaKH",  idCourse}
                 };
                     if (data.Delete("KhoaHoc", values))
                     {

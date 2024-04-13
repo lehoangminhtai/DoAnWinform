@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZedGraph;
 
 namespace StudentManagement.GUI
 {
@@ -57,7 +58,9 @@ namespace StudentManagement.GUI
             string numCre = txtNumCreadit.Text.Trim();
 
             string description = txtDescription.Text;
-            string year = txtYearF.Text.Trim() + "-" + txtYearL.Text.Trim();
+            string yearF = txtYearF.Text.Trim();
+            string yearL = txtYearL.Text.Trim();
+            string year = yearF + "-" + yearL;
             string semester = comboBoxSemester.Text.Trim();
             string idTearcher = lblIdTeacher.Text.Trim();
             byte[] buffer ;
@@ -66,17 +69,21 @@ namespace StudentManagement.GUI
           
 
 
-            if (data.ValidateNotNull(idTearcher, courseId, courseName, numCre, year, semester, idTearcher, file, nameFile))
+            if (data.ValidateNotNull(idTearcher, courseId, courseName, numCre, year, semester, idTearcher))
             {
-                int numCreadit = Convert.ToInt32(numCre);
-
-                using (Stream stream = File.OpenRead(file))
+                if (checkYear(yearF, yearL))
                 {
-                    buffer = new byte[stream.Length];
-                    stream.Read(buffer, 0, buffer.Length);
-                }
+                    int numCreadit = Convert.ToInt32(numCre);
 
-                Dictionary<string, object> values = new Dictionary<string, object>
+                    if (nameFile != null && file!=null)
+                    {
+                        using (Stream stream = File.OpenRead(file))
+                        {
+                            buffer = new byte[stream.Length];
+                            stream.Read(buffer, 0, buffer.Length);
+                        }
+
+            Dictionary<string, object> values = new Dictionary<string, object>
             {
                 { "MaKH",  courseId},
                 { "TenKH", courseName },
@@ -88,11 +95,37 @@ namespace StudentManagement.GUI
                 {"HocKy",semester },
                 {"MaGV",idTearcher }
             };
+                        if (data.InsertData("KhoaHoc", values))
+                        {
+                            MessageBox.Show("Thêm Khoá Học thành công");
+                        }
+                    }
 
-                if (data.InsertData("KhoaHoc", values))
-                {
-                    MessageBox.Show("Thêm Khoá Học thành công");
+                    else
+                    {
+                        Dictionary<string, object> values = new Dictionary<string, object>
+            {
+                { "MaKH",  courseId},
+                { "TenKH", courseName },
+                { "SoTC", numCreadit },
+                {"MoTa",description },
+                
+                {"NamHoc",year },
+                {"HocKy",semester },
+                {"MaGV",idTearcher }
+            };
+                        if (data.InsertData("KhoaHoc", values))
+                        {
+                            MessageBox.Show("Thêm Khoá Học thành công");
+                        }
+                    }
+                    
                 }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập năm học hợp lệ!!!");
+                }
+                
             }
             else
             {
@@ -101,6 +134,28 @@ namespace StudentManagement.GUI
 
 
 
+        }
+        private bool checkYear(string FYear, string LYear)
+        {
+            DateTime currentDate = DateTime.Now;
+            int year = currentDate.Year;
+            int year1 = Convert.ToInt32(FYear);
+            int year2 = Convert.ToInt32(LYear);
+            if (year1 >= year2 || year2>year)
+                return false;
+            
+            if(year1 == year)
+            {
+                if (year2 == year1 + 1)
+                    return true;
+            }
+            if(year2 == year)
+            {
+                if(year1 == year-1)
+                    return true;
+
+            }
+            return false;
         }
         private void txtNumCreadit_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -115,6 +170,10 @@ namespace StudentManagement.GUI
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) || ((TextBox)sender).Text.Length >= 4)
             {
                 e.Handled = true; // Suppress the key press
+            }
+            if ( e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false; // Cho phép phím xoá đi qua
             }
         }
 

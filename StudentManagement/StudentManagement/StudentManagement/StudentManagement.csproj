@@ -93,6 +93,7 @@
     <Compile Include="DAO\GenerateRandomPass.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\OTP.cs" />
+    <Compile Include="DAO\ScoreDAO.cs" />
     <Compile Include="DAO\StudentDAO.cs" />
     <Compile Include="DAO\TeacherDao.cs" />
     <Compile Include="DAO\XJDBC.cs" />
@@ -165,6 +166,12 @@
     <Compile Include="GUI\UcInformation.Designer.cs">
       <DependentUpon>UcInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UClistCourseRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UClistCourseRegister.Designer.cs">
+      <DependentUpon>UClistCourseRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UcNotification.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,6 +183,12 @@
     </Compile>
     <Compile Include="GUI\RegisterFrm.Designer.cs">
       <DependentUpon>RegisterFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCRegisterCourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCRegisterCourse.Designer.cs">
+      <DependentUpon>UCRegisterCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UpdateInfor.cs">
       <SubType>Form</SubType>
@@ -220,11 +233,17 @@
     <EmbeddedResource Include="GUI\UcInformation.resx">
       <DependentUpon>UcInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UClistCourseRegister.resx">
+      <DependentUpon>UClistCourseRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcNotification.resx">
       <DependentUpon>UcNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\RegisterFrm.resx">
       <DependentUpon>RegisterFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCRegisterCourse.resx">
+      <DependentUpon>UCRegisterCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UpdateInfor.resx">
       <DependentUpon>UpdateInfor.cs</DependentUpon>

@@ -72,7 +72,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1678, 744);
+            this.panel1.Size = new System.Drawing.Size(1678, 773);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -85,17 +85,19 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(266, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1412, 744);
+            this.panel3.Size = new System.Drawing.Size(1412, 773);
             this.panel3.TabIndex = 1;
             // 
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
+            this.panelMain.AutoSize = true;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 69);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1412, 675);
+            this.panelMain.Size = new System.Drawing.Size(1412, 704);
             this.panelMain.TabIndex = 2;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // paneMain
             // 
@@ -141,7 +143,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 744);
+            this.panel2.Size = new System.Drawing.Size(266, 773);
             this.panel2.TabIndex = 0;
             // 
             // panel6
@@ -152,7 +154,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 100);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(266, 644);
+            this.panel6.Size = new System.Drawing.Size(266, 673);
             this.panel6.TabIndex = 1;
             // 
             // panel9
@@ -171,7 +173,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 96);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(266, 548);
+            this.panel9.Size = new System.Drawing.Size(266, 577);
             this.panel9.TabIndex = 1;
             // 
             // button7
@@ -347,12 +349,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1678, 744);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(1678, 773);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(1700, 800);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

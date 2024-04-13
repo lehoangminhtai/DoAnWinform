@@ -80,7 +80,7 @@ namespace StudentManagement.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show("Khoá Học đã tồn tại!!!");
+                MessageBox.Show("Thêm dữ liệu lỗi!!!");
                 return false;
             }
             finally
@@ -93,7 +93,7 @@ namespace StudentManagement.DAO
         {
             try
             {
-                string sql = $"DELETE FROM {tableName} WHERE {string.Join(", ", values.Keys)} = {string.Join(", ", values.Keys.Select(key => "@" + key))}";
+                string sql = $"DELETE FROM {tableName} WHERE {string.Join(" AND ", values.Keys.Select(key => $"{key} = @{key}"))}";
 
                 using (SqlCommand cmd = new SqlCommand(sql, db.getConnection))
                 {
@@ -111,7 +111,7 @@ namespace StudentManagement.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show("Khoá Học đã tồn tại!!!");
+                MessageBox.Show("Lỗi xoá dữ liệu!!!");
                 return false;
             }
             finally
@@ -120,7 +120,7 @@ namespace StudentManagement.DAO
             }
         }
 
-        public List<Dictionary<string, object>> SelectData(string tableName, List<string> columns, string condition = null)
+        public List<Dictionary<string, object>> SelectDataList(string tableName, List<string> columns, string condition)
         {
             try
             {
@@ -164,6 +164,49 @@ namespace StudentManagement.DAO
             }
         }
 
+        public Dictionary<string, object> SelectData(string tableName, List<string> columns, string condition)
+        {
+            try
+            {
+                string columnList = string.Join(", ", columns);
+                string sql = $"SELECT {columnList} FROM {tableName}";
+
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    sql += $" WHERE {condition}";
+                }
+
+                using (SqlCommand cmd = new SqlCommand(sql, db.getConnection))
+                {
+                    db.openConnection();
+
+                    
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Dictionary<string, object> row = new Dictionary<string, object>();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row[reader.GetName(i)] = reader.GetValue(i);
+                            }
+                            return row;
+                        }
+                    }
+
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi khi thực hiện truy vấn!");
+                return null;
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
         public bool ValidateNotNull(params object[] properties)
         {
             foreach (object property in properties)

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,5 +46,28 @@ namespace StudentManagement.DAO
             
             return listCourse;
         }
+      
+        
+
+        public bool isRegisterCourse(string cid, string sid)
+        {
+
+            if (checkRegisterCourse(cid, sid))
+                return true;
+            else return false;
+        }
+        private bool checkRegisterCourse(string cid, string sid)
+        {
+
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Diem WHERE MaKH = @cid AND MaSV = @sid", db.getConnection);
+            cmd.Parameters.AddWithValue("@cid", cid);
+            cmd.Parameters.AddWithValue("@sid", sid);
+            int count = (int)cmd.ExecuteScalar();
+            return count > 0;
+
+        }
     }
+
+
 }

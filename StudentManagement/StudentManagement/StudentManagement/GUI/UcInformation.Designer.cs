@@ -63,6 +63,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnChangPass = new System.Windows.Forms.Button();
             this.picBoxAnhSV = new System.Windows.Forms.PictureBox();
+            this.lblNgaySinh = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -74,12 +76,11 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel1.Controls.Add(this.btnSetting);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(144, 22);
+            this.panel1.Location = new System.Drawing.Point(49, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1023, 50);
             this.panel1.TabIndex = 1;
@@ -87,7 +88,6 @@
             // 
             // btnSetting
             // 
-            this.btnSetting.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
             this.btnSetting.Location = new System.Drawing.Point(972, 0);
             this.btnSetting.Name = "btnSetting";
@@ -99,7 +99,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
@@ -110,7 +109,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
@@ -123,10 +121,9 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(166, 101);
+            this.label2.Location = new System.Drawing.Point(71, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 26);
             this.label2.TabIndex = 2;
@@ -134,10 +131,9 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(166, 153);
+            this.label3.Location = new System.Drawing.Point(71, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 26);
             this.label3.TabIndex = 2;
@@ -145,10 +141,9 @@
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(166, 205);
+            this.label5.Location = new System.Drawing.Point(71, 205);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 26);
             this.label5.TabIndex = 2;
@@ -156,10 +151,9 @@
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(166, 257);
+            this.label6.Location = new System.Drawing.Point(71, 257);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 26);
             this.label6.TabIndex = 2;
@@ -167,10 +161,9 @@
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(166, 309);
+            this.label7.Location = new System.Drawing.Point(71, 309);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 26);
             this.label7.TabIndex = 2;
@@ -178,7 +171,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label9);
@@ -186,7 +178,7 @@
             this.groupBox1.Controls.Add(this.lblSoDTSv);
             this.groupBox1.Controls.Add(this.lblDiaChiSV);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.groupBox1.Location = new System.Drawing.Point(643, 367);
+            this.groupBox1.Location = new System.Drawing.Point(548, 367);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(518, 251);
             this.groupBox1.TabIndex = 5;
@@ -195,7 +187,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox3.BackColor = System.Drawing.SystemColors.GrayText;
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label11);
@@ -211,7 +202,6 @@
             // 
             // label10
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.HighlightText;
@@ -223,7 +213,6 @@
             // 
             // label11
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.HighlightText;
@@ -235,31 +224,28 @@
             // 
             // lblsoDTNT
             // 
-            this.lblsoDTNT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblsoDTNT.AutoSize = true;
-            this.lblsoDTNT.Font = new System.Drawing.Font("Sitka Subheading", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsoDTNT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsoDTNT.ForeColor = System.Drawing.SystemColors.Info;
             this.lblsoDTNT.Location = new System.Drawing.Point(116, 71);
             this.lblsoDTNT.Name = "lblsoDTNT";
-            this.lblsoDTNT.Size = new System.Drawing.Size(61, 26);
+            this.lblsoDTNT.Size = new System.Drawing.Size(54, 20);
             this.lblsoDTNT.TabIndex = 2;
             this.lblsoDTNT.Text = "Số ĐT";
             // 
             // lblHoTenNT
             // 
-            this.lblHoTenNT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblHoTenNT.AutoSize = true;
-            this.lblHoTenNT.Font = new System.Drawing.Font("Sitka Subheading", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTenNT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoTenNT.ForeColor = System.Drawing.SystemColors.Info;
             this.lblHoTenNT.Location = new System.Drawing.Point(116, 34);
             this.lblHoTenNT.Name = "lblHoTenNT";
-            this.lblHoTenNT.Size = new System.Drawing.Size(71, 26);
+            this.lblHoTenNT.Size = new System.Drawing.Size(61, 20);
             this.lblHoTenNT.TabIndex = 2;
             this.lblHoTenNT.Text = "Họ Tên";
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Brown;
@@ -271,7 +257,6 @@
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Brown;
@@ -283,31 +268,28 @@
             // 
             // lblSoDTSv
             // 
-            this.lblSoDTSv.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblSoDTSv.AutoSize = true;
-            this.lblSoDTSv.Font = new System.Drawing.Font("Sitka Subheading", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoDTSv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoDTSv.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.lblSoDTSv.Location = new System.Drawing.Point(114, 79);
             this.lblSoDTSv.Name = "lblSoDTSv";
-            this.lblSoDTSv.Size = new System.Drawing.Size(61, 26);
+            this.lblSoDTSv.Size = new System.Drawing.Size(54, 20);
             this.lblSoDTSv.TabIndex = 2;
             this.lblSoDTSv.Text = "Số ĐT";
             // 
             // lblDiaChiSV
             // 
-            this.lblDiaChiSV.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblDiaChiSV.AutoSize = true;
-            this.lblDiaChiSV.Font = new System.Drawing.Font("Sitka Subheading", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiaChiSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiaChiSV.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.lblDiaChiSV.Location = new System.Drawing.Point(114, 32);
             this.lblDiaChiSV.Name = "lblDiaChiSV";
-            this.lblDiaChiSV.Size = new System.Drawing.Size(70, 26);
+            this.lblDiaChiSV.Size = new System.Drawing.Size(57, 20);
             this.lblDiaChiSV.TabIndex = 2;
             this.lblDiaChiSV.Text = "Địa chỉ";
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label4);
@@ -315,7 +297,7 @@
             this.groupBox2.Controls.Add(this.lblNgayNhapHoc);
             this.groupBox2.Controls.Add(this.lblKhoa);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(171, 367);
+            this.groupBox2.Location = new System.Drawing.Point(76, 367);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(459, 145);
             this.groupBox2.TabIndex = 6;
@@ -324,7 +306,6 @@
             // 
             // label13
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(5, 106);
@@ -335,7 +316,6 @@
             // 
             // label12
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(5, 68);
@@ -346,7 +326,6 @@
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(6, 30);
@@ -357,95 +336,87 @@
             // 
             // lblTinhTrang
             // 
-            this.lblTinhTrang.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTinhTrang.AutoSize = true;
-            this.lblTinhTrang.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTinhTrang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTinhTrang.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblTinhTrang.Location = new System.Drawing.Point(159, 106);
             this.lblTinhTrang.Name = "lblTinhTrang";
-            this.lblTinhTrang.Size = new System.Drawing.Size(102, 26);
+            this.lblTinhTrang.Size = new System.Drawing.Size(80, 20);
             this.lblTinhTrang.TabIndex = 2;
             this.lblTinhTrang.Text = "Tình trạng";
             // 
             // lblNgayNhapHoc
             // 
-            this.lblNgayNhapHoc.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblNgayNhapHoc.AutoSize = true;
-            this.lblNgayNhapHoc.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayNhapHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNgayNhapHoc.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblNgayNhapHoc.Location = new System.Drawing.Point(159, 68);
             this.lblNgayNhapHoc.Name = "lblNgayNhapHoc";
-            this.lblNgayNhapHoc.Size = new System.Drawing.Size(137, 26);
+            this.lblNgayNhapHoc.Size = new System.Drawing.Size(115, 20);
             this.lblNgayNhapHoc.TabIndex = 2;
             this.lblNgayNhapHoc.Text = "Ngày nhập học";
             // 
             // lblKhoa
             // 
-            this.lblKhoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblKhoa.AutoSize = true;
-            this.lblKhoa.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKhoa.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblKhoa.Location = new System.Drawing.Point(159, 30);
             this.lblKhoa.Name = "lblKhoa";
-            this.lblKhoa.Size = new System.Drawing.Size(55, 26);
+            this.lblKhoa.Size = new System.Drawing.Size(46, 20);
             this.lblKhoa.TabIndex = 2;
             this.lblKhoa.Text = "Khoa";
             // 
             // lblMaSV
             // 
-            this.lblMaSV.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMaSV.AutoSize = true;
-            this.lblMaSV.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaSV.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblMaSV.Location = new System.Drawing.Point(325, 101);
+            this.lblMaSV.Location = new System.Drawing.Point(230, 103);
             this.lblMaSV.Name = "lblMaSV";
-            this.lblMaSV.Size = new System.Drawing.Size(121, 26);
+            this.lblMaSV.Size = new System.Drawing.Size(96, 20);
             this.lblMaSV.TabIndex = 2;
             this.lblMaSV.Text = "Mã sinh viên";
             // 
             // lblHoTenSV
             // 
-            this.lblHoTenSV.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblHoTenSV.AutoSize = true;
-            this.lblHoTenSV.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTenSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoTenSV.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblHoTenSV.Location = new System.Drawing.Point(325, 153);
+            this.lblHoTenSV.Location = new System.Drawing.Point(230, 155);
             this.lblHoTenSV.Name = "lblHoTenSV";
-            this.lblHoTenSV.Size = new System.Drawing.Size(71, 26);
+            this.lblHoTenSV.Size = new System.Drawing.Size(61, 20);
             this.lblHoTenSV.TabIndex = 2;
             this.lblHoTenSV.Text = "Họ Tên";
             // 
             // lblCCCD
             // 
-            this.lblCCCD.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblCCCD.AutoSize = true;
-            this.lblCCCD.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCCCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCCCD.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblCCCD.Location = new System.Drawing.Point(325, 205);
+            this.lblCCCD.Location = new System.Drawing.Point(230, 207);
             this.lblCCCD.Name = "lblCCCD";
-            this.lblCCCD.Size = new System.Drawing.Size(58, 26);
+            this.lblCCCD.Size = new System.Drawing.Size(54, 20);
             this.lblCCCD.TabIndex = 2;
             this.lblCCCD.Text = "CCCD";
             // 
             // lblGioiTinh
             // 
-            this.lblGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblGioiTinh.AutoSize = true;
-            this.lblGioiTinh.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGioiTinh.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblGioiTinh.Location = new System.Drawing.Point(325, 257);
+            this.lblGioiTinh.Location = new System.Drawing.Point(230, 259);
             this.lblGioiTinh.Name = "lblGioiTinh";
-            this.lblGioiTinh.Size = new System.Drawing.Size(89, 26);
+            this.lblGioiTinh.Size = new System.Drawing.Size(67, 20);
             this.lblGioiTinh.TabIndex = 2;
             this.lblGioiTinh.Text = "Giới tính";
             // 
             // lblEmail
             // 
-            this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblEmail.Location = new System.Drawing.Point(325, 309);
+            this.lblEmail.Location = new System.Drawing.Point(230, 311);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(61, 26);
             this.lblEmail.TabIndex = 2;
@@ -454,13 +425,12 @@
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.BackColor = System.Drawing.Color.Wheat;
             this.button1.Font = new System.Drawing.Font("Sitka Subheading", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Brown;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(377, 552);
+            this.button1.Location = new System.Drawing.Point(282, 552);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(199, 50);
             this.button1.TabIndex = 4;
@@ -471,13 +441,12 @@
             // 
             // btnChangPass
             // 
-            this.btnChangPass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnChangPass.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnChangPass.Font = new System.Drawing.Font("Sitka Subheading", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangPass.ForeColor = System.Drawing.Color.Brown;
             this.btnChangPass.Image = ((System.Drawing.Image)(resources.GetObject("btnChangPass.Image")));
             this.btnChangPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChangPass.Location = new System.Drawing.Point(171, 552);
+            this.btnChangPass.Location = new System.Drawing.Point(76, 552);
             this.btnChangPass.Name = "btnChangPass";
             this.btnChangPass.Size = new System.Drawing.Size(158, 50);
             this.btnChangPass.TabIndex = 4;
@@ -487,20 +456,42 @@
             // 
             // picBoxAnhSV
             // 
-            this.picBoxAnhSV.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picBoxAnhSV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBoxAnhSV.Location = new System.Drawing.Point(839, 101);
+            this.picBoxAnhSV.Location = new System.Drawing.Point(744, 101);
             this.picBoxAnhSV.Name = "picBoxAnhSV";
             this.picBoxAnhSV.Size = new System.Drawing.Size(150, 182);
             this.picBoxAnhSV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxAnhSV.TabIndex = 3;
             this.picBoxAnhSV.TabStop = false;
             // 
+            // lblNgaySinh
+            // 
+            this.lblNgaySinh.AutoSize = true;
+            this.lblNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgaySinh.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblNgaySinh.Location = new System.Drawing.Point(501, 261);
+            this.lblNgaySinh.Name = "lblNgaySinh";
+            this.lblNgaySinh.Size = new System.Drawing.Size(77, 20);
+            this.lblNgaySinh.TabIndex = 2;
+            this.lblNgaySinh.Text = "NgaySinh";
+            this.lblNgaySinh.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(374, 255);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(103, 26);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Ngày sinh:";
+            // 
             // UcInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -508,18 +499,21 @@
             this.Controls.Add(this.btnChangPass);
             this.Controls.Add(this.picBoxAnhSV);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblNgaySinh);
             this.Controls.Add(this.lblGioiTinh);
             this.Controls.Add(this.lblCCCD);
             this.Controls.Add(this.lblHoTenSV);
             this.Controls.Add(this.lblMaSV);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcInformation";
-            this.Size = new System.Drawing.Size(1300, 750);
+            this.Size = new System.Drawing.Size(1111, 669);
             this.Load += new System.EventHandler(this.UcInformation_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -573,5 +567,7 @@
         private System.Windows.Forms.Label lblSoDTSv;
         private System.Windows.Forms.Label lblDiaChiSV;
         private System.Windows.Forms.PictureBox btnSetting;
+        private System.Windows.Forms.Label lblNgaySinh;
+        private System.Windows.Forms.Label label15;
     }
 }
