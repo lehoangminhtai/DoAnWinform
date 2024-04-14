@@ -106,6 +106,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiangVien.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GUI\AddCourseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AddCourseFrm.Designer.cs">
+      <DependentUpon>AddCourseFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ADMINaddCourse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     </Compile>
     <Compile Include="GUI\ADMINUpdateSTD.Designer.cs">
       <DependentUpon>ADMINUpdateSTD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CourseStudentListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CourseStudentListFrm.Designer.cs">
+      <DependentUpon>CourseStudentListFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\DetectFaceForm.cs">
       <SubType>Form</SubType>
@@ -160,6 +172,12 @@
     <Compile Include="GUI\UCCourse.Designer.cs">
       <DependentUpon>UCCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UCCourseList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCourseList.Designer.cs">
+      <DependentUpon>UCCourseList.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UcInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +189,12 @@
     </Compile>
     <Compile Include="GUI\UClistCourseRegister.Designer.cs">
       <DependentUpon>UClistCourseRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UClistCourseTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UClistCourseTeacher.Designer.cs">
+      <DependentUpon>UClistCourseTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UcNotification.cs">
       <SubType>UserControl</SubType>
@@ -203,6 +227,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyHocTapDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\AddCourseFrm.resx">
+      <DependentUpon>AddCourseFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ADMINaddCourse.resx">
       <DependentUpon>ADMINaddCourse.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ADMINUpdateSTD.resx">
       <DependentUpon>ADMINUpdateSTD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CourseStudentListFrm.resx">
+      <DependentUpon>CourseStudentListFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DetectFaceForm.resx">
       <DependentUpon>DetectFaceForm.cs</DependentUpon>
@@ -230,11 +260,17 @@
     <EmbeddedResource Include="GUI\UCCourse.resx">
       <DependentUpon>UCCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCourseList.resx">
+      <DependentUpon>UCCourseList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcInformation.resx">
       <DependentUpon>UcInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UClistCourseRegister.resx">
       <DependentUpon>UClistCourseRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UClistCourseTeacher.resx">
+      <DependentUpon>UClistCourseTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcNotification.resx">
       <DependentUpon>UcNotification.cs</DependentUpon>

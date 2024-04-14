@@ -18,13 +18,75 @@ namespace StudentManagement.GUI
     {
         Data data = new Data();
         XJDBC db = new XJDBC();
+        CourseDAO courseDAO = new CourseDAO();
         public static string id, name, des, filename, year, semester, numCrea, teacherName;
+        private string file { get; set; }
+        private string nameFile { get; set; }
+        public int role { get; set; }
 
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            openFile();
+            saveFile();
+        }
+        private void saveFile()
+        {
+            try
+            {
+                if (file != null && nameFile != null)
+                {
+
+
+                    byte[] buffer;
+                    using (Stream stream = File.OpenRead(file))
+                    {
+                        buffer = new byte[stream.Length];
+                        stream.Read(buffer, 0, buffer.Length);
+                    }
+                    string tableName = "KhoaHoc";
+                    Dictionary<string, object> dic = new Dictionary<string, object> {
+                    {"FileGiaoTrinh",buffer },{"TenFile",nameFile }
+                };
+                    string condition = "MaKH ='" + id + "'";
+                    courseDAO.updateCourse(tableName, dic, condition);
+                }
+                   
+                
+            }
+            catch { 
+                MessageBox.Show("file lỗi!!!","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void panelBaiTap_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void openFile()
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.ShowDialog();
+            string filePath = dlg.FileName;
+
+            string filename = Path.GetFileName(filePath);
+            
+
+            if (filePath != "" && filename != "")
+            {
+                file = filePath;
+                lblCourseFile.Text = filename;
+                nameFile = filename;
+            }
+           
+        }
+
+       
         private void lblCourseFile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string fileExtension = System.IO.Path.GetExtension(filename);
+            string fileExtension = System.IO.Path.GetExtension(nameFile);
 
-            string fileNameWithoutExtension = System.IO.Path.GetFileNameWithoutExtension(filename);
+            string fileNameWithoutExtension = System.IO.Path.GetFileNameWithoutExtension(nameFile);
 
             SaveFileDialog sfd = new SaveFileDialog();
 
@@ -89,7 +151,7 @@ namespace StudentManagement.GUI
 
         private void UCCourse_Load(object sender, EventArgs e)
         {
-
+            nameFile = filename;
             lblCourseId.Text = id;
             lblCourseName.Text = name;
             lblCourseTeacher.Text = teacherName;
@@ -99,6 +161,10 @@ namespace StudentManagement.GUI
             lblYear.Text = year;
             txtCourseDescription.Text = des;
 
+            if (role == 1)
+            {
+                btnUpload.Visible = false;
+            }
 
         } 
     }

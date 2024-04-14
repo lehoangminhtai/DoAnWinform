@@ -34,7 +34,8 @@ namespace StudentManagement.GUI
         }
          private void fillData()
         {
-            string sql = "select kh.MaKH as MaKhoaHoc, kh.TenKH as TenKhoaHoc, kh.SoTC as SoTinChi, kh.HocKy, kh.NamHoc, CONCAT(gv.Ho,' ',gv.Ten) as GiangVien  from Diem d join KhoaHoc kh on d.MaKH = kh.MaKH join GiangVien gv on kh.MaGV =gv.MaGV where d.MaSV=@sid";
+            (string year, string semester) = data.GetYearAndSemester();
+            string sql = "select kh.MaKH as MaKhoaHoc, kh.TenKH as TenKhoaHoc, kh.SoTC as SoTinChi, kh.HocKy, kh.NamHoc, CONCAT(gv.Ho,' ',gv.Ten) as GiangVien  from Diem d join KhoaHoc kh on d.MaKH = kh.MaKH join GiangVien gv on kh.MaGV =gv.MaGV where d.MaSV=@sid and kh.NamHoc like '%" + year + "%' and kh.HocKy ='" + semester + "'";
             Dictionary<string, object> values = new Dictionary<string, object>
             {
                 
@@ -42,7 +43,7 @@ namespace StudentManagement.GUI
 
             };
             data.fillData(sql,dataGVlistcourse,values);
-            string sql_count = "select sum(kh.SoTC) as TongSoTC from Diem d join KhoaHoc kh on d.MaKH=kh.MaKH where d.MaSV='" + student_id + "' group by d.MaSV ";
+            string sql_count = "select sum(kh.SoTC) as TongSoTC from Diem d join KhoaHoc kh on d.MaKH=kh.MaKH where d.MaSV='" + student_id + "'  and kh.NamHoc like '%" + year + "%' and kh.HocKy ='" + semester + "' group by d.MaSV ";
 
             lblSumCre.Text = tongSoTC(sql_count).ToString();
 

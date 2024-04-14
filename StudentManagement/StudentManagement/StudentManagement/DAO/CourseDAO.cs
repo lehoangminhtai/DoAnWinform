@@ -10,10 +10,11 @@ using System.Windows.Forms;
 
 namespace StudentManagement.DAO
 {
-   
+
     public class CourseDAO
     {
         XJDBC db = new XJDBC();
+        Data data = new Data();
         public List<COURSE> getListCourse(SqlCommand cmd)
         {
             List<COURSE> listCourse = new List<COURSE>();
@@ -36,18 +37,18 @@ namespace StudentManagement.DAO
                         listCourse.Add(course);
                     }
                 }
-                  
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             finally { db.closeConnection(); }
-            
+
             return listCourse;
         }
-      
-        
+
+
 
         public bool isRegisterCourse(string cid, string sid)
         {
@@ -67,6 +68,19 @@ namespace StudentManagement.DAO
             return count > 0;
 
         }
+        public Dictionary<string, object> selectCourse(string tableName, List<string> columns, string condition)
+        {
+            return data.SelectData(tableName, columns, condition);
+        }
+        public void fillData(string sql, DataGridView dt, Dictionary<string, object> parameters)
+        {
+
+            data.fillData(sql, dt, parameters);
+        }
+        public bool updateCourse(string tableName, Dictionary<string, object> parameters,string condition) {
+            return data.UpdateData(tableName, parameters, condition);
+        }
+     
     }
 
 

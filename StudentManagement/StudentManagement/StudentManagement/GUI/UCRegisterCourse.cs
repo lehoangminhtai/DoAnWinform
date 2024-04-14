@@ -12,14 +12,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace StudentManagement.GUI
 {
     public partial class UCRegisterCourse : UserControl
     {
         XJDBC db = new XJDBC();
         CourseDAO courseDAO = new CourseDAO();
+        Data data = new Data();
         ScoreDAO scoreDAO = new ScoreDAO();
-        public string sid = "21110635";
+        public string sid {  get; set; }
+        public int role { get; set; }
+
         public string scoreTableName = "Diem";
         public UCRegisterCourse()
         {
@@ -30,13 +34,18 @@ namespace StudentManagement.GUI
 
         private void UCRegisterCourse_Load(object sender, EventArgs e)
         {
-
+            panelCourse1.AutoScroll = false;
+            if (role == 2)
+            {
+               btnCourseRegister.Visible= false;
+                groupBoxSearch.Visible= false;
+            }
         }
         private void showListCourse(SqlCommand cmd)
         {
             panelCourse1.Controls.Clear();
 
-            int panelY = 30;
+            int panelY = 0;
             string cid = null;
             List<COURSE> list = courseDAO.getListCourse(cmd);
             foreach (var c in list)
@@ -69,6 +78,8 @@ namespace StudentManagement.GUI
                 buttonRegister.Text = "Đăng ký";
                 buttonRegister.Location = new Point(320, 30);
                 buttonRegister.Tag = c.id;
+                buttonRegister.BackColor = Color.Blue;
+                buttonRegister.ForeColor = Color.White;
 
                 Button btnDelete = new Button();
                 btnDelete.Text = "Xoá học phần";
@@ -108,6 +119,7 @@ namespace StudentManagement.GUI
                 if (courseDAO.isRegisterCourse(cid, sid))
                 {
                     buttonRegister.Enabled = false;
+                    buttonRegister.Visible = false;
 
                     btnDelete.Visible = true;
 
@@ -128,6 +140,7 @@ namespace StudentManagement.GUI
                             MessageBox.Show("Xoá học phần thành công!!!");
                             button.Visible = false;
                             buttonRegister.Enabled = true;
+                            buttonRegister.Visible=true;
                         }
                     };
                 }
@@ -147,10 +160,24 @@ namespace StudentManagement.GUI
         }
         private void btnCourseList_Click(object sender, EventArgs e)
         {
-            groupBoxSearch.Visible = true;
-            txtCourseSearch.Text = "";
-            SqlCommand cmd = new SqlCommand("Select MaKH, TenKH, CONCAT(v.Ho, ' ', v.Ten) as GiangVien  from KhoaHoc k join GiangVien v on k.MaGV = v.MaGV");
-            showListCourse(cmd);
+            if (role == 1)
+            {
+                groupBoxSearch.Visible = true;
+                txtCourseSearch.Text = "";
+                (string year, string semester) = data.GetYearAndSemester();
+                SqlCommand cmd = new SqlCommand("Select MaKH, TenKH, CONCAT(v.Ho, ' ', v.Ten) as GiangVien  from KhoaHoc k join GiangVien v on k.MaGV = v.MaGV where k.NamHoc like '%"+year+"%' and k.HocKy ='"+semester+"'");
+                showListCourse(cmd);
+            }
+            if (role == 2)
+            {
+                panelCourse1.Controls.Clear();
+                groupBoxSearch.Visible = false;
+                UClistCourseTeacher uclstCourseT = new UClistCourseTeacher();
+                uclstCourseT.id_teacher = sid;
+                panelCourse1.Controls.Add(uclstCourseT);
+
+            }
+           
 
         }
 
@@ -171,20 +198,27 @@ namespace StudentManagement.GUI
 
         private void btnSearchCourse_Click(object sender, EventArgs e)
         {
+            (string year, string semester) = data.GetYearAndSemester();
             if (txtCourseSearch.Text.Trim() != "")
             {
                 if(radIdCourse.Checked)
                 {
-                    SqlCommand cmd = new SqlCommand("Select MaKH, TenKH, CONCAT(v.Ho, ' ', v.Ten) as GiangVien  from KhoaHoc k join GiangVien v on k.MaGV = v.MaGV where k.MaKH like '%"+txtCourseSearch.Text.Trim()+"%'");
+
+                    SqlCommand cmd = new SqlCommand("Select MaKH, TenKH, CONCAT(v.Ho, ' ', v.Ten) as GiangVien  from KhoaHoc k join GiangVien v on k.MaGV = v.MaGV where k.MaKH like '%" + txtCourseSearch.Text.Trim() + "%'  and k.NamHoc like '%" + year + "%' and k.HocKy ='" + semester + "'");
                     showListCourse(cmd);
                 }
                 if (radNameCourse.Checked)
                 {
-                    SqlCommand cmd = new SqlCommand("Select MaKH, TenKH, CONCAT(v.Ho, ' ', v.Ten) as GiangVien  from KhoaHoc k join GiangVien v on k.MaGV = v.MaGV where k.TenKH like N'%" + txtCourseSearch.Text.Trim() + "%'");
+                    SqlCommand cmd = new SqlCommand("Select MaKH, TenKH, CONCAT(v.Ho, ' ', v.Ten) as GiangVien  from KhoaHoc k join GiangVien v on k.MaGV = v.MaGV where k.TenKH like N'%" + txtCourseSearch.Text.Trim() + "%'and k.NamHoc like '%" + year + "%' and k.HocKy ='" + semester + "'");
                     showListCourse(cmd);
                 }
             }
            
+        }
+
+        private void groupBoxSearch_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

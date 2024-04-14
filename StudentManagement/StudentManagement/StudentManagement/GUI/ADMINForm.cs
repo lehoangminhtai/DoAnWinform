@@ -274,5 +274,10 @@ namespace StudentManagement.GUI
                 }
             }
         }
+
+        private void dataGVSVGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

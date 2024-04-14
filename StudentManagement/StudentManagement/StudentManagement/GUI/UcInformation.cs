@@ -6,6 +6,8 @@ using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace StudentManagement.GUI
     {
         public string id {  get; set; }
         public int role {  get; set; }
+        public string gender { get; set; }
         Data data = new Data();
         public UcInformation()
         {
@@ -49,7 +52,10 @@ namespace StudentManagement.GUI
 
         private void UcInformation_Load(object sender, EventArgs e)
         {
+            try { 
             fillData();
+        }
+            catch { }
         }
         public void fillData()
         {
@@ -62,16 +68,24 @@ namespace StudentManagement.GUI
                 tableName = "HocSinh";
                 columns = new List<string> { "MaSV", "CONCAT(Ho,' ',Ten) as HoTen",
                     
-                    "CCCD","NgaySinh","SDT","GioiTinh","DiaChi","Khoa","NguoiThanHT" ,"NguoiThanSDT","Email"};
+                    "CCCD","NgaySinh","SDT","GioiTinh","DiaChi","Khoa","NguoiThanHT" ,"NguoiThanSDT","Email","NgayTaoTK","TinhTrangTK","HinhAnh"};
                 condition = "MaSV = '" + id + "'";
                 results = data.SelectData(tableName, columns, condition);
             }
             if(role==2)
             {
                 tableName = "GiangVien";
-                columns = new List<string> { "MaKH", "TenKH", "SoTC" };
-                condition = "MaSV = '" + id + "'";
+                columns = new List<string> { "MaGV", "CONCAT(Ho,' ',Ten) as HoTen",
+
+                    "CCCD","NgaySinh","SDT","GioiTinh","DiaChi","Email","NgayTaoTK","TinhTrangTK","HinhAnh"};
+                condition = "MaGV = '" + id + "'";
                 results = data.SelectData(tableName, columns, condition);
+
+                groupBoxNT.Visible = false;
+                lblFac.Visible = false;
+                lblKhoa.Visible = false;
+                lblJoin.Text = "Ngày bắt đầu giảng dạy: ";
+                lblId.Text = "Mã Giảng Viên: ";
             }
 
             if (results != null && results.Count > 0)
@@ -83,6 +97,10 @@ namespace StudentManagement.GUI
                 if (result.ContainsKey("MaSV"))
                 {
                     lblMaSV.Text = result["MaSV"].ToString();
+                }
+                if (result.ContainsKey("MaGV"))
+                {
+                    lblMaSV.Text = result["MaGV"].ToString();
                 }
                 if (result.ContainsKey("HoTen"))
                 {
@@ -102,7 +120,87 @@ namespace StudentManagement.GUI
                     }
                     
                 }
+                if (result.ContainsKey("SDT"))
+                {
+                    lblSoDTSv.Text = result["SDT"].ToString();
+                }
+                if (result.ContainsKey("GioiTinh"))
+                {
+                    gender = result["GioiTinh"].ToString().Trim();
+                    if (gender == "Male")
+                        lblGioiTinh.Text = "Nam";
+                    if (gender == "Female")
+                        lblGioiTinh.Text = "Nữ";
+                }
+                if (result.ContainsKey("DiaChi"))
+                {
+                    
+                    lblDiaChiSV.Text = result["DiaChi"].ToString();
 
+                }
+                if (result.ContainsKey("Khoa"))
+                {
+                    lblKhoa.Text = result["Khoa"].ToString();
+                }
+                
+                if (result.ContainsKey("NguoiThanHT"))
+                {
+                    lblHoTenNT.Text = result["NguoiThanHT"].ToString();
+                }
+                if (result.ContainsKey("NguoiThanSDT"))
+                {
+                    lblsoDTNT.Text = result["NguoiThanSDT"].ToString();
+                }
+                if (result.ContainsKey("Email"))
+                {
+                    lblEmail.Text = result["Email"].ToString();
+                }
+                if (result.ContainsKey("NgayTaoTK"))
+                {
+                   
+
+                    if (result["NgayTaoTK"] is DateTime)
+                    {
+                        DateTime ngayNH = (DateTime)result["NgayTaoTK"];
+
+                        lblNgayNhapHoc.Text = ngayNH.ToString("d");
+                    }
+                }
+                if (result.ContainsKey("TinhTrangTK"))
+                {
+                    int i = Convert.ToInt32(result["TinhTrangTK"].ToString());
+                    if (i == 0)
+                    {
+                       
+                        lblTinhTrang.Text = "Ngưng hoạt động";
+                    }
+                    else
+                        lblTinhTrang.Text = "Còn hoạt động";
+
+                }
+
+                if (result.ContainsKey("HinhAnh"))
+                {
+                    try
+                    {
+                        object value = result["HinhAnh"];
+                        if (value != DBNull.Value)
+                        {
+                            byte[] pic = (byte[])value;
+                            MemoryStream picture = new MemoryStream(pic);
+                            picBoxAnhSV.Image = Image.FromStream(picture);
+                        }
+                        else
+                        {
+                            picBoxAnhSV.Image= null;
+                        }
+
+                        
+                    }
+                    catch { }
+                    
+
+                }
 
             }
             else
@@ -121,7 +219,38 @@ namespace StudentManagement.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             UpdateInfor updateFrm = new UpdateInfor();
-            updateFrm.ShowDialog();
+            updateFrm.id = id;
+            updateFrm.role = role;
+
+            updateFrm.lblMa.Text = lblMaSV.Text;
+            updateFrm.lblTen.Text = lblHoTenSV.Text;
+            updateFrm.txtEmail.Text = lblEmail.Text;
+            if (gender == "Male")
+                updateFrm.radNam.Checked = true;
+            if (gender == "Female")
+                updateFrm.radNu.Checked = true;
+            updateFrm.txtCCCD.Text = lblCCCD.Text;
+
+            string ngaySinhStr = lblNgaySinh.Text;
+            DateTime ngaySinh;
+
+            if (DateTime.TryParseExact(ngaySinhStr, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out ngaySinh))
+            {
+                updateFrm.dateOfB.Value = ngaySinh;
+            }
+
+            updateFrm.txtKhoa.Text = lblKhoa.Text;
+            updateFrm.txtDiaChiSV.Text = lblDiaChiSV.Text;
+            updateFrm.txtSoDTsv.Text = lblSoDTSv.Text;
+             
+            updateFrm.txtHoTenNT.Text = lblHoTenNT.Text;
+            updateFrm.txtSoDTNT.Text = lblsoDTNT.Text;
+
+            updateFrm.picBoxAnhSV.Image = picBoxAnhSV.Image;
+            if(updateFrm.ShowDialog()==DialogResult.OK)
+            {
+                fillData();
+            }
         }
 
         private void btnSetting_Click(object sender, EventArgs e)

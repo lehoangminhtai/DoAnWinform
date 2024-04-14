@@ -43,15 +43,18 @@ namespace StudentManagement
 
         private void btnInfor_Click(object sender, EventArgs e)
         {
+            try
+            {
+                UcInformation ucInformation = new UcInformation();
+                ucInformation.Dock = DockStyle.Fill;
 
-            UcInformation ucInformation = new UcInformation();
-            ucInformation.Dock = DockStyle.Fill;
+                ucInformation.role = role;
+                ucInformation.id = sid;
 
-            ucInformation.role = role;
-            ucInformation.id = sid;
-
-            panelMain.Controls.Clear();
-            panelMain.Controls.Add(ucInformation);
+                panelMain.Controls.Clear();
+                panelMain.Controls.Add(ucInformation);
+            }
+            catch { }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -60,6 +63,8 @@ namespace StudentManagement
             {
                 panelMain.Controls.Clear();
                 UCRegisterCourse ucResCourse = new UCRegisterCourse();
+                ucResCourse.sid = sid;
+                ucResCourse.role = role;
                     // Thêm panelCourse vào panelMain
                  panelMain.Controls.Add(ucResCourse);
                 
@@ -86,7 +91,12 @@ namespace StudentManagement
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            panelMain.Controls.Clear();
+           UCCourseList ucCourseList = new UCCourseList();
+            ucCourseList.sid = sid;
+            ucCourseList.role = role;
+            // Thêm panelCourse vào panelMain
+            panelMain.Controls.Add(ucCourseList);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

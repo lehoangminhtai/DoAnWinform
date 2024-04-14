@@ -18,6 +18,7 @@ namespace StudentManagement.DAO
     public class StudentDAO
     {
         XJDBC db = new XJDBC();
+        Data data = new Data();
         public bool Insert()
         {
             try
@@ -161,6 +162,28 @@ namespace StudentManagement.DAO
                 return false;
             }
 
+        }
+
+        public bool updateStudent(string tableName, Dictionary<string, Object> parameters, string condition)
+        {
+            return data.UpdateData(tableName, parameters, condition);
+               
+        }
+        public bool validatData(params object[] properties)
+        {
+            return data.ValidateNotNull(properties);
+        }
+        public bool isValidEmail(string email)
+        {
+            return data.IsValidEmail(email);
+        }
+        public bool isValidPhoneNumber(string number)
+        {
+            return data.IsValidPhoneNumber(number);
+        }
+        public bool isValidName(string name)
+        {
+            return data.IsValidVietnameseName(name);
         }
     }
     

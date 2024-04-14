@@ -68,6 +68,7 @@
             this.giangVien = new StudentManagement.GiangVien();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnDeleteCourse = new System.Windows.Forms.Button();
             this.btnAddCourse = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGvCourse = new System.Windows.Forms.DataGridView();
@@ -77,7 +78,6 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.hocSinhTableAdapter = new StudentManagement.QuanLyHocTapDataSetTableAdapters.HocSinhTableAdapter();
             this.giangVienTableAdapter = new StudentManagement.GiangVienTableAdapters.GiangVienTableAdapter();
-            this.btnDeleteCourse = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVSVGV)).BeginInit();
@@ -153,6 +153,7 @@
             this.dataGVSVGV.RowTemplate.Height = 28;
             this.dataGVSVGV.Size = new System.Drawing.Size(1080, 406);
             this.dataGVSVGV.TabIndex = 2;
+            this.dataGVSVGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGVSVGV_CellContentClick);
             this.dataGVSVGV.Click += new System.EventHandler(this.dataGVSVGV_Click);
             this.dataGVSVGV.DoubleClick += new System.EventHandler(this.dataGVSVGV_DoubleClick);
             // 
@@ -469,6 +470,18 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // btnDeleteCourse
+            // 
+            this.btnDeleteCourse.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDeleteCourse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDeleteCourse.Location = new System.Drawing.Point(682, 591);
+            this.btnDeleteCourse.Name = "btnDeleteCourse";
+            this.btnDeleteCourse.Size = new System.Drawing.Size(205, 50);
+            this.btnDeleteCourse.TabIndex = 5;
+            this.btnDeleteCourse.Text = "Xoá Khoá Học";
+            this.btnDeleteCourse.UseVisualStyleBackColor = false;
+            this.btnDeleteCourse.Click += new System.EventHandler(this.btnDeleteCourse_Click);
+            // 
             // btnAddCourse
             // 
             this.btnAddCourse.BackColor = System.Drawing.Color.MediumTurquoise;
@@ -550,18 +563,6 @@
             // giangVienTableAdapter
             // 
             this.giangVienTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnDeleteCourse
-            // 
-            this.btnDeleteCourse.BackColor = System.Drawing.Color.IndianRed;
-            this.btnDeleteCourse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDeleteCourse.Location = new System.Drawing.Point(682, 591);
-            this.btnDeleteCourse.Name = "btnDeleteCourse";
-            this.btnDeleteCourse.Size = new System.Drawing.Size(205, 50);
-            this.btnDeleteCourse.TabIndex = 5;
-            this.btnDeleteCourse.Text = "Xoá Khoá Học";
-            this.btnDeleteCourse.UseVisualStyleBackColor = false;
-            this.btnDeleteCourse.Click += new System.EventHandler(this.btnDeleteCourse_Click);
             // 
             // ADMINForm
             // 

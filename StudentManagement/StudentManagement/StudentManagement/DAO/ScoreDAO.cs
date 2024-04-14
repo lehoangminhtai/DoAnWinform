@@ -1,8 +1,11 @@
-﻿using System;
+﻿using StudentManagement.Entity;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace StudentManagement.DAO
 {
@@ -16,7 +19,44 @@ namespace StudentManagement.DAO
         }
         public bool deleteScore(string tableName, Dictionary<string, object> values)
         {
-            return data.Delete(tableName, values);
+            return data.Delete(tableName, values); 
+        }
+        public List<COURSE> getListCourse(SqlCommand cmd)
+        {
+            List<COURSE> listCourse = new List<COURSE>();
+
+            try
+            {
+                db.openConnection();
+                cmd.Connection = db.getConnection;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        COURSE course = new COURSE
+                        {
+                            id= reader.GetString(0),
+                            name = reader.GetString(1),
+                            semester = reader.GetString(2),
+                            year = reader.GetString(3),
+                            teacherName = reader.GetString(4),
+                            numCrea = reader.GetInt32(5).ToString(),
+                            description= reader.GetString(6),
+                            nameFile = reader.IsDBNull(7) ? "" : reader.GetString(7)
+                        };
+
+                        listCourse.Add(course);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { db.closeConnection(); }
+
+            return listCourse;
         }
     }
 }

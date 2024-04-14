@@ -33,13 +33,13 @@
             this.btnSetting = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxNT = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblsoDTNT = new System.Windows.Forms.Label();
@@ -50,8 +50,8 @@
             this.lblDiaChiSV = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblJoin = new System.Windows.Forms.Label();
+            this.lblFac = new System.Windows.Forms.Label();
             this.lblTinhTrang = new System.Windows.Forms.Label();
             this.lblNgayNhapHoc = new System.Windows.Forms.Label();
             this.lblKhoa = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxNT.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAnhSV)).BeginInit();
             this.SuspendLayout();
@@ -119,15 +119,15 @@
             this.label1.Text = "Thông tin cá nhân";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // lblId
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(71, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 26);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Mã sinh viên:";
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(71, 101);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(127, 26);
+            this.lblId.TabIndex = 2;
+            this.lblId.Text = "Mã sinh viên:";
             // 
             // label3
             // 
@@ -172,7 +172,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBoxNT);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lblSoDTSv);
@@ -185,20 +185,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Liên lạc";
             // 
-            // groupBox3
+            // groupBoxNT
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.lblsoDTNT);
-            this.groupBox3.Controls.Add(this.lblHoTenNT);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.groupBox3.Location = new System.Drawing.Point(16, 133);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(491, 100);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Người thân";
+            this.groupBoxNT.BackColor = System.Drawing.SystemColors.GrayText;
+            this.groupBoxNT.Controls.Add(this.label10);
+            this.groupBoxNT.Controls.Add(this.label11);
+            this.groupBoxNT.Controls.Add(this.lblsoDTNT);
+            this.groupBoxNT.Controls.Add(this.lblHoTenNT);
+            this.groupBoxNT.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.groupBoxNT.Location = new System.Drawing.Point(16, 133);
+            this.groupBoxNT.Name = "groupBoxNT";
+            this.groupBoxNT.Size = new System.Drawing.Size(491, 100);
+            this.groupBoxNT.TabIndex = 3;
+            this.groupBoxNT.TabStop = false;
+            this.groupBoxNT.Text = "Người thân";
             // 
             // label10
             // 
@@ -291,8 +291,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.lblJoin);
+            this.groupBox2.Controls.Add(this.lblFac);
             this.groupBox2.Controls.Add(this.lblTinhTrang);
             this.groupBox2.Controls.Add(this.lblNgayNhapHoc);
             this.groupBox2.Controls.Add(this.lblKhoa);
@@ -314,25 +314,25 @@
             this.label13.TabIndex = 2;
             this.label13.Text = "Tình trạng";
             // 
-            // label12
+            // lblJoin
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(5, 68);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(148, 26);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Ngày nhập học: ";
+            this.lblJoin.AutoSize = true;
+            this.lblJoin.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJoin.Location = new System.Drawing.Point(5, 68);
+            this.lblJoin.Name = "lblJoin";
+            this.lblJoin.Size = new System.Drawing.Size(148, 26);
+            this.lblJoin.TabIndex = 2;
+            this.lblJoin.Text = "Ngày nhập học: ";
             // 
-            // label4
+            // lblFac
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 26);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Khoa:";
+            this.lblFac.AutoSize = true;
+            this.lblFac.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFac.Location = new System.Drawing.Point(6, 30);
+            this.lblFac.Name = "lblFac";
+            this.lblFac.Size = new System.Drawing.Size(61, 26);
+            this.lblFac.TabIndex = 2;
+            this.lblFac.Text = "Khoa:";
             // 
             // lblTinhTrang
             // 
@@ -509,7 +509,7 @@
             this.Controls.Add(this.lblCCCD);
             this.Controls.Add(this.lblHoTenSV);
             this.Controls.Add(this.lblMaSV);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcInformation";
@@ -521,8 +521,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxNT.ResumeLayout(false);
+            this.groupBoxNT.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAnhSV)).EndInit();
@@ -536,7 +536,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.PictureBox picBoxAnhSV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
@@ -545,15 +545,15 @@
         private System.Windows.Forms.Button btnChangPass;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxNT;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblFac;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblJoin;
         private System.Windows.Forms.Label lblTinhTrang;
         private System.Windows.Forms.Label lblNgayNhapHoc;
         private System.Windows.Forms.Label lblKhoa;

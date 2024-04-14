@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -119,6 +120,36 @@ namespace StudentManagement.DAO
                 db.closeConnection();
             }
         }
+        public bool UpdateData(string tableName, Dictionary<string, object> values, string condition)
+        {
+            try
+            {
+                string sql = $"UPDATE {tableName} SET {string.Join(", ", values.Keys.Select(key => $"{key} = @{key}"))} WHERE {condition}";
+
+                using (SqlCommand cmd = new SqlCommand(sql, db.getConnection))
+                {
+                    db.openConnection();
+
+                    // Add parameters to the command
+                    foreach (var param in values)
+                    {
+                        cmd.Parameters.AddWithValue("@" + param.Key, param.Value);
+                    }
+
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi khi cập nhật dữ liệu!!!");
+                return false;
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
 
         public List<Dictionary<string, object>> SelectDataList(string tableName, List<string> columns, string condition)
         {
@@ -223,6 +254,45 @@ namespace StudentManagement.DAO
         {
             db.openConnection();
 
+        }
+        public bool IsValidEmail(string email)
+        {
+            // Biểu thức chính quy để kiểm tra địa chỉ email
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            // Sử dụng Regex.IsMatch để kiểm tra email với biểu thức chính quy
+            return Regex.IsMatch(email, pattern);
+        }
+        public bool IsValidPhoneNumber(string phoneNumber)
+        {
+            // Loại bỏ khoảng trắng và dấu gạch nối trong số điện thoại
+            string cleanedPhoneNumber = phoneNumber.Replace(" ", "").Replace("-", "");
+
+            // Kiểm tra xem số điện thoại có chỉ chứa các chữ số và có đúng 10 ký tự không
+            return System.Text.RegularExpressions.Regex.IsMatch(cleanedPhoneNumber, @"^\d{10}$");
+        }
+        public bool IsValidVietnameseName(string name)
+        {
+            // Biểu thức chính quy để kiểm tra xem chuỗi có chứa ký tự tiếng Việt (bao gồm cả dấu) không
+            string pattern = @"^[\p{L}\s]+$";
+
+            // Sử dụng Regex.IsMatch để kiểm tra
+            return System.Text.RegularExpressions.Regex.IsMatch(name, pattern);
+        }
+
+        public (string year, string semester) GetYearAndSemester( )
+        {
+            DateTime date = DateTime.Now;
+            string year = date.Year.ToString();
+            int month = date.Month;
+            string semester = "HK1";
+
+            if (month >= 1 && month <= 5)
+                semester = "HK2";
+            else if (month >= 6 && month <= 7)
+                semester = "HK3";
+
+            return (year, semester);
         }
 
     }
