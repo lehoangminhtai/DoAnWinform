@@ -77,3 +77,5 @@ D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\Stude
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.UClistCourseTeacher.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.CourseStudentListFrm.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.AddCourseFrm.resources
+D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.UCdocument.resources
+D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.Document.AddDocumentFrm.resources

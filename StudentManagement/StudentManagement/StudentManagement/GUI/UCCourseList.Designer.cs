@@ -35,7 +35,6 @@
             // 
             // panelCourseList
             // 
-            this.panelCourseList.AutoScroll = true;
             this.panelCourseList.AutoSize = true;
             this.panelCourseList.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelCourseList.Controls.Add(this.label1);

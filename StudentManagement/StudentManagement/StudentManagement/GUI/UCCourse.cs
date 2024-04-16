@@ -63,6 +63,21 @@ namespace StudentManagement.GUI
 
         }
 
+        private void btnDeleteFile_Click(object sender, EventArgs e)
+        {
+            if (courseDAO.updateFileCourse(id))
+                lblCourseFile.Text = "";
+        }
+
+        private void btnMaterial_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear();
+            UCdocument ucDoc = new UCdocument();
+            ucDoc.role = role;
+            ucDoc.course_id= id;
+            panelContainer.Controls.Add(ucDoc);
+        }
+
         private void openFile()
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -98,8 +113,6 @@ namespace StudentManagement.GUI
                
                  DownloadFile(sfd.FileName);
              }
-
-
 
            
         }
@@ -164,6 +177,7 @@ namespace StudentManagement.GUI
             if (role == 1)
             {
                 btnUpload.Visible = false;
+                btnDeleteFile.Visible = false;
             }
 
         } 

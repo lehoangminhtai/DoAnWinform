@@ -89,6 +89,7 @@
     <Compile Include="DAO\Auth.cs" />
     <Compile Include="DAO\CourseDAO.cs" />
     <Compile Include="DAO\Data.cs" />
+    <Compile Include="DAO\DocumentDAO.cs" />
     <Compile Include="DAO\FaceRec.cs" />
     <Compile Include="DAO\GenerateRandomPass.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="DAO\TeacherDao.cs" />
     <Compile Include="DAO\XJDBC.cs" />
     <Compile Include="Entity\COURSE.cs" />
+    <Compile Include="Entity\DOCUMENT.cs" />
     <Compile Include="Entity\LOGIN.cs" />
     <Compile Include="Entity\STUDENT.cs" />
     <Compile Include="Entity\TEACHER.cs" />
@@ -148,6 +150,12 @@
     <Compile Include="GUI\DetectFaceForm.Designer.cs">
       <DependentUpon>DetectFaceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\DocumentGUI\AddDocumentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DocumentGUI\AddDocumentFrm.Designer.cs">
+      <DependentUpon>AddDocumentFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmOTP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +185,12 @@
     </Compile>
     <Compile Include="GUI\UCCourseList.Designer.cs">
       <DependentUpon>UCCourseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCdocument.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCdocument.Designer.cs">
+      <DependentUpon>UCdocument.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UcInformation.cs">
       <SubType>UserControl</SubType>
@@ -248,6 +262,9 @@
     <EmbeddedResource Include="GUI\DetectFaceForm.resx">
       <DependentUpon>DetectFaceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DocumentGUI\AddDocumentFrm.resx">
+      <DependentUpon>AddDocumentFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmOTP.resx">
       <DependentUpon>frmOTP.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UCCourseList.resx">
       <DependentUpon>UCCourseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCdocument.resx">
+      <DependentUpon>UCdocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcInformation.resx">
       <DependentUpon>UcInformation.cs</DependentUpon>
@@ -336,6 +356,84 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\bg_Login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\boy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\course.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\diaphragm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\documents %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\expired.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\multiply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\setting %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\updated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\Uploadimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\woman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\written-paper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\homework.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\add-file.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

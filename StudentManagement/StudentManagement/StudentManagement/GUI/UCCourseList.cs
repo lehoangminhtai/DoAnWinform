@@ -44,6 +44,11 @@ namespace StudentManagement.GUI
                 SqlCommand cmd = new SqlCommand("Select d.MaKH, kh.TenKH, kh.HocKy,kh.NamHoc, CONCAT(gv.Ho, ' ', gv.Ten) as GiangVien,kh.SoTC, kh.MoTa,kh.TenFile  from Diem d join KhoaHoc kh on d.MaKH = kh.MaKH join GiangVien gv on kh.MaGV = gv.MaGV where d.MaSV='" + sid + "' and kh.NamHoc like '%" + year + "%' and kh.HocKy ='"+ semester + "'");
                 showListCourse(cmd);
             }
+            if (role == 2)
+            {
+                SqlCommand cmd = new SqlCommand("Select kh.MaKH, kh.TenKH, kh.HocKy,kh.NamHoc, CONCAT(gv.Ho, ' ', gv.Ten) as GiangVien,kh.SoTC, kh.MoTa,kh.TenFile from KhoaHoc kh join GiangVien gv on kh.MaGV=gv.MaGV where kh.MaGV= '" + sid + "' and kh.NamHoc like '%" + year + "%' and kh.HocKy ='" + semester + "'");
+                showListCourse(cmd);
+            }
         }
         private void showListCourse(SqlCommand cmd)
         {
@@ -108,7 +113,9 @@ namespace StudentManagement.GUI
                     panelCourseList.Controls.Clear();
                     panelCourseList.Controls.Add(ucCourse);
                 };
-                
+
+                if (role == 2)
+                    labelTeacher.Visible = false;
                 panelCourse.Controls.Add(labelName);
                 panelCourse.Controls.Add(labelSemester);
                 panelCourse.Controls.Add(labelYear);

@@ -80,6 +80,23 @@ namespace StudentManagement.DAO
         public bool updateCourse(string tableName, Dictionary<string, object> parameters,string condition) {
             return data.UpdateData(tableName, parameters, condition);
         }
+        public bool updateFileCourse(string courseId)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("update KhoaHoc set FileGiaoTrinh = null, TenFile=null where MaKH='" + courseId + "'", db.getConnection);
+                db.openConnection();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally { db.closeConnection(); }
+
+        }
      
     }
 

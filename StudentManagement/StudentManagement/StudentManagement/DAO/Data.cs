@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -122,7 +123,7 @@ namespace StudentManagement.DAO
         }
         public bool UpdateData(string tableName, Dictionary<string, object> values, string condition)
         {
-            try
+           try
             {
                 string sql = $"UPDATE {tableName} SET {string.Join(", ", values.Keys.Select(key => $"{key} = @{key}"))} WHERE {condition}";
 
@@ -137,8 +138,9 @@ namespace StudentManagement.DAO
                     }
 
                     cmd.ExecuteNonQuery();
+               
                     return true;
-                }
+              }
             }
             catch (Exception e)
             {
@@ -242,7 +244,7 @@ namespace StudentManagement.DAO
         {
             foreach (object property in properties)
             {
-                if (property == null)
+                if (property == null || property.Equals(""))
                 {
                     return false;
                 }
@@ -250,11 +252,7 @@ namespace StudentManagement.DAO
             return true;
         }
 
-        public void downloadFile(string fileName)
-        {
-            db.openConnection();
-
-        }
+       
         public bool IsValidEmail(string email)
         {
             // Biểu thức chính quy để kiểm tra địa chỉ email
@@ -293,6 +291,61 @@ namespace StudentManagement.DAO
                 semester = "HK3";
 
             return (year, semester);
+        }
+        public (string file, string filename) openFile()
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.ShowDialog();
+            string file = dlg.FileName;
+
+            string filename = Path.GetFileName(file);
+
+            return (file, filename);
+
+        }
+        public void downloadFile(string filename, string  sql)
+        {
+            string fileExtension = System.IO.Path.GetExtension(filename);
+
+            
+            SaveFileDialog sfd = new SaveFileDialog();
+
+
+            sfd.Filter = $" files({fileExtension})|*{fileExtension}";
+            sfd.ValidateNames = true;
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+
+                Download(sfd.FileName, sql);
+            }
+        }
+        private void Download(string namefile, string sql)
+        {
+            db.openConnection();
+            bool em = false;
+            SqlCommand cmd = new SqlCommand(sql, db.getConnection);
+            SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.Default);
+            if (reader.Read())
+            {
+                em = true;
+                byte[] fileData = (byte[])reader.GetValue(0);
+                using (FileStream fs = new FileStream(namefile, FileMode.Create, FileAccess.ReadWrite))
+                {
+
+                    using (BinaryWriter bw = new BinaryWriter(fs))
+                    {
+                        bw.Write(fileData);
+                        bw.Close();
+                    }
+                }
+                MessageBox.Show("Download File Successfully");
+            }
+            if (em == false)
+            {
+                MessageBox.Show("Download File Failed!!!");
+            }
+            reader.Close();
+
         }
 
     }

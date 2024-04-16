@@ -25,7 +25,7 @@ namespace StudentManagement.GUI
         private void ADMINCourse_Load(object sender, EventArgs e)
         {
             UCCourse course = new UCCourse();
-            course.Dock = DockStyle.Fill;
+            //course.Dock = DockStyle.Fill;
             panelCourse.Controls.Clear();
             panelCourse.Controls.Add(course);
         }
