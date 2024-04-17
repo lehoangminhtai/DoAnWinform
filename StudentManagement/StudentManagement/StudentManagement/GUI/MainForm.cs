@@ -16,8 +16,8 @@ namespace StudentManagement
 {
     public partial class MainForm : Form
     {
-        public int role = 1;
-        public string sid = "21110635";
+        public int role = 2;
+        public string sid = "minhtai";
         XJDBC db = new XJDBC();
         CourseDAO courseDAO = new CourseDAO();
 

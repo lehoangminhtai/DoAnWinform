@@ -30,7 +30,8 @@ namespace StudentManagement.DAO
                             id = reader.GetInt32(0),
                             name = reader.GetString(1),
                             description = reader.GetString(2),
-                            filename = reader.IsDBNull(3) ? "" : reader.GetString(3)
+                            filename = reader.IsDBNull(3) ? "" : reader.GetString(3),
+                            linkyoutube = reader.GetString(4)
                             
                         };
 
@@ -60,6 +61,9 @@ namespace StudentManagement.DAO
         {
             data.downloadFile(filename, sql);
         }
-
+        public  string getIdYoutubeVideo(string url)
+        {
+            return data.GetVideoId(url);
+        }
     }
 }

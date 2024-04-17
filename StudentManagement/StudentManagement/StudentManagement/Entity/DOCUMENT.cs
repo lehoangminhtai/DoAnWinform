@@ -12,5 +12,7 @@ namespace StudentManagement.Entity
         public string name { get; set; }
         public string description { get; set; }
         public string filename {  get; set; }
+
+        public string linkyoutube { get; set; }
     }
 }

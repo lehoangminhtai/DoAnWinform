@@ -92,6 +92,7 @@
     <Compile Include="DAO\DocumentDAO.cs" />
     <Compile Include="DAO\FaceRec.cs" />
     <Compile Include="DAO\GenerateRandomPass.cs" />
+    <Compile Include="DAO\HomeworkDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\OTP.cs" />
     <Compile Include="DAO\ScoreDAO.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="DAO\XJDBC.cs" />
     <Compile Include="Entity\COURSE.cs" />
     <Compile Include="Entity\DOCUMENT.cs" />
+    <Compile Include="Entity\HOMEWORK.cs" />
     <Compile Include="Entity\LOGIN.cs" />
     <Compile Include="Entity\STUDENT.cs" />
     <Compile Include="Entity\TEACHER.cs" />
@@ -161,6 +163,12 @@
     </Compile>
     <Compile Include="GUI\frmOTP.Designer.cs">
       <DependentUpon>frmOTP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeworkGUI\UChomework.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeworkGUI\UChomework.Designer.cs">
+      <DependentUpon>UChomework.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\LoginFrm.cs">
       <SubType>Form</SubType>
@@ -267,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmOTP.resx">
       <DependentUpon>frmOTP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HomeworkGUI\UChomework.resx">
+      <DependentUpon>UChomework.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
@@ -427,13 +438,28 @@
     <None Include="Image\homework.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Image\add.png" />
+    <None Include="Image\add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\folder.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\add-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\addHomework.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\contract.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

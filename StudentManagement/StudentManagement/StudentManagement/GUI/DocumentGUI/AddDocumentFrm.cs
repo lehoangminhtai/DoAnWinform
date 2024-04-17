@@ -37,17 +37,11 @@ namespace StudentManagement.GUI.Document
             {
                 string docName = txtNameDoc.Text.Trim();
                 string description = txtDescription.Text;
-
+                string idvideo = documentDAO.getIdYoutubeVideo(txtUrl.Text.Trim());
+                string url = "https://www.youtube.com/embed/" + idvideo;
                 byte[] buffer;
-
-
-
-
-
                 if (data.ValidateNotNull(docName))
                 {
-
-
                     if (nameFile != null && file != null)
                     {
                         using (Stream stream = File.OpenRead(file))
@@ -62,12 +56,14 @@ namespace StudentManagement.GUI.Document
                                 { "TenTL", docName },
                                 {"MoTa",description },
                                 {"FileTaiLieu",buffer },
-                                {"TenFile",nameFile }
+                                {"TenFile",nameFile },
+                                {"LinkYoutube",idvideo }
 
                             };
                         if (documentDAO.insert(documentTableName, values))
                         {
                             MessageBox.Show("Thêm Khoá Học thành công");
+                            DialogResult = DialogResult.OK;
                             
                         }
                     }
@@ -78,11 +74,13 @@ namespace StudentManagement.GUI.Document
                             {
                                 { "MaKH",  course_id},
                                 { "TenTL", docName },
-                                { "MoTa",description }
+                                { "MoTa",description },
+                                {"LinkYoutube",idvideo }
                             };
                         if (documentDAO.insert(documentTableName, values))
                         {
                             MessageBox.Show("Thêm Khoá Học thành công");
+                            DialogResult= DialogResult.OK;
                             
                         }
                     }
@@ -127,7 +125,7 @@ namespace StudentManagement.GUI.Document
         private void btnAddDoc_Click(object sender, EventArgs e)
         {
             addCourse();
-            DialogResult = DialogResult.OK;
+           
         }
     }
 }

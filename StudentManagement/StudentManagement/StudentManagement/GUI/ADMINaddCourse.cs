@@ -68,10 +68,6 @@ namespace StudentManagement.GUI
                 string idTearcher = lblIdTeacher.Text.Trim();
                 byte[] buffer;
 
-
-
-
-
                 if (data.ValidateNotNull(idTearcher, courseId, courseName, numCre, year, semester, idTearcher))
                 {
                     if (checkYear(yearF, yearL))

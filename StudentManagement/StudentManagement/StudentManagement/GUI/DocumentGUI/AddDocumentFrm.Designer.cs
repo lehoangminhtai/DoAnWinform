@@ -38,6 +38,8 @@
             this.btnAddDoc = new System.Windows.Forms.Button();
             this.btnUploadFile = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtUrl = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +126,7 @@
             this.btnAddDoc.BackgroundImage = global::StudentManagement.Properties.Resources.add_file;
             this.btnAddDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddDoc.Location = new System.Drawing.Point(446, 572);
+            this.btnAddDoc.Location = new System.Drawing.Point(478, 627);
             this.btnAddDoc.Name = "btnAddDoc";
             this.btnAddDoc.Size = new System.Drawing.Size(133, 107);
             this.btnAddDoc.TabIndex = 5;
@@ -154,19 +156,42 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label5.Location = new System.Drawing.Point(30, 571);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(257, 32);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Link video Youtube";
+            this.label5.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(293, 555);
+            this.txtUrl.Multiline = true;
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(564, 54);
+            this.txtUrl.TabIndex = 3;
+            this.txtUrl.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // AddDocumentFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(967, 691);
+            this.ClientSize = new System.Drawing.Size(967, 772);
             this.Controls.Add(this.btnAddDoc);
             this.Controls.Add(this.btnUploadFile);
             this.Controls.Add(this.linklblFileName);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtUrl);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNameDoc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
@@ -193,5 +218,7 @@
         private System.Windows.Forms.LinkLabel linklblFileName;
         private System.Windows.Forms.Button btnUploadFile;
         private System.Windows.Forms.Button btnAddDoc;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtUrl;
     }
 }

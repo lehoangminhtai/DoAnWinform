@@ -75,11 +75,12 @@ namespace StudentManagement.DAO
                     {
                         cmd.Parameters.AddWithValue("@" + param.Key, param.Value);
                     }
-
+                    
                     cmd.ExecuteNonQuery();
-                    return true;
+                
+                return true;
                 }
-            }
+           }
             catch (Exception e)
             {
                 MessageBox.Show("Thêm dữ liệu lỗi!!!");
@@ -346,6 +347,28 @@ namespace StudentManagement.DAO
             }
             reader.Close();
 
+        }
+
+        public string GetVideoId(string url)
+        {
+            if (url != "")
+            {
+                string pattern = @"(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})";
+                Regex regex = new Regex(pattern);
+                Match match = regex.Match(url);
+
+                if (match.Success)
+                {
+                    return match.Groups[1].Value;
+                }
+                else
+                {
+
+                    return "";
+                }
+            }
+            else
+                return "";
         }
 
     }

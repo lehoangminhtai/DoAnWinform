@@ -39,7 +39,7 @@ namespace StudentManagement.GUI
         {
             if (course_id != null)
             {
-                SqlCommand cmd = new SqlCommand("select tl.MaTL, tl.TenTL, tl.MoTa,tl.TenFile from TaiLieu tl where tl.MaKH='" + course_id+"'");
+                SqlCommand cmd = new SqlCommand("select tl.MaTL, tl.TenTL, tl.MoTa,tl.TenFile, tl.LinkYoutube from TaiLieu tl where tl.MaKH='" + course_id+"'");
                 showListDocument(cmd);
             }
         }
@@ -55,8 +55,9 @@ namespace StudentManagement.GUI
                 Panel panelCourse = new Panel();
                 panelCourse.BorderStyle = BorderStyle.FixedSingle;
                 panelCourse.Location = new Point(10, panelY);
-                panelCourse.Size = new Size(650, 130);
+                panelCourse.Size = new Size(650, 150);
                 panelCourse.Margin = new Padding(10);
+                panelCourse.BackColor = Color.White;
 
 
 
@@ -69,7 +70,7 @@ namespace StudentManagement.GUI
                 Label labelDes = new Label();
                 labelDes.Text = d.description;
                 labelDes.Location = new Point(20, 50);
-                labelName.AutoSize = true;
+                labelDes.AutoSize = true;
 
                 LinkLabel lblFileName = new LinkLabel();
                 lblFileName.Text = d.filename;
@@ -89,10 +90,53 @@ namespace StudentManagement.GUI
                     
                 };
 
+                Button btnUpdate = new Button();
+                btnUpdate.BackgroundImage = Image.FromFile("Image/contract.png");
+                btnUpdate.BackgroundImageLayout = ImageLayout.Zoom;
+                btnUpdate.Location = new Point(580, 10);
+                btnUpdate.Size = new Size(55, 35);
+
+                Button btnDelete = new Button();
+                btnDelete.BackgroundImage = Image.FromFile("Image/delete.png");
+                btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
+                btnDelete.Location = new Point(580, 55);
+                btnDelete.Size = new Size(55, 40);
+
+                if (role == 1)
+                {
+                    btnDelete.Visible = false;
+                    btnUpdate.Visible = false;
+                }
+
+                panelCourse.Controls.Add(btnUpdate);
+                panelCourse.Controls.Add(btnDelete);
                 panelCourse.Controls.Add(labelName);
                 panelCourse.Controls.Add(labelDes);
                 panelCourse.Controls.Add(lblFileName);
 
+
+                if (d.linkyoutube != null && d.linkyoutube!="")
+                {
+                    WebBrowser webBrowser = new WebBrowser();
+                    webBrowser.Location = new Point(20, 103);
+                    webBrowser.Size = new Size(350, 200);
+
+                    var embed = "<html><head>" +
+                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"/>" +
+                "</head><body>" +
+                "<iframe width=\"300\" src=\"{0}\"" +
+                "frameborder = \"0\" allow = \"autoplay; encrypted-media\" allowfullscreen></iframe>" +
+                "</body></html>";
+                    string url = "https://www.youtube.com/embed/" + d.linkyoutube;
+                    webBrowser.DocumentText = string.Format(embed, url);
+
+                    panelCourse.Controls.Add(webBrowser);
+                    panelCourse.Height += 130;
+                }
+                
+
+                
+                
 
                 panelY += panelCourse.Height + 10;
 
@@ -111,6 +155,11 @@ namespace StudentManagement.GUI
             {
                 fillData();
             }
+        }
+
+        private void panelDocument_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
