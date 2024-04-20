@@ -49,7 +49,10 @@ namespace StudentManagement.DAO
         }
 
 
-
+        public bool ValitdatNotNull(params object[] properties)
+        {
+            return data.ValidateNotNull(properties);
+        }
         public bool isRegisterCourse(string cid, string sid)
         {
 
@@ -79,6 +82,10 @@ namespace StudentManagement.DAO
         }
         public bool updateCourse(string tableName, Dictionary<string, object> parameters,string condition) {
             return data.UpdateData(tableName, parameters, condition);
+        }
+        public bool deleteCourse(string tableName, Dictionary<string, object> parameters)
+        {
+            return data.Delete(tableName, parameters);
         }
         public bool updateFileCourse(string courseId)
         {

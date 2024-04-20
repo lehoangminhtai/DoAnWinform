@@ -1,6 +1,7 @@
 ﻿using StudentManagement.DAO;
 using StudentManagement.Entity;
 using StudentManagement.GUI.Document;
+using StudentManagement.GUI.DocumentGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,12 +96,51 @@ namespace StudentManagement.GUI
                 btnUpdate.BackgroundImageLayout = ImageLayout.Zoom;
                 btnUpdate.Location = new Point(580, 10);
                 btnUpdate.Size = new Size(55, 35);
+                btnUpdate.Tag=d.id;
+
+
+                btnUpdate.Click += (clickButton, eventArgs) =>
+                {
+                    Button buttonUpdate = clickButton as Button;
+                    UpdateDocumentFrm updateFrm = new UpdateDocumentFrm();
+                    updateFrm.course_id  = course_id;
+                    updateFrm.doc_id = d.id;
+                    if (d.linkyoutube != null && d.linkyoutube != "")
+                        updateFrm.linkVideoYouube = "https://www.youtube.com/watch?v=" + d.linkyoutube;
+                    updateFrm.nameDoc = d.name;
+                    updateFrm.desDoc = d.description;
+                    updateFrm.nameFile = d.filename;
+                    if (updateFrm.ShowDialog()==DialogResult.OK)
+                    {
+                        fillData();
+                    }
+
+                };
 
                 Button btnDelete = new Button();
                 btnDelete.BackgroundImage = Image.FromFile("Image/delete.png");
                 btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
                 btnDelete.Location = new Point(580, 55);
                 btnDelete.Size = new Size(55, 40);
+                btnDelete.Tag = d.id;
+
+                btnDelete.Click += (clickButton, eventArgs) =>
+                {
+                    Button buttonDelete = clickButton as Button;
+                    Dictionary<string, object> dic = new Dictionary<string, object>
+                    {
+                        {"MaTL",d.id}, {"MaKH",course_id}
+                    };
+                    DialogResult res = MessageBox.Show("Bạn có chắc muốn xoá tài liệu này?", "Xoá Tài Liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (res == DialogResult.Yes)
+                    {
+                        if (documentDAO.delete("TaiLieu", dic))
+                        {
+                            fillData();
+                        }
+                    }
+
+                };
 
                 if (role == 1)
                 {

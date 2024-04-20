@@ -1,4 +1,5 @@
 ﻿using StudentManagement.DAO;
+using StudentManagement.GUI.RegisterCourseGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,10 @@ namespace StudentManagement.GUI
         public string id_teacher {  get; set; }
         Data data = new Data();
         XJDBC db = new XJDBC();
+        public string cid {  get; set; }
+        public string name { get; set; }
+        public string numcre { get; set; }
+        public string des { get; set; }
         public UClistCourseTeacher()
         {
             InitializeComponent();
@@ -90,6 +95,62 @@ namespace StudentManagement.GUI
             {
                 fillData();
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            
+            if(cid !=null && cid != "")
+            {
+                string tablename = "KhoaHoc";
+                Dictionary<string, object> dic = new Dictionary<string, object>
+                {
+                    {"MaKH", cid},
+                };
+                DialogResult res = MessageBox.Show("Bạn có chác xoá khoá học này","Xoá Khoá học",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    CourseDAO courseDAO = new CourseDAO();
+                    if(courseDAO.deleteCourse(tablename, dic))
+                    {
+                        MessageBox.Show("Xoá Khoá học thành công!!!");
+                        fillData();
+                    }
+                }
+
+            }
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try {
+                
+               
+                if (cid != null && cid != "")
+                {
+                    UpdateCourseFrm frm = new UpdateCourseFrm();
+                    frm.cid = cid;
+                    frm.name = name;
+                    frm.numcre = numcre;
+                    frm.des = des;
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        fillData();
+                    }
+
+                }
+            }
+            catch { }
+            
+        }
+
+        private void dataGVlistCourse_Click(object sender, EventArgs e)
+        {
+            cid = dataGVlistCourse.CurrentRow.Cells["MaKhoaHoc"].Value.ToString();
+             name = dataGVlistCourse.CurrentRow.Cells["TenKhoaHoc"].Value.ToString();
+             numcre = dataGVlistCourse.CurrentRow.Cells["SoTC"].Value.ToString();
+             des = dataGVlistCourse.CurrentRow.Cells["MoTa"].Value.ToString();
         }
     }
 }

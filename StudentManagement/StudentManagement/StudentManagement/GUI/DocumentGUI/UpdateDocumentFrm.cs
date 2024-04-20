@@ -1,48 +1,62 @@
 ﻿using StudentManagement.DAO;
-using StudentManagement.Entity;
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudentManagement.GUI.Document
+namespace StudentManagement.GUI.DocumentGUI
 {
-    public partial class AddDocumentFrm : Form
+    public partial class UpdateDocumentFrm : Form
     {
-        public string course_id {  get; set; }
+        public string course_id { get; set; }
+        public int doc_id { get; set; }
+        public string nameDoc { get; set; }
+        public string desDoc { get; set; }
+        
         private string file { get; set; }
-        private string nameFile { get; set; }
+        public string nameFile { get; set; }
+        public string linkVideoYouube { get; set; }
         private string documentTableName = "TaiLieu";
         DocumentDAO documentDAO = new DocumentDAO();
-        Data data= new Data();
-        public AddDocumentFrm()
+        Data data = new Data();
+        public UpdateDocumentFrm()
         {
             InitializeComponent();
         }
 
-        private void AddDocumentFrm_Load(object sender, EventArgs e)
+        private void UpdateDocumentFrm_Load(object sender, EventArgs e)
         {
-           
+            txtNameDoc.Text = nameDoc;
+            txtDescription.Text = desDoc;
+            txtUrl.Text = linkVideoYouube;
+            linklblFileName.Text = nameFile;
         }
 
-        public void addDoc()
+        private void btnUpdateDoc_Click(object sender, EventArgs e)
         {
-            try
+            
+            updateDoc();
+        }
+        private void updateDoc()
+        {
+           try
             {
                 string docName = txtNameDoc.Text.Trim();
                 string description = txtDescription.Text;
                 string idvideo = documentDAO.getIdYoutubeVideo(txtUrl.Text.Trim());
-                string url = "https://www.youtube.com/embed/" + idvideo;
+                //string url = "https://www.youtube.com/embed/" + idvideo;
                 byte[] buffer;
+
+                string condition = " MaTL='" + doc_id + "' and MaKH = '" + course_id+"'";
                 if (data.ValidateNotNull(docName))
                 {
-                    if (nameFile != null && file != null)
+                    if (file != null)
                     {
                         using (Stream stream = File.OpenRead(file))
                         {
@@ -52,7 +66,7 @@ namespace StudentManagement.GUI.Document
 
                         Dictionary<string, object> values = new Dictionary<string, object>
                             {
-                                { "MaKH",  course_id},
+                               
                                 { "TenTL", docName },
                                 {"MoTa",description },
                                 {"FileTaiLieu",buffer },
@@ -60,11 +74,11 @@ namespace StudentManagement.GUI.Document
                                 {"LinkYoutube",idvideo }
 
                             };
-                        if (documentDAO.insert(documentTableName, values))
+                        if (documentDAO.update(documentTableName, values,condition))
                         {
-                            MessageBox.Show("Thêm Khoá Học thành công");
+                            MessageBox.Show("Cập nhật Khoá Học thành công");
                             DialogResult = DialogResult.OK;
-                            
+
                         }
                     }
 
@@ -72,16 +86,16 @@ namespace StudentManagement.GUI.Document
                     {
                         Dictionary<string, object> values = new Dictionary<string, object>
                             {
-                                { "MaKH",  course_id},
+                                
                                 { "TenTL", docName },
                                 { "MoTa",description },
                                 {"LinkYoutube",idvideo }
                             };
-                        if (documentDAO.insert(documentTableName, values))
+                        if (documentDAO.update(documentTableName, values, condition))
                         {
-                            MessageBox.Show("Thêm Khoá Học thành công");
-                            DialogResult= DialogResult.OK;
-                            
+                            MessageBox.Show("Cập nhật Khoá Học thành công");
+                            DialogResult = DialogResult.OK;
+
                         }
                     }
 
@@ -93,25 +107,8 @@ namespace StudentManagement.GUI.Document
                 {
                     MessageBox.Show("Vui lòng nhập đủ thông tin");
                 }
-            }
+           }
             catch { MessageBox.Show("Vui lòng nhập thông tin hợp lệ!!!"); }
-
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
 
         private void btnUploadFile_Click(object sender, EventArgs e)
@@ -120,12 +117,6 @@ namespace StudentManagement.GUI.Document
             file = filePath;
             nameFile = filename;
             linklblFileName.Text = nameFile;
-        }
-
-        private void btnAddDoc_Click(object sender, EventArgs e)
-        {
-            addDoc();
-           
         }
     }
 }

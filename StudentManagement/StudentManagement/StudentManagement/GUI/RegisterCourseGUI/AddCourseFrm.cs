@@ -181,5 +181,10 @@ namespace StudentManagement.GUI
                 e.Handled = true;
             }
         }
+
+        private void AddCourseFrm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

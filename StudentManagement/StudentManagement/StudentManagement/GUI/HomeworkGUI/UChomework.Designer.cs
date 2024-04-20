@@ -34,7 +34,6 @@
             // 
             // panelDocument
             // 
-            this.panelDocument.AutoScroll = true;
             this.panelDocument.AutoSize = true;
             this.panelDocument.Location = new System.Drawing.Point(1, 94);
             this.panelDocument.Name = "panelDocument";

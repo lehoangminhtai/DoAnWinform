@@ -60,9 +60,9 @@
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label11.Location = new System.Drawing.Point(12, 6);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(362, 35);
+            this.label11.Size = new System.Drawing.Size(187, 35);
             this.label11.TabIndex = 21;
-            this.label11.Text = "Trang quản lý - Thêm Khoá Học";
+            this.label11.Text = "Thêm Khoá Học";
             // 
             // panel1
             // 
@@ -300,6 +300,7 @@
             this.Controls.Add(this.label4);
             this.Name = "AddCourseFrm";
             this.Text = "AddCourseFrm";
+            this.Load += new System.EventHandler(this.AddCourseFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -110,41 +110,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiangVien.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GUI\AddCourseFrm.cs">
+    <Compile Include="GUI\RegisterCourseGUI\AddCourseFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\AddCourseFrm.Designer.cs">
+    <Compile Include="GUI\RegisterCourseGUI\AddCourseFrm.Designer.cs">
       <DependentUpon>AddCourseFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ADMINaddCourse.cs">
+    <Compile Include="GUI\ADMIN\ADMINaddCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ADMINaddCourse.Designer.cs">
+    <Compile Include="GUI\ADMIN\ADMINaddCourse.Designer.cs">
       <DependentUpon>ADMINaddCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ADMINCourse.cs">
+    <Compile Include="GUI\ADMIN\ADMINCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ADMINCourse.Designer.cs">
+    <Compile Include="GUI\ADMIN\ADMINCourse.Designer.cs">
       <DependentUpon>ADMINCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ADMINForm.cs">
+    <Compile Include="GUI\ADMIN\ADMINForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ADMINForm.Designer.cs">
+    <Compile Include="GUI\ADMIN\ADMINForm.Designer.cs">
       <DependentUpon>ADMINForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ADMINUpdateSTD.cs">
+    <Compile Include="GUI\ADMIN\ADMINUpdateSTD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ADMINUpdateSTD.Designer.cs">
+    <Compile Include="GUI\ADMIN\ADMINUpdateSTD.Designer.cs">
       <DependentUpon>ADMINUpdateSTD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\CourseStudentListFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\CourseStudentListFrm.Designer.cs">
-      <DependentUpon>CourseStudentListFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\DetectFaceForm.cs">
       <SubType>Form</SubType>
@@ -158,10 +152,16 @@
     <Compile Include="GUI\DocumentGUI\AddDocumentFrm.Designer.cs">
       <DependentUpon>AddDocumentFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmOTP.cs">
+    <Compile Include="GUI\DocumentGUI\UpdateDocumentFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmOTP.Designer.cs">
+    <Compile Include="GUI\DocumentGUI\UpdateDocumentFrm.Designer.cs">
+      <DependentUpon>UpdateDocumentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LoginRegisterGUI\frmOTP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LoginRegisterGUI\frmOTP.Designer.cs">
       <DependentUpon>frmOTP.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\HomeworkGUI\UChomework.cs">
@@ -170,10 +170,10 @@
     <Compile Include="GUI\HomeworkGUI\UChomework.Designer.cs">
       <DependentUpon>UChomework.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\LoginFrm.cs">
+    <Compile Include="GUI\LoginRegisterGUI\LoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\LoginFrm.Designer.cs">
+    <Compile Include="GUI\LoginRegisterGUI\LoginFrm.Designer.cs">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\MainForm.cs">
@@ -182,41 +182,53 @@
     <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UCCourse.cs">
+    <Compile Include="GUI\RegisterCourseGUI\CourseStudentListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RegisterCourseGUI\CourseStudentListFrm.Designer.cs">
+      <DependentUpon>CourseStudentListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RegisterCourseGUI\UCCourse.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UCCourse.Designer.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UCCourse.Designer.cs">
       <DependentUpon>UCCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UCCourseList.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UCCourseList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UCCourseList.Designer.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UCCourseList.Designer.cs">
       <DependentUpon>UCCourseList.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UCdocument.cs">
+    <Compile Include="GUI\DocumentGUI\UCdocument.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UCdocument.Designer.cs">
+    <Compile Include="GUI\DocumentGUI\UCdocument.Designer.cs">
       <DependentUpon>UCdocument.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UcInformation.cs">
+    <Compile Include="GUI\InformationGUI\UcInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UcInformation.Designer.cs">
+    <Compile Include="GUI\InformationGUI\UcInformation.Designer.cs">
       <DependentUpon>UcInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UClistCourseRegister.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UClistCourseRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UClistCourseRegister.Designer.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UClistCourseRegister.Designer.cs">
       <DependentUpon>UClistCourseRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UClistCourseTeacher.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UClistCourseTeacher.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UClistCourseTeacher.Designer.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UClistCourseTeacher.Designer.cs">
       <DependentUpon>UClistCourseTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RegisterCourseGUI\UpdateCourseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RegisterCourseGUI\UpdateCourseFrm.Designer.cs">
+      <DependentUpon>UpdateCourseFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UcNotification.cs">
       <SubType>UserControl</SubType>
@@ -224,22 +236,22 @@
     <Compile Include="GUI\UcNotification.Designer.cs">
       <DependentUpon>UcNotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\RegisterFrm.cs">
+    <Compile Include="GUI\LoginRegisterGUI\RegisterFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\RegisterFrm.Designer.cs">
+    <Compile Include="GUI\LoginRegisterGUI\RegisterFrm.Designer.cs">
       <DependentUpon>RegisterFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UCRegisterCourse.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UCRegisterCourse.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UCRegisterCourse.Designer.cs">
+    <Compile Include="GUI\RegisterCourseGUI\UCRegisterCourse.Designer.cs">
       <DependentUpon>UCRegisterCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UpdateInfor.cs">
+    <Compile Include="GUI\InformationGUI\UpdateInfor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\UpdateInfor.Designer.cs">
+    <Compile Include="GUI\InformationGUI\UpdateInfor.Designer.cs">
       <DependentUpon>UpdateInfor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -249,23 +261,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyHocTapDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GUI\AddCourseFrm.resx">
+    <EmbeddedResource Include="GUI\RegisterCourseGUI\AddCourseFrm.resx">
       <DependentUpon>AddCourseFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ADMINaddCourse.resx">
+    <EmbeddedResource Include="GUI\ADMIN\ADMINaddCourse.resx">
       <DependentUpon>ADMINaddCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ADMINCourse.resx">
+    <EmbeddedResource Include="GUI\ADMIN\ADMINCourse.resx">
       <DependentUpon>ADMINCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ADMINForm.resx">
+    <EmbeddedResource Include="GUI\ADMIN\ADMINForm.resx">
       <DependentUpon>ADMINForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ADMINUpdateSTD.resx">
+    <EmbeddedResource Include="GUI\ADMIN\ADMINUpdateSTD.resx">
       <DependentUpon>ADMINUpdateSTD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CourseStudentListFrm.resx">
-      <DependentUpon>CourseStudentListFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DetectFaceForm.resx">
       <DependentUpon>DetectFaceForm.cs</DependentUpon>
@@ -273,46 +282,55 @@
     <EmbeddedResource Include="GUI\DocumentGUI\AddDocumentFrm.resx">
       <DependentUpon>AddDocumentFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmOTP.resx">
+    <EmbeddedResource Include="GUI\DocumentGUI\UpdateDocumentFrm.resx">
+      <DependentUpon>UpdateDocumentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LoginRegisterGUI\frmOTP.resx">
       <DependentUpon>frmOTP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HomeworkGUI\UChomework.resx">
       <DependentUpon>UChomework.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\LoginFrm.resx">
+    <EmbeddedResource Include="GUI\LoginRegisterGUI\LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UCCourse.resx">
+    <EmbeddedResource Include="GUI\RegisterCourseGUI\CourseStudentListFrm.resx">
+      <DependentUpon>CourseStudentListFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RegisterCourseGUI\UCCourse.resx">
       <DependentUpon>UCCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UCCourseList.resx">
+    <EmbeddedResource Include="GUI\RegisterCourseGUI\UCCourseList.resx">
       <DependentUpon>UCCourseList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UCdocument.resx">
+    <EmbeddedResource Include="GUI\DocumentGUI\UCdocument.resx">
       <DependentUpon>UCdocument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UcInformation.resx">
+    <EmbeddedResource Include="GUI\InformationGUI\UcInformation.resx">
       <DependentUpon>UcInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UClistCourseRegister.resx">
+    <EmbeddedResource Include="GUI\RegisterCourseGUI\UClistCourseRegister.resx">
       <DependentUpon>UClistCourseRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UClistCourseTeacher.resx">
+    <EmbeddedResource Include="GUI\RegisterCourseGUI\UClistCourseTeacher.resx">
       <DependentUpon>UClistCourseTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RegisterCourseGUI\UpdateCourseFrm.resx">
+      <DependentUpon>UpdateCourseFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcNotification.resx">
       <DependentUpon>UcNotification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\RegisterFrm.resx">
+    <EmbeddedResource Include="GUI\LoginRegisterGUI\RegisterFrm.resx">
       <DependentUpon>RegisterFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UCRegisterCourse.resx">
+    <EmbeddedResource Include="GUI\RegisterCourseGUI\UCRegisterCourse.resx">
       <DependentUpon>UCRegisterCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UpdateInfor.resx">
+    <EmbeddedResource Include="GUI\InformationGUI\UpdateInfor.resx">
       <DependentUpon>UpdateInfor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

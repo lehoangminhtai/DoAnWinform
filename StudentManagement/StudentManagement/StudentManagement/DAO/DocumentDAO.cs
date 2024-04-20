@@ -52,7 +52,14 @@ namespace StudentManagement.DAO
         {
             return data.InsertData(tableName,values);
         }
-
+        public bool update(string tableName, Dictionary<string, object> values, string condition)
+        {
+            return data.UpdateData(tableName,values,condition);
+        }
+        public bool delete(string tableName, Dictionary<string, object> values)
+        {
+            return data.Delete(tableName, values);
+        }
         public (string file, string filename) openFile()
         {
             return data.openFile();

@@ -124,7 +124,7 @@ namespace StudentManagement.DAO
         }
         public bool UpdateData(string tableName, Dictionary<string, object> values, string condition)
         {
-           try
+          try
             {
                 string sql = $"UPDATE {tableName} SET {string.Join(", ", values.Keys.Select(key => $"{key} = @{key}"))} WHERE {condition}";
 
@@ -139,10 +139,10 @@ namespace StudentManagement.DAO
                     }
 
                     cmd.ExecuteNonQuery();
-               
-                    return true;
+                
+                return true;
               }
-            }
+           }
             catch (Exception e)
             {
                 MessageBox.Show("Lỗi khi cập nhật dữ liệu!!!");
