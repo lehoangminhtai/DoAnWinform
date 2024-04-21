@@ -77,7 +77,7 @@ namespace StudentManagement.DAO
                     }
                     
                     cmd.ExecuteNonQuery();
-                
+                //db.closeConnection();
                 return true;
                 }
            }
@@ -139,7 +139,7 @@ namespace StudentManagement.DAO
                     }
 
                     cmd.ExecuteNonQuery();
-                
+                //db.closeConnection();
                 return true;
               }
            }
@@ -296,12 +296,17 @@ namespace StudentManagement.DAO
         public (string file, string filename) openFile()
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.ShowDialog();
-            string file = dlg.FileName;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string file = dlg.FileName;
 
-            string filename = Path.GetFileName(file);
+                string filename = Path.GetFileName(file);
 
-            return (file, filename);
+                return (file, filename);
+            }
+            else
+                return (null, null);
+            
 
         }
         public void downloadFile(string filename, string  sql)
@@ -322,30 +327,34 @@ namespace StudentManagement.DAO
         }
         private void Download(string namefile, string sql)
         {
-            db.openConnection();
-            bool em = false;
-            SqlCommand cmd = new SqlCommand(sql, db.getConnection);
-            SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.Default);
-            if (reader.Read())
+            try
             {
-                em = true;
-                byte[] fileData = (byte[])reader.GetValue(0);
-                using (FileStream fs = new FileStream(namefile, FileMode.Create, FileAccess.ReadWrite))
+                db.openConnection();
+                bool em = false;
+                SqlCommand cmd = new SqlCommand(sql, db.getConnection);
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.Default);
+                if (reader.Read())
                 {
-
-                    using (BinaryWriter bw = new BinaryWriter(fs))
+                    em = true;
+                    byte[] fileData = (byte[])reader.GetValue(0);
+                    using (FileStream fs = new FileStream(namefile, FileMode.Create, FileAccess.ReadWrite))
                     {
-                        bw.Write(fileData);
-                        bw.Close();
+
+                        using (BinaryWriter bw = new BinaryWriter(fs))
+                        {
+                            bw.Write(fileData);
+                            bw.Close();
+                        }
                     }
+                    MessageBox.Show("Download File Successfully");
                 }
-                MessageBox.Show("Download File Successfully");
+                if (em == false)
+                {
+                    MessageBox.Show("Download File Failed!!!");
+                }
+                reader.Close();
             }
-            if (em == false)
-            {
-                MessageBox.Show("Download File Failed!!!");
-            }
-            reader.Close();
+            catch{ }
 
         }
 
@@ -370,6 +379,52 @@ namespace StudentManagement.DAO
             else
                 return "";
         }
+
+        public bool updateFileToNull(string tablename,string file, string filename,string condition)
+        {
+
+            
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand($"update {tablename} set {file} = null, {filename}=null where "+condition, db.getConnection);
+                db.openConnection();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally { db.closeConnection(); }
+
+        }
+        public int count(string sql)
+        {
+            int sum = 0;
+            try
+            {
+                
+                SqlCommand cmd = new SqlCommand(sql, db.getConnection);
+                db.openConnection();
+                object result = cmd.ExecuteScalar();
+
+                // Kiểm tra xem kết quả có tồn tại không
+                if (result != null)
+                {
+
+                    sum = Convert.ToInt32(result);
+                }
+                else
+                    sum = 0;
+                db.closeConnection();
+               
+            }
+            catch { }
+            return sum;
+        }
+
 
     }
 

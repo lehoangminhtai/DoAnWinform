@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDeleteFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,16 +167,29 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(415, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 37);
+            this.label1.Size = new System.Drawing.Size(336, 37);
             this.label1.TabIndex = 6;
-            this.label1.Text = "CẬP NHẬT";
+            this.label1.Text = "CẬP NHẬT TÀI LIỆU";
+            // 
+            // btnDeleteFile
+            // 
+            this.btnDeleteFile.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDeleteFile.Location = new System.Drawing.Point(422, 509);
+            this.btnDeleteFile.Name = "btnDeleteFile";
+            this.btnDeleteFile.Size = new System.Drawing.Size(94, 41);
+            this.btnDeleteFile.TabIndex = 18;
+            this.btnDeleteFile.Text = "Xoá file";
+            this.btnDeleteFile.UseVisualStyleBackColor = false;
+            this.btnDeleteFile.Click += new System.EventHandler(this.btnDeleteFile_Click);
             // 
             // UpdateDocumentFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(967, 772);
+            this.Controls.Add(this.btnDeleteFile);
             this.Controls.Add(this.btnUpdateDoc);
             this.Controls.Add(this.btnUploadFile);
             this.Controls.Add(this.linklblFileName);
@@ -212,5 +226,6 @@
         public System.Windows.Forms.TextBox txtDescription;
         public System.Windows.Forms.TextBox txtUrl;
         public System.Windows.Forms.TextBox txtNameDoc;
+        private System.Windows.Forms.Button btnDeleteFile;
     }
 }

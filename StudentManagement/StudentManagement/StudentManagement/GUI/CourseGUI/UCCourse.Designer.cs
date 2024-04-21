@@ -352,6 +352,7 @@
             this.btnExcercise.TabIndex = 0;
             this.btnExcercise.Text = "Bài Tập";
             this.btnExcercise.UseVisualStyleBackColor = false;
+            this.btnExcercise.Click += new System.EventHandler(this.btnExcercise_Click);
             // 
             // btnMaterial
             // 

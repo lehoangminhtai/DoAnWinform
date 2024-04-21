@@ -40,6 +40,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtUrl = new System.Windows.Forms.TextBox();
+            this.btnDeleteFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,14 +111,15 @@
             // linklblFileName
             // 
             this.linklblFileName.AutoSize = true;
+            this.linklblFileName.Enabled = false;
             this.linklblFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblFileName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.linklblFileName.Location = new System.Drawing.Point(293, 450);
             this.linklblFileName.Name = "linklblFileName";
-            this.linklblFileName.Size = new System.Drawing.Size(110, 29);
+            this.linklblFileName.Size = new System.Drawing.Size(125, 29);
             this.linklblFileName.TabIndex = 4;
             this.linklblFileName.TabStop = true;
-            this.linklblFileName.Text = "fileName";
+            this.linklblFileName.Text = "Tải file lên";
             this.linklblFileName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // btnAddDoc
@@ -177,6 +179,17 @@
             this.txtUrl.TabIndex = 3;
             this.txtUrl.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // btnDeleteFile
+            // 
+            this.btnDeleteFile.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDeleteFile.Location = new System.Drawing.Point(377, 497);
+            this.btnDeleteFile.Name = "btnDeleteFile";
+            this.btnDeleteFile.Size = new System.Drawing.Size(94, 41);
+            this.btnDeleteFile.TabIndex = 19;
+            this.btnDeleteFile.Text = "Xoá file";
+            this.btnDeleteFile.UseVisualStyleBackColor = false;
+            this.btnDeleteFile.Click += new System.EventHandler(this.btnDeleteFile_Click);
+            // 
             // AddDocumentFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -184,6 +197,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(967, 772);
+            this.Controls.Add(this.btnDeleteFile);
             this.Controls.Add(this.btnAddDoc);
             this.Controls.Add(this.btnUploadFile);
             this.Controls.Add(this.linklblFileName);
@@ -220,5 +234,6 @@
         private System.Windows.Forms.Button btnAddDoc;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Button btnDeleteFile;
     }
 }

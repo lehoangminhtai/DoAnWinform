@@ -97,18 +97,51 @@
     <Compile Include="DAO\OTP.cs" />
     <Compile Include="DAO\ScoreDAO.cs" />
     <Compile Include="DAO\StudentDAO.cs" />
+    <Compile Include="DAO\SubmitHomeworkDAO.cs" />
     <Compile Include="DAO\TeacherDao.cs" />
     <Compile Include="DAO\XJDBC.cs" />
+    <Compile Include="Entity\ACCOUNT.cs" />
     <Compile Include="Entity\COURSE.cs" />
     <Compile Include="Entity\DOCUMENT.cs" />
     <Compile Include="Entity\HOMEWORK.cs" />
     <Compile Include="Entity\LOGIN.cs" />
     <Compile Include="Entity\STUDENT.cs" />
+    <Compile Include="Entity\SubmitHWDetail.cs" />
     <Compile Include="Entity\TEACHER.cs" />
     <Compile Include="GiangVien.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GiangVien.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeworkGUI\AddHomeworkFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeworkGUI\AddHomeworkFrm.Designer.cs">
+      <DependentUpon>AddHomeworkFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SubmitHwGUI\AddSubmitHwFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SubmitHwGUI\AddSubmitHwFrm.Designer.cs">
+      <DependentUpon>AddSubmitHwFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SubmitHwGUI\ListSubmitHwFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SubmitHwGUI\ListSubmitHwFrm.Designer.cs">
+      <DependentUpon>ListSubmitHwFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SubmitHwGUI\SubmitHomeworkFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SubmitHwGUI\SubmitHomeworkFrm.Designer.cs">
+      <DependentUpon>SubmitHomeworkFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HomeworkGUI\UpdateHomeworkFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeworkGUI\UpdateHomeworkFrm.Designer.cs">
+      <DependentUpon>UpdateHomeworkFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\RegisterCourseGUI\AddCourseFrm.cs">
       <SubType>Form</SubType>
@@ -188,16 +221,16 @@
     <Compile Include="GUI\RegisterCourseGUI\CourseStudentListFrm.Designer.cs">
       <DependentUpon>CourseStudentListFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\RegisterCourseGUI\UCCourse.cs">
+    <Compile Include="GUI\CourseGUI\UCCourse.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\RegisterCourseGUI\UCCourse.Designer.cs">
+    <Compile Include="GUI\CourseGUI\UCCourse.Designer.cs">
       <DependentUpon>UCCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\RegisterCourseGUI\UCCourseList.cs">
+    <Compile Include="GUI\CourseGUI\UCCourseList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\RegisterCourseGUI\UCCourseList.Designer.cs">
+    <Compile Include="GUI\CourseGUI\UCCourseList.Designer.cs">
       <DependentUpon>UCCourseList.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\DocumentGUI\UCdocument.cs">
@@ -261,6 +294,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyHocTapDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\HomeworkGUI\AddHomeworkFrm.resx">
+      <DependentUpon>AddHomeworkFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubmitHwGUI\AddSubmitHwFrm.resx">
+      <DependentUpon>AddSubmitHwFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubmitHwGUI\ListSubmitHwFrm.resx">
+      <DependentUpon>ListSubmitHwFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubmitHwGUI\SubmitHomeworkFrm.resx">
+      <DependentUpon>SubmitHomeworkFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HomeworkGUI\UpdateHomeworkFrm.resx">
+      <DependentUpon>UpdateHomeworkFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\RegisterCourseGUI\AddCourseFrm.resx">
       <DependentUpon>AddCourseFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,10 +348,10 @@
     <EmbeddedResource Include="GUI\RegisterCourseGUI\CourseStudentListFrm.resx">
       <DependentUpon>CourseStudentListFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\RegisterCourseGUI\UCCourse.resx">
+    <EmbeddedResource Include="GUI\CourseGUI\UCCourse.resx">
       <DependentUpon>UCCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\RegisterCourseGUI\UCCourseList.resx">
+    <EmbeddedResource Include="GUI\CourseGUI\UCCourseList.resx">
       <DependentUpon>UCCourseList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DocumentGUI\UCdocument.resx">
@@ -478,6 +526,12 @@
     <None Include="Image\delete.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\file %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

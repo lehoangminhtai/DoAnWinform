@@ -85,7 +85,7 @@ namespace StudentManagement.GUI
 
                 lblFileName.Click += (clicklabel, eventArgs) =>
                 {
-                    string sql = "select FileTaiLieu from TaiLieu where MaTl = '" + doc_id + "' and MaKH ='" + course_id + "'";
+                    string sql = "select FileTaiLieu from TaiLieu where MaTl = '" + d.id + "' and MaKH ='" + course_id + "'";
                     LinkLabel lblfile = clicklabel as LinkLabel;
                     documentDAO.downloadFile(filename, sql);
                     
@@ -110,6 +110,7 @@ namespace StudentManagement.GUI
                     updateFrm.nameDoc = d.name;
                     updateFrm.desDoc = d.description;
                     updateFrm.nameFile = d.filename;
+                    
                     if (updateFrm.ShowDialog()==DialogResult.OK)
                     {
                         fillData();

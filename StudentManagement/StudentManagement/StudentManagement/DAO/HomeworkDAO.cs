@@ -33,8 +33,8 @@ namespace StudentManagement.DAO
                             openDate = reader.GetDateTime(2),
                             closeDate = reader.GetDateTime(3),
                             description = reader.GetString(4),
-                            filename = reader.IsDBNull(5) ? "" : reader.GetString(5),
-                            role_view = reader.GetInt32(6)
+                            filename = reader.IsDBNull(5) ? "" : reader.GetString(5)
+                            //role_view = reader.GetInt32(6)
 
                         };
 
@@ -70,6 +70,10 @@ namespace StudentManagement.DAO
         public void downloadFile(string filename, string sql)
         {
             data.downloadFile(filename, sql);
+        }
+        public bool updateFileToNull(string tablename, string file, string filename, string condition)
+        {
+            return data.updateFileToNull(tablename, file, filename, condition);
         }
     }
 }

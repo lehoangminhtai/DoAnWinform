@@ -31,7 +31,7 @@ namespace StudentManagement.GUI.Document
            
         }
 
-        public void addDoc()
+        private void addDoc()
         {
             try
             {
@@ -126,6 +126,12 @@ namespace StudentManagement.GUI.Document
         {
             addDoc();
            
+        }
+
+        private void btnDeleteFile_Click(object sender, EventArgs e)
+        {
+            file=null; nameFile=null;
+            linklblFileName.Text = "Tải file lên";
         }
     }
 }

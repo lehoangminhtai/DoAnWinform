@@ -1,6 +1,8 @@
 ﻿using StudentManagement.DAO;
 using StudentManagement.Entity;
+using StudentManagement.GUI.Document;
 using StudentManagement.GUI.DocumentGUI;
+using StudentManagement.GUI.SubmitHwGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,14 +41,14 @@ namespace StudentManagement.GUI.HomeworkGUI
         {
             if (course_id != null)
             {
-                SqlCommand cmd = new SqlCommand("select bt.TenBaiTap, bt.NgayMo,bt.HanNop,bt.YeuCau,bt.TenFile,bt.QuyenTruyCap from BaiTap bt where bt.MaKH ='" + course_id + "'");
+                SqlCommand cmd = new SqlCommand("select bt.MaBT, bt.TenBaiTap, bt.NgayMo,bt.HanNop,bt.YeuCau,bt.TenFile from BaiTap bt where bt.MaKH ='" + course_id + "'");
                 showListDocument(cmd);
             }
         }
 
         private void showListDocument(SqlCommand cmd)
         {
-            panelDocument.Controls.Clear();
+            panelHomeWork.Controls.Clear();
 
             int panelY = 0;
 
@@ -56,7 +58,7 @@ namespace StudentManagement.GUI.HomeworkGUI
                 Panel panelHWork = new Panel();
                 panelHWork.BorderStyle = BorderStyle.FixedSingle;
                 panelHWork.Location = new Point(10, panelY);
-                panelHWork.Size = new Size(650, 150);
+                panelHWork.Size = new Size(650, 170);
                 panelHWork.Margin = new Padding(10);
                 panelHWork.BackColor = Color.White;
 
@@ -65,18 +67,29 @@ namespace StudentManagement.GUI.HomeworkGUI
                 Label labelName = new Label();
                 labelName.Text = h.name;
                 labelName.Location = new Point(20, 10);
-                labelName.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                labelName.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Bold);
                 labelName.AutoSize = true;
 
+                Label labelOpenDate = new Label();
+                labelOpenDate.Text = "Mở bài: " + h.openDate.ToString("dddd, dd MMMM yyyy, hh:mm tt");
+                labelOpenDate.Location = new Point(20, 40);
+                labelOpenDate.AutoSize = true;
+
+                Label labelDeadline = new Label();
+                labelDeadline.Text ="Đóng bài: "+ h.closeDate.ToString("dddd, dd MMMM yyyy, hh:mm tt");
+                labelDeadline.Location = new Point(20, 60);
+                labelDeadline.AutoSize = true;
+
                 Label labelDes = new Label();
-                labelDes.Text = h.description;
-                labelDes.Location = new Point(20, 50);
+                labelDes.Text ="Yêu cầu: "+ h.description;
+                labelDes.Location = new Point(20, 90);
+                labelDes.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Regular);
                 labelDes.AutoSize = true;
 
                 LinkLabel lblFileName = new LinkLabel();
                 lblFileName.Text = h.filename;
-                lblFileName.Location = new Point(20, 80);
-                lblFileName.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                lblFileName.Location = new Point(20, 130);
+                lblFileName.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
                 lblFileName.AutoSize = true;
                 lblFileName.Tag = h.id;
                 filename = h.filename;
@@ -85,9 +98,10 @@ namespace StudentManagement.GUI.HomeworkGUI
 
                 lblFileName.Click += (clicklabel, eventArgs) =>
                 {
-                    string sql = "select File from BaiTap where MaBT = '" + hw_id + "' and MaKH ='" + course_id + "'";
                     LinkLabel lblfile = clicklabel as LinkLabel;
-                    homeworkDAO.downloadFile(filename, sql);
+                    string sql = "select FileBT from BaiTap where MaBT = '" + h.id + "' and MaKH ='" + course_id + "'";
+                   
+                    homeworkDAO.downloadFile(h.filename, sql);
 
                 };
 
@@ -102,13 +116,14 @@ namespace StudentManagement.GUI.HomeworkGUI
                 btnUpdate.Click += (clickButton, eventArgs) =>
                 {
                     Button buttonUpdate = clickButton as Button;
-                    UpdateDocumentFrm updateFrm = new UpdateDocumentFrm();
+                    UpdateHomeworkFrm updateFrm = new UpdateHomeworkFrm();
                     updateFrm.course_id = course_id;
-                    updateFrm.doc_id = h.id;
+                    updateFrm.hw_id = h.id;
                    
-                    updateFrm.nameDoc = h.name;
-                    updateFrm.desDoc = h.description;
+                    updateFrm.nameHW = h.name;
+                    updateFrm.desHW = h.description;
                     updateFrm.nameFile = h.filename;
+                    updateFrm.dealine = h.closeDate;
                     if (updateFrm.ShowDialog() == DialogResult.OK)
                     {
                         fillData();
@@ -138,35 +153,93 @@ namespace StudentManagement.GUI.HomeworkGUI
                             fillData();
                         }
                     }
+                   
+                };
+                Button btnSubmit = new Button();
+                btnSubmit.Text= "Nộp bài";
+                btnSubmit.AutoSize = true;
+                btnSubmit.Font= new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                btnSubmit.BackColor = Color.PaleTurquoise;
+                btnSubmit.Location = new Point(500, 10);
+                btnSubmit.Size = new Size(55, 35);
+                btnSubmit.Tag = h.id;
 
+               /* if (h.closeDate <= DateTime.Now)
+                {
+                    btnSubmit.Visible = false;
+                }*/
+                btnSubmit.Click += (clickButton, eventArgs) =>
+                {
+                    Button buttonSubmit = clickButton as Button;
+                    SubmitHomeworkFrm submitfrm = new SubmitHomeworkFrm();
+                    submitfrm.idHW = h.id;
+                    submitfrm.id_Course = course_id;
+                    submitfrm.id_Student=ACCOUNT.id;
+                    submitfrm.nameHW = h.name;
+                    
+                    submitfrm.openDate = h.openDate;
+                    submitfrm.deadline = h.closeDate;
+
+                    submitfrm.ShowDialog();
+                };
+
+                Button btnResult = new Button();
+                btnResult.Text = "Kết Quả";
+                btnResult.AutoSize = true;
+                btnResult.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                btnResult.BackColor = Color.PaleTurquoise;
+                btnResult.Location = new Point(500, 50);
+                btnResult.Size = new Size(55, 35);
+                btnResult.Tag = h.id;
+
+                btnResult.Click += (clickButton, eventArgs) =>
+                {
+                    Button buttonResult = clickButton as Button;
+                    ListSubmitHwFrm frm = new ListSubmitHwFrm();
+                    frm.id_course = course_id;
+                    frm.id_hw =h.id;
+                    frm.name_hw =h.name;
+                    frm.Show();
                 };
 
                 if (role == 1)
                 {
                     btnDelete.Visible = false;
                     btnUpdate.Visible = false;
+                    btnResult.Visible = false;
+                }
+                if(role==2)
+                {
+                    btnSubmit.Visible = false;
                 }
 
-                panelDocument.Controls.Add(btnUpdate);
-                panelDocument.Controls.Add(btnDelete);
-                panelDocument.Controls.Add(labelName);
-                panelDocument.Controls.Add(labelDes);
-                panelDocument.Controls.Add(lblFileName);
+                panelHWork.Controls.Add(btnUpdate);
+                panelHWork.Controls.Add(btnSubmit);
+                panelHWork.Controls.Add(btnDelete);
+                panelHWork.Controls.Add(btnResult);
+                panelHWork.Controls.Add(labelName);
+                panelHWork.Controls.Add(labelOpenDate);
+                panelHWork.Controls.Add(labelDeadline);
+                panelHWork.Controls.Add(labelDes);
+                panelHWork.Controls.Add(lblFileName);
 
+                panelY += panelHWork.Height + 10;
 
-                
-
-
-
-
-
-                panelY += panelDocument.Height + 10;
-
-                panelDocument.Controls.Add(panelHWork);
+                panelHomeWork.Controls.Add(panelHWork);
 
 
             }
 
+        }
+
+        private void btnAddHomeW_Click(object sender, EventArgs e)
+        {
+           AddHomeworkFrm addHomeworkFrm = new AddHomeworkFrm();
+            addHomeworkFrm.course_id = course_id;
+            if (addHomeworkFrm.ShowDialog() == DialogResult.OK)
+            {
+                fillData();
+            }
         }
     }
 }

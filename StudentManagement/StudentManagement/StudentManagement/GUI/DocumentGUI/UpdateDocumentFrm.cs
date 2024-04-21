@@ -56,7 +56,7 @@ namespace StudentManagement.GUI.DocumentGUI
                 string condition = " MaTL='" + doc_id + "' and MaKH = '" + course_id+"'";
                 if (data.ValidateNotNull(docName))
                 {
-                    if (file != null)
+                    if (file != null&& linklblFileName.Text!="")
                     {
                         using (Stream stream = File.OpenRead(file))
                         {
@@ -76,12 +76,26 @@ namespace StudentManagement.GUI.DocumentGUI
                             };
                         if (documentDAO.update(documentTableName, values,condition))
                         {
-                            MessageBox.Show("Cập nhật Khoá Học thành công");
+                            MessageBox.Show("Cập nhật tài liệu thành công");
                             DialogResult = DialogResult.OK;
 
                         }
                     }
+                    else if(linklblFileName.Text==""&& file==null){
+                        Dictionary<string, object> values = new Dictionary<string, object>
+                            {
 
+                                { "TenTL", docName },
+                                { "MoTa",description },
+                                {"LinkYoutube",idvideo }
+                            };
+                        if (documentDAO.update(documentTableName, values, condition)&& documentDAO.updateFileToNull(documentTableName,"FileTaiLieu","TenFile",condition))
+                        {
+                            MessageBox.Show("Cập nhật tài liệu thành công");
+                            DialogResult = DialogResult.OK;
+
+                        }
+                    }
                     else
                     {
                         Dictionary<string, object> values = new Dictionary<string, object>
@@ -93,7 +107,7 @@ namespace StudentManagement.GUI.DocumentGUI
                             };
                         if (documentDAO.update(documentTableName, values, condition))
                         {
-                            MessageBox.Show("Cập nhật Khoá Học thành công");
+                            MessageBox.Show("Cập nhật tài liệu thành công");
                             DialogResult = DialogResult.OK;
 
                         }
@@ -117,6 +131,12 @@ namespace StudentManagement.GUI.DocumentGUI
             file = filePath;
             nameFile = filename;
             linklblFileName.Text = nameFile;
+        }
+
+        private void btnDeleteFile_Click(object sender, EventArgs e)
+        {
+            linklblFileName.Text = "";
+            file = null;
         }
     }
 }

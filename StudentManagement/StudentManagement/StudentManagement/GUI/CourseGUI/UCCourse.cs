@@ -1,4 +1,5 @@
 ﻿using StudentManagement.DAO;
+using StudentManagement.GUI.HomeworkGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,6 +77,15 @@ namespace StudentManagement.GUI
             ucDoc.role = role;
             ucDoc.course_id= id;
             panelContainer.Controls.Add(ucDoc);
+        }
+
+        private void btnExcercise_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear();
+            UChomework ucHW = new UChomework();
+            ucHW.role = role;
+            ucHW.course_id = id;
+            panelContainer.Controls.Add(ucHW);
         }
 
         private void openFile()

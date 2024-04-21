@@ -72,5 +72,11 @@ namespace StudentManagement.DAO
         {
             return data.GetVideoId(url);
         }
+        public bool updateFileToNull(string tablename, string file, string filename, string condition)
+        {
+            return data.updateFileToNull(tablename,file,filename,condition); 
+        }
+
+
     }
 }

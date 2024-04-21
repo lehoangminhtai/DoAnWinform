@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelDocument = new System.Windows.Forms.Panel();
+            this.panelHomeWork = new System.Windows.Forms.Panel();
             this.btnAddHomeW = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // panelDocument
+            // panelHomeWork
             // 
-            this.panelDocument.AutoSize = true;
-            this.panelDocument.Location = new System.Drawing.Point(1, 94);
-            this.panelDocument.Name = "panelDocument";
-            this.panelDocument.Size = new System.Drawing.Size(1026, 599);
-            this.panelDocument.TabIndex = 2;
+            this.panelHomeWork.AutoSize = true;
+            this.panelHomeWork.Location = new System.Drawing.Point(1, 94);
+            this.panelHomeWork.Name = "panelHomeWork";
+            this.panelHomeWork.Size = new System.Drawing.Size(1026, 599);
+            this.panelHomeWork.TabIndex = 2;
             // 
             // btnAddHomeW
             // 
@@ -50,6 +50,7 @@
             this.btnAddHomeW.Size = new System.Drawing.Size(107, 77);
             this.btnAddHomeW.TabIndex = 3;
             this.btnAddHomeW.UseVisualStyleBackColor = false;
+            this.btnAddHomeW.Click += new System.EventHandler(this.btnAddHomeW_Click);
             // 
             // UChomework
             // 
@@ -58,7 +59,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.btnAddHomeW);
-            this.Controls.Add(this.panelDocument);
+            this.Controls.Add(this.panelHomeWork);
             this.Name = "UChomework";
             this.Size = new System.Drawing.Size(1030, 704);
             this.Load += new System.EventHandler(this.UChomework_Load);
@@ -70,6 +71,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnAddHomeW;
-        private System.Windows.Forms.Panel panelDocument;
+        private System.Windows.Forms.Panel panelHomeWork;
     }
 }
