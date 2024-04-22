@@ -173,6 +173,7 @@
             this.linklblFileName.TabIndex = 8;
             this.linklblFileName.TabStop = true;
             this.linklblFileName.Text = "linkLabel1";
+            this.linklblFileName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblFileName_LinkClicked);
             // 
             // label5
             // 

@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxCamara = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaptured)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamara)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,7 +90,7 @@
             // btnDetectFace
             // 
             this.btnDetectFace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetectFace.Location = new System.Drawing.Point(557, 530);
+            this.btnDetectFace.Location = new System.Drawing.Point(409, 530);
             this.btnDetectFace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDetectFace.Name = "btnDetectFace";
             this.btnDetectFace.Size = new System.Drawing.Size(178, 72);
@@ -158,6 +159,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.lblmsg);
+            this.groupBox1.Controls.Add(this.btnLogin);
             this.groupBox1.Controls.Add(this.btnDetectFace);
             this.groupBox1.Controls.Add(this.btnCamera);
             this.groupBox1.Controls.Add(this.label2);
@@ -174,6 +176,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(627, 530);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(178, 72);
+            this.btnLogin.TabIndex = 6;
+            this.btnLogin.Text = "OK";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // DetectFaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -183,6 +197,7 @@
             this.Name = "DetectFaceForm";
             this.Text = "DetectFaceForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DetectFaceForm_FormClosing);
+            this.Load += new System.EventHandler(this.DetectFaceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaptured)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamara)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -204,5 +219,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBoxCamara;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnLogin;
     }
 }

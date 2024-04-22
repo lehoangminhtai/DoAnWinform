@@ -20,6 +20,12 @@ namespace StudentManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+           /* DetectFaceForm detectFaceForm = new DetectFaceForm();
+            if (detectFaceForm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new MainForm());
+            }*/
+
             //Application.Run(new FormYoutubeeeeee());
             /*Form1 loginFrm = new Form1();
             if (loginFrm.ShowDialog() == DialogResult.OK)

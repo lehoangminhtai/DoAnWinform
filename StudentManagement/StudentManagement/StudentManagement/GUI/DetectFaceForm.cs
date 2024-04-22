@@ -1,5 +1,6 @@
 ﻿using Emgu.CV;
 using StudentManagement.DAO;
+using StudentManagement.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,23 @@ namespace StudentManagement.GUI
         private void DetectFaceForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             faceRec.StopCamera();
+        }
+
+        private void DetectFaceForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (lblName.Text.Trim() != "")
+            {
+                ACCOUNT.id = lblName.Text.Trim();
+                ACCOUNT.role = 1;
+                this.DialogResult = DialogResult.OK;
+               
+            }
+              
         }
     }
 }

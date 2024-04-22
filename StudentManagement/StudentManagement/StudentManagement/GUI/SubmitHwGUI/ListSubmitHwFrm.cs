@@ -29,6 +29,7 @@ namespace StudentManagement.GUI.SubmitHwGUI
 
         private void ListSubmitHwFrm_Load(object sender, EventArgs e)
         {
+            linklblFileName.Text = "";
             lblCount.Text = "";
             fillData();
         }
@@ -143,6 +144,13 @@ namespace StudentManagement.GUI.SubmitHwGUI
             {
                 e.Handled = true; // Loại bỏ ký tự không hợp lệ
             }
+        }
+
+        private void linklblFileName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string sql = "select FileNop from ChiTietNopBai where MaBT = '" + id_hw + "' and MaKH ='" + id_course + "' and MaSV ='" + txtIDSTD.Text.Trim() + "'";
+
+            submitHomeworkDAO.downloadFile(linklblFileName.Text, sql);
         }
     }
 }

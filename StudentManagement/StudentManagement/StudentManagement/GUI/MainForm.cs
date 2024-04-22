@@ -16,8 +16,8 @@ namespace StudentManagement
 {
     public partial class MainForm : Form
     {
-        public int role = 1;
-        public string sid = "21110635";
+        public  int role {  get; set; }
+        public string sid {  get; set; }
         
         XJDBC db = new XJDBC();
         CourseDAO courseDAO = new CourseDAO();
@@ -102,7 +102,9 @@ namespace StudentManagement
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ACCOUNT.id = sid;
+            
+            sid = ACCOUNT.id;
+            role = ACCOUNT.role;
         }
 
         private void panelMain_Paint(object sender, PaintEventArgs e)

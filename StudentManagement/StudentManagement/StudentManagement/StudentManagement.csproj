@@ -113,6 +113,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiangVien.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GUI\AttendanceGUI\UcAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\AttendanceGUI\UcAttendance.Designer.cs">
+      <DependentUpon>UcAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HomeworkGUI\AddHomeworkFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyHocTapDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\AttendanceGUI\UcAttendance.resx">
+      <DependentUpon>UcAttendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HomeworkGUI\AddHomeworkFrm.resx">
       <DependentUpon>AddHomeworkFrm.cs</DependentUpon>
     </EmbeddedResource>
