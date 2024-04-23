@@ -35,6 +35,7 @@ namespace StudentManagement.GUI
         private void UCRegisterCourse_Load(object sender, EventArgs e)
         {
             panelCourse1.AutoScroll = false;
+            
             if (role == 2)
             {
                btnCourseRegister.Visible= false;
@@ -43,7 +44,7 @@ namespace StudentManagement.GUI
         }
         private void showListCourse(SqlCommand cmd)
         {
-            panelCourse1.Controls.Clear();
+            panelCourse2.Controls.Clear();
 
             int panelY = 0;
             string cid = null;
@@ -152,7 +153,7 @@ namespace StudentManagement.GUI
 
                 panelY += panelCourse.Height + 10;
 
-                panelCourse1.Controls.Add(panelCourse);
+                panelCourse2.Controls.Add(panelCourse);
 
 
             }
@@ -174,7 +175,7 @@ namespace StudentManagement.GUI
                 groupBoxSearch.Visible = false;
                 UClistCourseTeacher uclstCourseT = new UClistCourseTeacher();
                 uclstCourseT.id_teacher = sid;
-                panelCourse1.Controls.Add(uclstCourseT);
+                panelCourse2.Controls.Add(uclstCourseT);
 
             }
            
@@ -190,10 +191,10 @@ namespace StudentManagement.GUI
         private void btnCourseRegister_Click(object sender, EventArgs e)
         {
             groupBoxSearch.Visible=false;
-            panelCourse1.Controls.Clear();
+            panelCourse2.Controls.Clear();
             UClistCourseRegister uclistC = new UClistCourseRegister();
             uclistC.student_id = sid;
-            panelCourse1.Controls.Add(uclistC);
+            panelCourse2.Controls.Add(uclistC);
         }
 
         private void btnSearchCourse_Click(object sender, EventArgs e)
@@ -217,6 +218,11 @@ namespace StudentManagement.GUI
         }
 
         private void groupBoxSearch_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -18,7 +18,9 @@ namespace StudentManagement.GUI.HomeworkGUI
 {
     public partial class UChomework : UserControl
     {
+        XJDBC db= new XJDBC();
         public string course_id { get; set; }
+        public string id_std { get; set; }
         public int hw_id { get; set; }
         public int role { get; set; }
         public string filename { get; set; }
@@ -31,6 +33,7 @@ namespace StudentManagement.GUI.HomeworkGUI
 
         private void UChomework_Load(object sender, EventArgs e)
         {
+            id_std = ACCOUNT.id;
             if (role == 1)
             {
                 btnAddHomeW.Visible = false;
@@ -159,7 +162,7 @@ namespace StudentManagement.GUI.HomeworkGUI
                 btnSubmit.Text= "Nộp bài";
                 btnSubmit.AutoSize = true;
                 btnSubmit.Font= new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
-                btnSubmit.BackColor = Color.PaleTurquoise;
+                btnSubmit.BackColor = Color.IndianRed;
                 btnSubmit.Location = new Point(500, 10);
                 btnSubmit.Size = new Size(55, 35);
                 btnSubmit.Tag = h.id;
@@ -174,14 +177,24 @@ namespace StudentManagement.GUI.HomeworkGUI
                     SubmitHomeworkFrm submitfrm = new SubmitHomeworkFrm();
                     submitfrm.idHW = h.id;
                     submitfrm.id_Course = course_id;
-                    submitfrm.id_Student=ACCOUNT.id;
+                    submitfrm.id_Student = ACCOUNT.id;
                     submitfrm.nameHW = h.name;
-                    
+
                     submitfrm.openDate = h.openDate;
                     submitfrm.deadline = h.closeDate;
 
-                    submitfrm.ShowDialog();
+                    if (submitfrm.ShowDialog() == DialogResult.OK)
+                    {
+                        fillData();
+                    }
                 };
+
+                if (checkExitsSubmit(h.id))
+                {
+                    btnSubmit.Text = "Đã Nộp";
+                    btnSubmit.BackColor = Color.PaleTurquoise;
+
+                }
 
                 Button btnResult = new Button();
                 btnResult.Text = "Kết Quả";
@@ -240,6 +253,15 @@ namespace StudentManagement.GUI.HomeworkGUI
             {
                 fillData();
             }
+        }
+        private bool checkExitsSubmit(int id_hw)
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand($"SELECT COUNT(*) FROM ChiTietNopBai WHERE MaKH = '{course_id}' AND MaSV = '{id_std}' and MaBT='{id_hw}'", db.getConnection);
+
+            int count = (int)cmd.ExecuteScalar();
+            db.closeConnection();
+            return count > 0;
         }
     }
 }

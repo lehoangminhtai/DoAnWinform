@@ -105,11 +105,42 @@ namespace StudentManagement
             
             sid = ACCOUNT.id;
             role = ACCOUNT.role;
+            getInfor();
         }
 
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
+            
+        }
+        private void getInfor()
+        {
+            lblChucVu.Text = "Học Sinh";
+            string sql = $"select CONCAT(hs.Ho,' ',hs.Ten) as hoten from HocSinh hs where hs.MaSV='{sid}'";
+            if (role == 2)
+            {
+                lblChucVu.Text = "Giảng Viên";
+                sql = $"select CONCAT(gv.Ho,' ',gv.Ten) as hoten from GiangVien gv where gv.MaGV='{sid}'";
+            }
+            try
+            {
+                db.openConnection();
+                SqlCommand cmd = new SqlCommand(sql, db.getConnection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read()) 
+                    {
 
+                        lblHoTen.Text = reader.GetString(0);
+                    }
+
+                }
+                //db.closeConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { db.closeConnection(); }
         }
     }
 }

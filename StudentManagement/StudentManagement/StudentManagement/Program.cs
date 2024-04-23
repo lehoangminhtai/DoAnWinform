@@ -19,7 +19,7 @@ namespace StudentManagement
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+             Application.Run(new MainForm());
            /* DetectFaceForm detectFaceForm = new DetectFaceForm();
             if (detectFaceForm.ShowDialog() == DialogResult.OK)
             {

@@ -1,4 +1,5 @@
 ﻿using StudentManagement.DAO;
+using StudentManagement.GUI.AttendanceGUI;
 using StudentManagement.GUI.HomeworkGUI;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,15 @@ namespace StudentManagement.GUI
             ucHW.role = role;
             ucHW.course_id = id;
             panelContainer.Controls.Add(ucHW);
+        }
+
+        private void btnAttend_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear();
+            UcAttendance ucAttendance = new UcAttendance();
+            ucAttendance.role = role;
+            ucAttendance.id_course = id;
+            panelContainer.Controls.Add(ucAttendance);
         }
 
         private void openFile()

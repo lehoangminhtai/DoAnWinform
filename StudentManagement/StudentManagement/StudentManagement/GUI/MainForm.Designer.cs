@@ -298,7 +298,7 @@
             // lblHoTen
             // 
             this.lblHoTen.AutoSize = true;
-            this.lblHoTen.Location = new System.Drawing.Point(100, 51);
+            this.lblHoTen.Location = new System.Drawing.Point(34, 53);
             this.lblHoTen.Name = "lblHoTen";
             this.lblHoTen.Size = new System.Drawing.Size(61, 20);
             this.lblHoTen.TabIndex = 0;
@@ -307,7 +307,7 @@
             // lblChucVu
             // 
             this.lblChucVu.AutoSize = true;
-            this.lblChucVu.Location = new System.Drawing.Point(91, 16);
+            this.lblChucVu.Location = new System.Drawing.Point(84, 12);
             this.lblChucVu.Name = "lblChucVu";
             this.lblChucVu.Size = new System.Drawing.Size(77, 20);
             this.lblChucVu.TabIndex = 0;

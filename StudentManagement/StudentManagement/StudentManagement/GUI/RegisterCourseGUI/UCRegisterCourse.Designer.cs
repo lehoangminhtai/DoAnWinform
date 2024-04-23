@@ -38,6 +38,7 @@
             this.btnCourseRegister = new System.Windows.Forms.Button();
             this.btnCourseList = new System.Windows.Forms.Button();
             this.panelCourse1 = new System.Windows.Forms.Panel();
+            this.panelCourse2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -47,13 +48,14 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.panelCourse2);
             this.panel1.Controls.Add(this.groupBoxSearch);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panelCourse1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1153, 793);
+            this.panel1.Size = new System.Drawing.Size(1156, 818);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelResCourse_Paint);
             // 
@@ -122,8 +124,9 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1153, 73);
+            this.panel3.Size = new System.Drawing.Size(1156, 73);
             this.panel3.TabIndex = 1;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // btnCourseRegister
             // 
@@ -150,10 +153,18 @@
             this.panelCourse1.AutoScroll = true;
             this.panelCourse1.AutoSize = true;
             this.panelCourse1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCourse1.Location = new System.Drawing.Point(0, 793);
+            this.panelCourse1.Location = new System.Drawing.Point(0, 818);
             this.panelCourse1.Name = "panelCourse1";
-            this.panelCourse1.Size = new System.Drawing.Size(1153, 0);
+            this.panelCourse1.Size = new System.Drawing.Size(1156, 0);
             this.panelCourse1.TabIndex = 0;
+            // 
+            // panelCourse2
+            // 
+            this.panelCourse2.AutoSize = true;
+            this.panelCourse2.Location = new System.Drawing.Point(3, 205);
+            this.panelCourse2.Name = "panelCourse2";
+            this.panelCourse2.Size = new System.Drawing.Size(1150, 610);
+            this.panelCourse2.TabIndex = 3;
             // 
             // UCRegisterCourse
             // 
@@ -164,7 +175,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.panel1);
             this.Name = "UCRegisterCourse";
-            this.Size = new System.Drawing.Size(1153, 793);
+            this.Size = new System.Drawing.Size(1156, 818);
             this.Load += new System.EventHandler(this.UCRegisterCourse_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -187,5 +198,6 @@
         private System.Windows.Forms.RadioButton radIdCourse;
         private System.Windows.Forms.Button btnSearchCourse;
         private System.Windows.Forms.TextBox txtCourseSearch;
+        private System.Windows.Forms.Panel panelCourse2;
     }
 }

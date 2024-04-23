@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCCourse));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label = new System.Windows.Forms.Label();
             this.lblCourseName = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,11 +52,13 @@
             this.panelBaiTap = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.btnExcercise = new System.Windows.Forms.Button();
+            this.btnAttend = new System.Windows.Forms.Button();
             this.btnMaterial = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panelBaiTap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -70,17 +71,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1461, 78);
             this.panel1.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 78);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // label
             // 
@@ -324,6 +314,7 @@
             this.panelBaiTap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBaiTap.Controls.Add(this.panelContainer);
             this.panelBaiTap.Controls.Add(this.btnExcercise);
+            this.panelBaiTap.Controls.Add(this.btnAttend);
             this.panelBaiTap.Controls.Add(this.btnMaterial);
             this.panelBaiTap.Location = new System.Drawing.Point(64, 573);
             this.panelBaiTap.Name = "panelBaiTap";
@@ -354,6 +345,20 @@
             this.btnExcercise.UseVisualStyleBackColor = false;
             this.btnExcercise.Click += new System.EventHandler(this.btnExcercise_Click);
             // 
+            // btnAttend
+            // 
+            this.btnAttend.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAttend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttend.Image = global::StudentManagement.Properties.Resources.immigration;
+            this.btnAttend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAttend.Location = new System.Drawing.Point(574, 10);
+            this.btnAttend.Name = "btnAttend";
+            this.btnAttend.Size = new System.Drawing.Size(328, 96);
+            this.btnAttend.TabIndex = 0;
+            this.btnAttend.Text = "Điểm danh";
+            this.btnAttend.UseVisualStyleBackColor = false;
+            this.btnAttend.Click += new System.EventHandler(this.btnAttend_Click);
+            // 
             // btnMaterial
             // 
             this.btnMaterial.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -367,6 +372,17 @@
             this.btnMaterial.Text = "Tài liệu";
             this.btnMaterial.UseVisualStyleBackColor = false;
             this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(88, 78);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // UCCourse
             // 
@@ -383,11 +399,11 @@
             this.Load += new System.EventHandler(this.UCCourse_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panelBaiTap.ResumeLayout(false);
             this.panelBaiTap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,5 +436,6 @@
         private System.Windows.Forms.Button btnExcercise;
         private System.Windows.Forms.Button btnMaterial;
         private System.Windows.Forms.Panel panelContainer;
+        private System.Windows.Forms.Button btnAttend;
     }
 }

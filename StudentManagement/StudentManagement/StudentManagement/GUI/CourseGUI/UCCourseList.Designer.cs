@@ -41,7 +41,7 @@
             this.panelCourseList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCourseList.Location = new System.Drawing.Point(0, 0);
             this.panelCourseList.Name = "panelCourseList";
-            this.panelCourseList.Size = new System.Drawing.Size(1111, 669);
+            this.panelCourseList.Size = new System.Drawing.Size(1641, 1072);
             this.panelCourseList.TabIndex = 0;
             this.panelCourseList.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -63,7 +63,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.panelCourseList);
             this.Name = "UCCourseList";
-            this.Size = new System.Drawing.Size(1111, 669);
+            this.Size = new System.Drawing.Size(1641, 1072);
             this.Load += new System.EventHandler(this.UCCourseList_Load);
             this.panelCourseList.ResumeLayout(false);
             this.panelCourseList.PerformLayout();

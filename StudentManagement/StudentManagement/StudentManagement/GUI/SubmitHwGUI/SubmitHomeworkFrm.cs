@@ -26,6 +26,7 @@ namespace StudentManagement.GUI.HomeworkGUI
         SubmitHomeworkDAO hwDetailDao = new SubmitHomeworkDAO();
         public bool isSubmit = false;
         public DateTime submitDate { get; set; }
+        public bool isEdit = false;
         public SubmitHomeworkFrm()
         {
             InitializeComponent();
@@ -123,6 +124,7 @@ namespace StudentManagement.GUI.HomeworkGUI
             if(frm.ShowDialog()==DialogResult.OK)
             {
                 fillData();
+                isEdit = true ;
             }    
         }
 
@@ -146,8 +148,15 @@ namespace StudentManagement.GUI.HomeworkGUI
                 {
                     isSubmit = false;
                     fillData();
+                    isEdit= true;
                 }
             }
+        }
+
+        private void SubmitHomeworkFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(isEdit)
+                this.DialogResult = DialogResult.OK;
         }
     }
 }
