@@ -49,6 +49,7 @@
             this.dataGVlistCourse.RowTemplate.Height = 28;
             this.dataGVlistCourse.Size = new System.Drawing.Size(1032, 415);
             this.dataGVlistCourse.TabIndex = 0;
+            this.dataGVlistCourse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGVlistCourse_CellContentClick);
             this.dataGVlistCourse.Click += new System.EventHandler(this.dataGVlistCourse_Click);
             this.dataGVlistCourse.DoubleClick += new System.EventHandler(this.dataGVlistCourse_DoubleClick);
             // 

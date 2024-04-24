@@ -1,6 +1,7 @@
 ﻿using StudentManagement.DAO;
 using StudentManagement.Entity;
 using StudentManagement.GUI;
+using StudentManagement.GUI.ScoreGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -141,6 +142,16 @@ namespace StudentManagement
                 MessageBox.Show(ex.Message);
             }
             finally { db.closeConnection(); }
+        }
+
+        private void btnScore_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+           UcScore ucScore = new UcScore();
+            ucScore.sid = sid;
+            ucScore.role = role;
+            // Thêm panelCourse vào panelMain
+            panelMain.Controls.Add(ucScore);
         }
     }
 }

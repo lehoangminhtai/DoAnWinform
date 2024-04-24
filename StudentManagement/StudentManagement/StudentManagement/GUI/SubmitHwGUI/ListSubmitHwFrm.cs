@@ -77,7 +77,7 @@ namespace StudentManagement.GUI.SubmitHwGUI
             if (cmbFilterStatus.SelectedIndex == 0)
             {
                 
-                 condition = "ct.TrangThai = 'Graded'";
+                 condition = $"ct.TrangThai = 'Graded' and ct.MaBT = '{id_hw}'";
                
                 fillGV(sql+condition);
 

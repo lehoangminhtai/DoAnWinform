@@ -145,6 +145,24 @@
     <Compile Include="GUI\HomeworkGUI\AddHomeworkFrm.Designer.cs">
       <DependentUpon>AddHomeworkFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ScoreGUI\StudentScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ScoreGUI\StudentScore.Designer.cs">
+      <DependentUpon>StudentScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ScoreGUI\UcScore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ScoreGUI\UcScore.Designer.cs">
+      <DependentUpon>UcScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ScoreGUI\UcTeacherScore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ScoreGUI\UcTeacherScore.Designer.cs">
+      <DependentUpon>UcTeacherScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SubmitHwGUI\AddSubmitHwFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +352,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HomeworkGUI\AddHomeworkFrm.resx">
       <DependentUpon>AddHomeworkFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ScoreGUI\StudentScore.resx">
+      <DependentUpon>StudentScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ScoreGUI\UcScore.resx">
+      <DependentUpon>UcScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ScoreGUI\UcTeacherScore.resx">
+      <DependentUpon>UcTeacherScore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\SubmitHwGUI\AddSubmitHwFrm.resx">
       <DependentUpon>AddSubmitHwFrm.cs</DependentUpon>
@@ -574,6 +601,7 @@
   <ItemGroup>
     <None Include="Image\immigration.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

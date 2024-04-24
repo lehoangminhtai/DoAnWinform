@@ -28,7 +28,7 @@ namespace StudentManagement.GUI
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
             addCourse();
-            DialogResult = DialogResult.OK;
+            
         }
         public void addCourse()
         {
@@ -81,6 +81,7 @@ namespace StudentManagement.GUI
                             if (data.InsertData("KhoaHoc", values))
                             {
                                 MessageBox.Show("Thêm Khoá Học thành công");
+                                DialogResult = DialogResult.OK;
                             }
                         }
 
@@ -100,7 +101,8 @@ namespace StudentManagement.GUI
                             if (data.InsertData("KhoaHoc", values))
                             {
                                 MessageBox.Show("Thêm Khoá Học thành công");
-                                
+                                DialogResult = DialogResult.OK;
+
                             }
                         }
 

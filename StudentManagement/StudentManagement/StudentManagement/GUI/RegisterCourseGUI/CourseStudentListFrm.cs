@@ -31,7 +31,7 @@ namespace StudentManagement.GUI
         }
         private void fillData()
         {
-            string sql = "select hs.MaSV,CONCAT(hs.Ho,' ',hs.Ten) as HoTen, hs.NgaySinh,hs.Email from Diem d join HocSinh hs on d.MaSV = hs.MaSV where d.MaKH=@cid";
+            string sql = "select hs.MaSV as \"Mã Sinh Viên\",CONCAT(hs.Ho,' ',hs.Ten) as \"Họ Tên\", hs.NgaySinh as \"Ngày Sinh\",hs.Email from Diem d join HocSinh hs on d.MaSV = hs.MaSV where d.MaKH=@cid";
             Dictionary<string, object> values = new Dictionary<string, object>
             {
 

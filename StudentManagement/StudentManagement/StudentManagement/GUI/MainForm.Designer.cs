@@ -41,7 +41,7 @@
             this.btnADMIN = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnScore = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnInfor = new System.Windows.Forms.Button();
@@ -165,7 +165,7 @@
             this.panel9.Controls.Add(this.btnADMIN);
             this.panel9.Controls.Add(this.button1);
             this.panel9.Controls.Add(this.button6);
-            this.panel9.Controls.Add(this.button5);
+            this.panel9.Controls.Add(this.btnScore);
             this.panel9.Controls.Add(this.button4);
             this.panel9.Controls.Add(this.button3);
             this.panel9.Controls.Add(this.btnInfor);
@@ -221,16 +221,17 @@
             this.button6.Text = "Diễn đàn";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnScore
             // 
-            this.button5.AutoSize = true;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.Location = new System.Drawing.Point(0, 332);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(240, 83);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Xem điểm";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnScore.AutoSize = true;
+            this.btnScore.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnScore.Location = new System.Drawing.Point(0, 332);
+            this.btnScore.Name = "btnScore";
+            this.btnScore.Size = new System.Drawing.Size(240, 83);
+            this.btnScore.TabIndex = 4;
+            this.btnScore.Text = "Xem điểm";
+            this.btnScore.UseVisualStyleBackColor = true;
+            this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
             // 
             // button4
             // 
@@ -392,7 +393,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnScore;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnInfor;

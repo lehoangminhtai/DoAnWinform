@@ -34,13 +34,12 @@ namespace StudentManagement.GUI
         private void fillData()
         {
             (string year, string semester) = data.GetYearAndSemester();
-            string sql = @"SELECT KH.MaKH as MaKhoaHoc, KH.TenKH as TenKhoaHoc,KH.SoTC,KH.MoTa,KH.HocKy,Kh.NamHoc, COUNT(DISTINCT DS.MaSV) AS SoLuongSV
-                    FROM KhoaHoc KH
-                    LEFT JOIN Diem DS ON KH.MaKH = DS.MaKH
-                    WHERE KH.MaGV = @tid  and kh.NamHoc like '%" + year + "%' and kh.HocKy ='"+ semester + "' GROUP BY KH.MaKH, KH.TenKH, KH.SoTC,KH.MoTa,KH.HocKy,Kh.NamHoc";
+            string sql = "SELECT KH.MaKH as \"Mã Khoá Học\", KH.TenKH as \"Tên Khoá Học\",KH.SoTC as \"Số Tín Chỉ\",KH.MoTa as \"Mô Tả\",KH.HocKy as \"Học Kỳ\",Kh.NamHoc as \"Năm Học\", COUNT(DISTINCT DS.MaSV) AS \"Số Lượng SV\"" +
+                    " FROM KhoaHoc KH "
+                    + "  LEFT JOIN Diem DS ON KH.MaKH = DS.MaKH"
+                     + " WHERE KH.MaGV = @tid  and kh.NamHoc like '%" + year + "%' and kh.HocKy ='" + semester + "' GROUP BY KH.MaKH, KH.TenKH, KH.SoTC,KH.MoTa,KH.HocKy,Kh.NamHoc";
 
 
-           
             Dictionary<string, object> values = new Dictionary<string, object>
             {
 
@@ -147,10 +146,15 @@ namespace StudentManagement.GUI
 
         private void dataGVlistCourse_Click(object sender, EventArgs e)
         {
-            cid = dataGVlistCourse.CurrentRow.Cells["MaKhoaHoc"].Value.ToString();
-             name = dataGVlistCourse.CurrentRow.Cells["TenKhoaHoc"].Value.ToString();
-             numcre = dataGVlistCourse.CurrentRow.Cells["SoTC"].Value.ToString();
-             des = dataGVlistCourse.CurrentRow.Cells["MoTa"].Value.ToString();
+            cid = dataGVlistCourse.CurrentRow.Cells[0].Value.ToString();
+             name = dataGVlistCourse.CurrentRow.Cells[1].Value.ToString();
+             numcre = dataGVlistCourse.CurrentRow.Cells[2].Value.ToString();
+             des = dataGVlistCourse.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void dataGVlistCourse_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
