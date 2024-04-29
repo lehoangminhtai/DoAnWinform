@@ -40,32 +40,32 @@ namespace StudentManagement.DAO
                 db.openConnection();
                 cmd.Connection = db.getConnection;
 
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    entity.filename = reader.GetString(reader.GetOrdinal("TenFile"));
-                    entity.statusSubmit = reader.GetString(reader.GetOrdinal("TrangThai"));
-                    entity.submitDate = reader.GetDateTime(reader.GetOrdinal("NgayNop"));
-                    //entity.Grade =reader.IsDBNull(reader.GetOrdinal("Diem")) ? -1 : reader.GetFloat(reader.GetOrdinal("Diem"));
-                    if (reader.IsDBNull(reader.GetOrdinal("Diem")))
+                    while (reader.Read())
                     {
-                        entity.Grade = -1; // hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
-                    }
-                    else
-                    {
-                        entity.Grade =  reader.GetDouble(reader.GetOrdinal("Diem"));
+                        entity.filename = reader.GetString(reader.GetOrdinal("TenFile"));
+                        entity.statusSubmit = reader.GetString(reader.GetOrdinal("TrangThai"));
+                        entity.submitDate = reader.GetDateTime(reader.GetOrdinal("NgayNop"));
+                        //entity.Grade =reader.IsDBNull(reader.GetOrdinal("Diem")) ? -1 : reader.GetFloat(reader.GetOrdinal("Diem"));
+                        if (reader.IsDBNull(reader.GetOrdinal("Diem")))
+                        {
+                            entity.Grade = -1; // hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
+                        }
+                        else
+                        {
+                            entity.Grade = reader.GetDouble(reader.GetOrdinal("Diem"));
+                        }
+
                     }
 
                 }
-
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
-             catch(Exception ex)
-             {
-                 MessageBox.Show(ex.Message);
-             }
-             finally { db.closeConnection(); }
+            finally { db.closeConnection(); }
             db.closeConnection();
             return entity;
         }
@@ -77,6 +77,26 @@ namespace StudentManagement.DAO
         {
             return data.UpdateData(tableName, values, condition);
         }
+        public bool updateSetNullGrade(string condition)
+        {
+            try
+            {
+                db.openConnection();
+                string sql = "update ChiTietNopBai set Diem = null, TrangThai = 'Ungraded' where " + condition;
+                SqlCommand cmd = new SqlCommand(sql, db.getConnection);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        } 
         public bool delete(string tableName, Dictionary<string, object> values)
         {
             return data.Delete(tableName, values);

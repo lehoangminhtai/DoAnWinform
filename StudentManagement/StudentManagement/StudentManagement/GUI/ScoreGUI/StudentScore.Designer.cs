@@ -32,6 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGvStdListCourse = new System.Windows.Forms.DataGridView();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGvStdListCourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,6 +82,19 @@
             this.dataGvStdListCourse.RowTemplate.Height = 28;
             this.dataGvStdListCourse.Size = new System.Drawing.Size(1658, 768);
             this.dataGvStdListCourse.TabIndex = 5;
+            this.dataGvStdListCourse.DoubleClick += new System.EventHandler(this.dataGvStdListCourse_DoubleClick);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBack.BackgroundImage = global::StudentManagement.Properties.Resources.back;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(129, 69);
+            this.btnBack.TabIndex = 10;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // StudentScore
             // 
@@ -88,10 +102,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1860, 961);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCourseName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGvStdListCourse);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentScore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentScore";
@@ -110,5 +126,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGvStdListCourse;
+        private System.Windows.Forms.Button btnBack;
     }
 }

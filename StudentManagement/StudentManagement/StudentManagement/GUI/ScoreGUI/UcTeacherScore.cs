@@ -30,6 +30,7 @@ namespace StudentManagement.GUI.ScoreGUI
             fillData();
             getInfor();
         }
+
         private void fillData()
         {
             (string year, string semester) = data.GetYearAndSemester();
@@ -66,14 +67,18 @@ namespace StudentManagement.GUI.ScoreGUI
         }
         private void dataGVlistCourse_DoubleClick(object sender, EventArgs e)
         {
+
             string cid = dataGVlistCourse.CurrentRow.Cells[0].Value.ToString();
             string cName = dataGVlistCourse.CurrentRow.Cells[1].Value.ToString();
+            if(cid !=null && cid != "")
+            {
+                StudentScore frmStdScore = new StudentScore();
 
-            StudentScore frmStdScore= new StudentScore();
-           
-            frmStdScore.courseId = cid;
-            frmStdScore.courseName = cName;
-            frmStdScore.Show();
+                frmStdScore.courseId = cid;
+                frmStdScore.courseName = cName;
+                frmStdScore.Show();
+            }
+            
             
         }
     }

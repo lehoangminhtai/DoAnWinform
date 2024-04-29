@@ -45,5 +45,29 @@ namespace StudentManagement.GUI.ScoreGUI
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dataGvStdListCourse_DoubleClick(object sender, EventArgs e)
+        {
+            sid = dataGvStdListCourse.CurrentRow.Cells[0].Value.ToString();
+            string fullName = dataGvStdListCourse.CurrentRow.Cells[1].Value.ToString();
+            if (sid != null && sid!="")
+            {
+                EnterStudentScore frm = new EnterStudentScore();
+                frm.id_student = sid;
+                frm.id_course = courseId;
+                frm.nameStd = fullName;
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    fillData();
+                }
+            }
+
+
+        }
     }
 }

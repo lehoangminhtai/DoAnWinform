@@ -59,7 +59,7 @@ namespace StudentManagement.GUI.SubmitHwGUI
 
             if (search != "")
             {
-                condition = $"CONCAT(ct.MaSV,hs.Ho,hs.Ten) like '%{search}%'";
+                condition = $"CONCAT(ct.MaSV,hs.Ho,hs.Ten) like '%{search}%' and ct.MaKH = '{id_course}' and ct.MaBT='{id_hw}'";
                 string sql = "select ct.MaSV as \"Mã Sinh Viên\", CONCAT(hs.Ho,' ',hs.Ten) as \"Họ Tên\",ct.TenFile as \"Bài Nộp\",ct.Diem as \"Điểm\" from ChiTietNopBai ct join HocSinh hs on ct.MaSV = hs.MaSV where " + condition;
                 Dictionary<string, object> values = new Dictionary<string, object>
                 {
@@ -114,27 +114,50 @@ namespace StudentManagement.GUI.SubmitHwGUI
             try
             {
                 string sid = txtIDSTD.Text.Trim();
-                double grade = Convert.ToDouble(txtGrade.Text.Trim());
-
-                if (data.ValidateNotNull(sid, grade))
+                double grade = -1;
+                if (txtGrade.Text.Trim()!="")
                 {
-                   string  condition1 = $" MaBT = '{id_hw}' and MaSV = '{sid}' and MaKH = '{id_course}'";
-                    Dictionary<string,object> dic = new Dictionary<string, object> {
-                        {"Diem",grade}, {"TrangThai","Graded"}
-                    };
-                    if (submitHomeworkDAO.update(tablename, dic, condition1))
+                    grade = Convert.ToDouble(txtGrade.Text.Trim());
+                    
+                }
+                   
+
+                if (data.ValidateNotNull(sid))
+                {
+                    if (grade >= 0 && grade <= 10)
                     {
-                        MessageBox.Show("Đã chấm điểm cho SV: " + sid + "--" + txtNameSTD.Text);
-                        refresh();
+                        string condition1 = $" MaBT = '{id_hw}' and MaSV = '{sid}' and MaKH = '{id_course}'";
+                        Dictionary<string, object> dic = new Dictionary<string, object> {
+                                    {"Diem",grade}, {"TrangThai","Graded"}
+                        };
+                        if (submitHomeworkDAO.update(tablename, dic, condition1))
+                        {
+                            MessageBox.Show("Đã chấm điểm cho SV: " + sid + "--" + txtNameSTD.Text);
+                            refresh();
+                        }
+                    }
+                    else if(grade == -1)
+                    {
+                        string condition1 = $" MaBT = '{id_hw}' and MaSV = '{sid}' and MaKH = '{id_course}'";
+                       
+                        if (submitHomeworkDAO.updateSetNullGrade(condition1))
+                        {
+                           
+                            refresh();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập điểm phù hợp!!!", "Nhập điểm", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn học sinh để nhập điểm!!!", "Nhập điểm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng chọn học sinh để nhập điểm từ 0 - 10!!!", "Nhập điểm", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch {
-                MessageBox.Show("Vui lòng chọn học sinh để nhập điểm!!!", "Nhập điểm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi đường truyền dữ liệu!!!", "Nhập điểm", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

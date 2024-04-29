@@ -21,6 +21,10 @@ namespace StudentManagement.DAO
         {
             return data.Delete(tableName, values); 
         }
+        public bool updateScore(string tableName, Dictionary<string, object> values, string condition)
+        {
+            return data.UpdateData(tableName, values, condition);
+        }
         public List<COURSE> getListCourse(SqlCommand cmd)
         {
             List<COURSE> listCourse = new List<COURSE>();
