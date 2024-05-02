@@ -163,6 +163,12 @@
     <Compile Include="GUI\ScoreGUI\UcScore.Designer.cs">
       <DependentUpon>UcScore.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ScoreGUI\UcStudentScore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ScoreGUI\UcStudentScore.Designer.cs">
+      <DependentUpon>UcStudentScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ScoreGUI\UcTeacherScore.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -367,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ScoreGUI\UcScore.resx">
       <DependentUpon>UcScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ScoreGUI\UcStudentScore.resx">
+      <DependentUpon>UcStudentScore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ScoreGUI\UcTeacherScore.resx">
       <DependentUpon>UcTeacherScore.cs</DependentUpon>

@@ -98,3 +98,4 @@ D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\Stude
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.ScoreGUI.UcTeacherScore.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.ScoreGUI.StudentScore.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.ScoreGUI.EnterStudentScore.resources
+D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.ScoreGUI.UcStudentScore.resources

@@ -20,6 +20,8 @@ namespace StudentManagement.GUI.ScoreGUI
         public string id_course { get; set; }
         public string nameStd { get; set; }
         private bool isupdate { get; set; }
+        public string scoreMid { get; set; }
+        public string scoreLast {  get; set; }
         XJDBC db = new XJDBC();
 
         public EnterStudentScore()
@@ -38,6 +40,11 @@ namespace StudentManagement.GUI.ScoreGUI
 
         private void fillCourseInfor()
         {
+            if(scoreMid!=null&&scoreMid!="")
+                txtGradeMid.Text =scoreMid.ToString();
+            if (scoreLast != null && scoreLast != "")
+                txtGradeLast.Text =scoreLast.ToString();
+
             lblIdStd.Text = "";
             lblNameStd.Text = "";
             lblIdStd.Text = id_student;
@@ -290,27 +297,57 @@ namespace StudentManagement.GUI.ScoreGUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            ScoreDAO scoreDAO = new ScoreDAO();
             string tablename = "Diem";
             string condition = $" MaKH= '{id_course}' and MaSV = '{id_student}'";
 
-            Dictionary<string, object> dic = new Dictionary<string, object> {
-                {"DiemQT",txtGradeMid.Text.Trim() },{"DiemCuoiKy",txtGradeLast.Text.Trim()},{"DiemTongKet",lblGradeFinal.Text.Trim()}
+            double gradeMid = 0;
+            double gradeLast = 0;
+            double gradeFinal = 0;
+
+           
+            
+            if (txtGradeMid.Text.Trim() != ""&& txtGradeLast.Text.Trim() != "") {
+                if((gradeMid >= 0 && gradeMid <= 10) && (gradeLast >= 0 && gradeLast <= 10))
+                {
+                    gradeMid = Convert.ToDouble(txtGradeMid.Text.Trim());
+                    gradeLast = Convert.ToDouble(txtGradeLast.Text.Trim());
+                    gradeFinal = Math.Round((gradeMid + gradeLast) / 2, 2);
+                    string status = "";
+
+
+                    if (gradeFinal >= 8.5)
+                        status = "Giỏi";
+                    else if (gradeFinal >= 7)
+                        status = "Khá";
+                    else if (gradeFinal >= 5.5)
+                        status = "Trung Bình";
+                    else status = "Yếu";
+                        Dictionary<string, object> dic = new Dictionary<string, object> {
+                {"DiemQT",gradeMid},{"DiemCuoiKy",gradeLast},{"DiemTongKet",gradeFinal},{"TrangThai",status}
             };
-        }
-        private bool checkUpdate()
-        {
-            SqlCommand cmd = new SqlCommand($"select DiemTongKet from Diem where MaKH= '{id_course}' and MaSV = '{id_student}'", db.getConnection);
-            db.openConnection();
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-                float finalgrade = reader.IsDBNull(0) ? -1 : (float)reader[0];
-                if (finalgrade != -1)
-                    return true;
+
+                   
+                    if (scoreDAO.updateScore(tablename, dic, condition))
+                    {
+                        MessageBox.Show("Đã nhập điểm cho sinh viên");
+                        this.DialogResult = DialogResult.OK;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập điểm trong khoảng 0-10", "Nhập điểm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            return false;
+            else
+            {
+                MessageBox.Show("Vui lòng nhập điểm đầy đủ", "Nhập điểm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                
 
+            
 
         }
+      
     }
 }

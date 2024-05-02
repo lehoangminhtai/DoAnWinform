@@ -87,7 +87,7 @@ namespace StudentManagement.GUI.SubmitHwGUI
             if (cmbFilterStatus.SelectedIndex == 1)
             {
 
-                 condition = "ct.TrangThai = 'Ungraded'";
+                 condition = $"ct.TrangThai = 'Ungraded' and ct.MaBT = '{id_hw}'";
 
                 fillGV(sql + condition);
 
@@ -98,15 +98,19 @@ namespace StudentManagement.GUI.SubmitHwGUI
 
         private void dataGVlistHW_Click(object sender, EventArgs e)
         {
-            string sid = dataGVlistHW.CurrentRow.Cells[0].Value.ToString();
-            string name = dataGVlistHW.CurrentRow.Cells[1].Value.ToString();
-            string filename = dataGVlistHW.CurrentRow.Cells[2].Value.ToString();
-            string grade = dataGVlistHW.CurrentRow.Cells[3].Value.ToString();
+            if (dataGVlistHW.CurrentRow.Cells[0].Value != null)
+            {
+                string sid = dataGVlistHW.CurrentRow.Cells[0].Value.ToString();
+                string name = dataGVlistHW.CurrentRow.Cells[1].Value.ToString();
+                string filename = dataGVlistHW.CurrentRow.Cells[2].Value.ToString();
+                string grade = dataGVlistHW.CurrentRow.Cells[3].Value.ToString();
 
-            txtIDSTD.Text = sid;
-            txtNameSTD.Text = name;
-            txtGrade.Text = grade;
-            linklblFileName.Text = filename;
+                txtIDSTD.Text = sid;
+                txtNameSTD.Text = name;
+                txtGrade.Text = grade;
+                linklblFileName.Text = filename;
+            }
+           
         }
 
         private void btnGrade_Click(object sender, EventArgs e)

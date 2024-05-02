@@ -55,12 +55,16 @@ namespace StudentManagement.GUI.ScoreGUI
         {
             sid = dataGvStdListCourse.CurrentRow.Cells[0].Value.ToString();
             string fullName = dataGvStdListCourse.CurrentRow.Cells[1].Value.ToString();
+            string scoreMid = dataGvStdListCourse.CurrentRow.Cells[4].Value.ToString();
+            string scoreLast = dataGvStdListCourse.CurrentRow.Cells[5].Value.ToString();
             if (sid != null && sid!="")
             {
                 EnterStudentScore frm = new EnterStudentScore();
                 frm.id_student = sid;
                 frm.id_course = courseId;
                 frm.nameStd = fullName;
+                frm.scoreMid = scoreMid;
+                frm.scoreLast = scoreLast;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     fillData();
