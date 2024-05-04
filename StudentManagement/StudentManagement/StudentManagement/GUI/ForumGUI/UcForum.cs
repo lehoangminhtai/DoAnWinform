@@ -1,4 +1,5 @@
 ﻿using StudentManagement.DAO;
+using StudentManagement.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Resources.ResXFileRef;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace StudentManagement.GUI.ForumGUI
@@ -18,10 +20,13 @@ namespace StudentManagement.GUI.ForumGUI
     {
         public string id_User {  get; set; }
         public int role {  get; set; }
+        public int fid { get; set; }
+        public string idCourse {  get; set; }
         Data data = new Data();
         XJDBC db =new XJDBC();
         ForumDAO forumDAO = new ForumDAO();
-        
+        public string condition = "";
+        public string sql = "select d.MaDD,d.NoiDung,d.MaKH,d.MaNguoiTao,d.NgayTao from DienDan d where ";
         public UcForum()
         {
             InitializeComponent();
@@ -35,7 +40,18 @@ namespace StudentManagement.GUI.ForumGUI
         {
             cmbUser.SelectedIndex = 0;
             fillCmbCourse();
+            idCourse = cmbCourse.SelectedValue.ToString();
+
             
+            fillListForum();
+            
+        }
+        private void fillListForum( )
+        {
+            condition = $"d.MaKH ='{idCourse}'";
+            SqlCommand cmd = new SqlCommand(sql+condition);
+
+            showListForum(cmd);
         }
         private void fillCmbCourse()
         {
@@ -76,6 +92,7 @@ namespace StudentManagement.GUI.ForumGUI
             {
                 MessageBox.Show("Đã đăng bài!!!");
                 txtQuestion.Text = "";
+                fillListForum();
             }
         }
         private bool insert()
@@ -83,7 +100,7 @@ namespace StudentManagement.GUI.ForumGUI
             try
             {
                 string tablename = "DienDan";
-                string idCourse = cmbCourse.SelectedValue.ToString();
+                idCourse = cmbCourse.SelectedValue.ToString();
                 DateTime currentDate = DateTime.Now;
                 string content = txtQuestion.Text.Trim();
                 if(content != "")
@@ -104,6 +121,70 @@ namespace StudentManagement.GUI.ForumGUI
                 MessageBox.Show(ex.Message);
                 return false;
             }
+        } 
+        private void showListForum(SqlCommand cmd)
+        {
+            int panelY = 10;
+            panelContainer.Controls.Clear();
+            List<FORUM> list = forumDAO.getListForum(cmd);
+            foreach (var f in list)
+            {
+                Panel panelForum = new Panel();
+                panelForum.BorderStyle = BorderStyle.FixedSingle;
+                panelForum.Location = new Point(10, panelY);
+                panelForum.Size = new Size(950, 100);
+                panelForum.Margin = new Padding(10);
+                panelForum.BackColor = Color.Transparent;
+
+                LinkLabel labelName = new LinkLabel();
+                labelName.Text = f.content;
+                labelName.Location = new Point(20, 10);
+                labelName.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Bold);
+                labelName.ForeColor = Color.DarkCyan;
+                labelName.AutoSize = true;
+                labelName.Tag = f.ID;
+
+                Label labelUserCreate = new Label();
+                labelUserCreate.Text = "Người tạo:" + f.id_user;
+                labelUserCreate.Location = new Point(20, 43);
+                labelUserCreate.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Regular);
+                labelUserCreate.AutoSize = true;
+
+
+                Label labelTime = new Label();
+                labelTime.Text = "Ngày tạo: " + f.createDate.ToString("dd/MM/yyyy hh:mm");
+                labelTime.Location = new Point(20, 68);
+                labelTime.AutoSize = true;
+
+
+
+
+                fid = f.ID;
+                labelName.Click += (clicklabel, eventArgs) =>
+                {
+                    LinkLabel lblName = clicklabel as LinkLabel;
+                    MessageBox.Show(f.ID+"");
+
+                    
+                };
+
+               panelForum.Controls.Add(labelName);
+                panelForum.Controls.Add(labelUserCreate);
+                panelForum.Controls.Add(labelTime);
+
+                panelY += panelForum.Height + 10;
+
+                panelContainer.Controls.Add(panelForum);
+
+
+            }
+        }
+
+        private void cmbCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            idCourse = cmbCourse.SelectedValue.ToString();
+            fillListForum();
         }
     }
 }

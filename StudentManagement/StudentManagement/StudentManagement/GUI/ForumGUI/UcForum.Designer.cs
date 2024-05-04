@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcForum));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtQuestion = new System.Windows.Forms.TextBox();
             this.btnUpQuest = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,6 +58,17 @@
             this.panel1.Size = new System.Drawing.Size(1461, 85);
             this.panel1.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(88, 78);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // label
             // 
             this.label.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -74,19 +85,8 @@
             // 
             this.panelContainer.Location = new System.Drawing.Point(99, 443);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1461, 631);
+            this.panelContainer.Size = new System.Drawing.Size(1444, 631);
             this.panelContainer.TabIndex = 6;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 78);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // txtQuestion
             // 
@@ -102,7 +102,7 @@
             this.btnUpQuest.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnUpQuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpQuest.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpQuest.Location = new System.Drawing.Point(1271, 287);
+            this.btnUpQuest.Location = new System.Drawing.Point(1283, 287);
             this.btnUpQuest.Name = "btnUpQuest";
             this.btnUpQuest.Size = new System.Drawing.Size(167, 72);
             this.btnUpQuest.TabIndex = 8;
@@ -128,6 +128,7 @@
             this.cmbCourse.Name = "cmbCourse";
             this.cmbCourse.Size = new System.Drawing.Size(374, 40);
             this.cmbCourse.TabIndex = 10;
+            this.cmbCourse.SelectedIndexChanged += new System.EventHandler(this.cmbCourse_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -163,7 +164,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1213, 383);
+            this.label4.Location = new System.Drawing.Point(1202, 389);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 29);
             this.label4.TabIndex = 13;
@@ -176,7 +177,7 @@
             this.cmbUser.Items.AddRange(new object[] {
             "Tất Cả",
             "Của Tôi"});
-            this.cmbUser.Location = new System.Drawing.Point(1351, 379);
+            this.cmbUser.Location = new System.Drawing.Point(1334, 380);
             this.cmbUser.Name = "cmbUser";
             this.cmbUser.Size = new System.Drawing.Size(209, 37);
             this.cmbUser.TabIndex = 10;

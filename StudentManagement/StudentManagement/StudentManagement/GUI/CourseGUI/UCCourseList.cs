@@ -34,6 +34,7 @@ namespace StudentManagement.GUI
 
         private void UCCourseList_Load(object sender, EventArgs e)
         {
+            
             fillData();
         }
         private void fillData()
