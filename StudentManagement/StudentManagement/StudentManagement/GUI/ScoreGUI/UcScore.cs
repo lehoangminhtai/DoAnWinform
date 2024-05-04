@@ -21,6 +21,14 @@ namespace StudentManagement.GUI.ScoreGUI
 
         private void UcScore_Load(object sender, EventArgs e)
         {
+            if (role == 1)
+            {
+                UcStudentScore ucStudentScore = new UcStudentScore();
+                ucStudentScore.id_student = sid;
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(ucStudentScore);
+
+            }
             if(role==2)
             {
                 UcTeacherScore ucScore = new UcTeacherScore();
@@ -29,6 +37,7 @@ namespace StudentManagement.GUI.ScoreGUI
                 panelContainer.Controls.Clear();
                 panelContainer.Controls.Add(ucScore);
             }
+            
                 
         }
     }

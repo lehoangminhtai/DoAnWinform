@@ -13,6 +13,30 @@ namespace StudentManagement.DAO
     {
         XJDBC db = new XJDBC();
         Data data = new Data();
+
+        public double fillDataGvChange(string sql,DataGridView dt)
+        {
+            double scoreAvg = 0;
+            try
+            {
+                fillDaGV(sql, dt);
+                string sqlAvg = $@"SELECT ROUND(AVG(dd.[Điểm Tổng Kết]), 1) FROM ( {sql} ) dd";
+                SqlCommand cmd = new SqlCommand(sqlAvg, db.getConnection);
+                db.openConnection();
+                scoreAvg = (double)cmd.ExecuteScalar();
+            }
+            catch {
+                
+            }
+            finally { db.closeConnection();
+                
+            }
+            return scoreAvg;
+        }
+        public void fillDaGV(string sql, DataGridView dt)
+        {
+            data.fillData(sql, dt);
+        }
         public bool inserScore(string tableName, Dictionary<string, object> values)
         {
             return data.InsertData(tableName, values);

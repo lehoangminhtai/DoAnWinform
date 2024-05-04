@@ -1,6 +1,7 @@
 ﻿using StudentManagement.DAO;
 using StudentManagement.Entity;
 using StudentManagement.GUI;
+using StudentManagement.GUI.ForumGUI;
 using StudentManagement.GUI.ScoreGUI;
 using System;
 using System.Collections.Generic;
@@ -152,6 +153,22 @@ namespace StudentManagement
             ucScore.role = role;
             // Thêm panelCourse vào panelMain
             panelMain.Controls.Add(ucScore);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            role = 2;
+            sid = "minhtai";
+        }
+
+        private void btnForum_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+            UcForum ucforum = new UcForum();
+            ucforum.id_User = sid;
+            ucforum.role = role;
+            // Thêm panelCourse vào panelMain
+            panelMain.Controls.Add(ucforum);
         }
     }
 }

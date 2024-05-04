@@ -40,7 +40,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.btnADMIN = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnForum = new System.Windows.Forms.Button();
             this.btnScore = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -164,7 +164,7 @@
             this.panel9.Controls.Add(this.button7);
             this.panel9.Controls.Add(this.btnADMIN);
             this.panel9.Controls.Add(this.button1);
-            this.panel9.Controls.Add(this.button6);
+            this.panel9.Controls.Add(this.btnForum);
             this.panel9.Controls.Add(this.btnScore);
             this.panel9.Controls.Add(this.button4);
             this.panel9.Controls.Add(this.button3);
@@ -186,6 +186,7 @@
             this.button7.TabIndex = 8;
             this.button7.Text = "Đăng xuất";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // btnADMIN
             // 
@@ -210,16 +211,17 @@
             this.button1.Text = "Thông báo";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnForum
             // 
-            this.button6.AutoSize = true;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.Location = new System.Drawing.Point(0, 415);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(240, 83);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Diễn đàn";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnForum.AutoSize = true;
+            this.btnForum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnForum.Location = new System.Drawing.Point(0, 415);
+            this.btnForum.Name = "btnForum";
+            this.btnForum.Size = new System.Drawing.Size(240, 83);
+            this.btnForum.TabIndex = 5;
+            this.btnForum.Text = "Diễn đàn";
+            this.btnForum.UseVisualStyleBackColor = true;
+            this.btnForum.Click += new System.EventHandler(this.btnForum_Click);
             // 
             // btnScore
             // 
@@ -392,7 +394,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnForum;
         private System.Windows.Forms.Button btnScore;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;

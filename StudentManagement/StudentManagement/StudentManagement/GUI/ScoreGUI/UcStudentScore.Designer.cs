@@ -30,7 +30,7 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGVlistCourse = new System.Windows.Forms.DataGridView();
+            this.dataGvScore = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblIdStd = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.cmbYear = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblAvgScore = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGVlistCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGvScore)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -62,18 +62,18 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Năm học:";
             // 
-            // dataGVlistCourse
+            // dataGvScore
             // 
-            this.dataGVlistCourse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGVlistCourse.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGVlistCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGVlistCourse.Location = new System.Drawing.Point(129, 200);
-            this.dataGVlistCourse.Name = "dataGVlistCourse";
-            this.dataGVlistCourse.RowHeadersVisible = false;
-            this.dataGVlistCourse.RowHeadersWidth = 62;
-            this.dataGVlistCourse.RowTemplate.Height = 28;
-            this.dataGVlistCourse.Size = new System.Drawing.Size(1254, 521);
-            this.dataGVlistCourse.TabIndex = 3;
+            this.dataGvScore.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGvScore.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGvScore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGvScore.Location = new System.Drawing.Point(129, 200);
+            this.dataGvScore.Name = "dataGvScore";
+            this.dataGvScore.RowHeadersVisible = false;
+            this.dataGvScore.RowHeadersWidth = 62;
+            this.dataGvScore.RowTemplate.Height = 28;
+            this.dataGvScore.Size = new System.Drawing.Size(1254, 521);
+            this.dataGvScore.TabIndex = 3;
             // 
             // label1
             // 
@@ -126,26 +126,27 @@
             this.cmbSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSemester.FormattingEnabled = true;
             this.cmbSemester.Items.AddRange(new object[] {
+            "Tất Cả",
             "HK1",
             "HK2",
             "HK3"});
             this.cmbSemester.Location = new System.Drawing.Point(560, 140);
             this.cmbSemester.Name = "cmbSemester";
-            this.cmbSemester.Size = new System.Drawing.Size(155, 37);
+            this.cmbSemester.Size = new System.Drawing.Size(186, 37);
             this.cmbSemester.TabIndex = 10;
+            this.cmbSemester.SelectedIndexChanged += new System.EventHandler(this.cmbSemester_SelectedIndexChanged);
             // 
             // cmbYear
             // 
             this.cmbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbYear.FormattingEnabled = true;
             this.cmbYear.Items.AddRange(new object[] {
-            "HK1",
-            "HK2",
-            "HK3"});
+            "Tất Cả"});
             this.cmbYear.Location = new System.Drawing.Point(937, 140);
             this.cmbYear.Name = "cmbYear";
-            this.cmbYear.Size = new System.Drawing.Size(155, 37);
+            this.cmbYear.Size = new System.Drawing.Size(216, 37);
             this.cmbYear.TabIndex = 10;
+            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -183,11 +184,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGVlistCourse);
+            this.Controls.Add(this.dataGvScore);
             this.Name = "UcStudentScore";
             this.Size = new System.Drawing.Size(1461, 936);
             this.Load += new System.EventHandler(this.UcStudentScore_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGVlistCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGvScore)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +197,7 @@
         #endregion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGVlistCourse;
+        private System.Windows.Forms.DataGridView dataGvScore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblIdStd;
         private System.Windows.Forms.Label label4;
