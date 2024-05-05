@@ -141,6 +141,12 @@
     <Compile Include="GUI\AttendanceGUI\UpdateAttendaceFrm.Designer.cs">
       <DependentUpon>UpdateAttendaceFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ForumGUI\ForumCommentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ForumGUI\ForumCommentFrm.Designer.cs">
+      <DependentUpon>ForumCommentFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ForumGUI\UcForum.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -369,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\AttendanceGUI\UpdateAttendaceFrm.resx">
       <DependentUpon>UpdateAttendaceFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ForumGUI\ForumCommentFrm.resx">
+      <DependentUpon>ForumCommentFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ForumGUI\UcForum.resx">
       <DependentUpon>UcForum.cs</DependentUpon>

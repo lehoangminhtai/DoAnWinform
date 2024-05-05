@@ -159,6 +159,7 @@
             this.dateTimeForum.Name = "dateTimeForum";
             this.dateTimeForum.Size = new System.Drawing.Size(208, 35);
             this.dateTimeForum.TabIndex = 12;
+            this.dateTimeForum.Value = new System.DateTime(2024, 5, 5, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -181,6 +182,7 @@
             this.cmbUser.Name = "cmbUser";
             this.cmbUser.Size = new System.Drawing.Size(209, 37);
             this.cmbUser.TabIndex = 10;
+            this.cmbUser.SelectedIndexChanged += new System.EventHandler(this.cmbUser_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -192,6 +194,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "Tìm kiếm";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UcForum
             // 

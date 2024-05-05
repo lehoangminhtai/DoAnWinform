@@ -19,6 +19,12 @@ namespace StudentManagement.DAO
             return data.InsertData(tableName, dic);
         }
 
+
+        public bool deleteForum(string tablename, Dictionary<string,object> dic)
+        {
+            return data.Delete(tablename, dic);
+        }
+
         public List<FORUM> getListForum(SqlCommand cmd)
         {
             List<FORUM> listForum = new List<FORUM>();
