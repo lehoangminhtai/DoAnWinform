@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGvStdListCourse = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGvStdListCourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +81,7 @@
             this.dataGvStdListCourse.RowHeadersVisible = false;
             this.dataGvStdListCourse.RowHeadersWidth = 62;
             this.dataGvStdListCourse.RowTemplate.Height = 28;
-            this.dataGvStdListCourse.Size = new System.Drawing.Size(1658, 768);
+            this.dataGvStdListCourse.Size = new System.Drawing.Size(1658, 700);
             this.dataGvStdListCourse.TabIndex = 5;
             this.dataGvStdListCourse.DoubleClick += new System.EventHandler(this.dataGvStdListCourse_DoubleClick);
             // 
@@ -96,12 +97,23 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(548, 884);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(151, 47);
+            this.btnPrint.TabIndex = 11;
+            this.btnPrint.Text = "In Danh Sách";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // StudentScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1860, 961);
+            this.ClientSize = new System.Drawing.Size(1860, 998);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCourseName);
             this.Controls.Add(this.label2);
@@ -127,5 +139,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGvStdListCourse;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

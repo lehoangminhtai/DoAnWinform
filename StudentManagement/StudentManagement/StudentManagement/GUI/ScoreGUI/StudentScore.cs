@@ -1,8 +1,10 @@
 ﻿using StudentManagement.DAO;
+using StudentManagement.GUI.ReportGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -72,6 +74,28 @@ namespace StudentManagement.GUI.ScoreGUI
             }
 
 
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            printListStd();
+        }
+        private void printListStd()
+        {
+            Report report = new Report();
+            
+            report.reportpath = "D:\\Winform\\Winform\\PROJECT\\DoAnWinform\\StudentManagement\\StudentManagement\\StudentManagement\\GUI\\ReportGUI\\reportScoreStdList.rdlc";
+            report.dataset = "DataSetResult";
+            XJDBC db = new XJDBC();
+            SqlCommand cmd = new SqlCommand($"select d.MaSV,d.DiemQT, d.DiemCuoiKy, d.DiemTongKet, hs.Ho, hs.Ten, kh.TenKH  from Diem d join HocSinh hs on d.MaSV = hs.MaSV join KhoaHoc kh on d.MaKH = kh.MaKH where d.MaKH ='{courseId}'", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            db.openConnection();
+            System.Data.DataTable dt = new System.Data.DataTable();
+            adapter.Fill(dt);
+            report.dataTable = dt;
+
+            db.closeConnection();
+            report.Show();
         }
     }
 }
