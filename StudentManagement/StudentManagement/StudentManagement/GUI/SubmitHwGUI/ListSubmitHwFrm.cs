@@ -98,18 +98,23 @@ namespace StudentManagement.GUI.SubmitHwGUI
 
         private void dataGVlistHW_Click(object sender, EventArgs e)
         {
-            if (dataGVlistHW.CurrentRow.Cells[0].Value != null)
+            try
             {
-                string sid = dataGVlistHW.CurrentRow.Cells[0].Value.ToString();
-                string name = dataGVlistHW.CurrentRow.Cells[1].Value.ToString();
-                string filename = dataGVlistHW.CurrentRow.Cells[2].Value.ToString();
-                string grade = dataGVlistHW.CurrentRow.Cells[3].Value.ToString();
+                if (dataGVlistHW.CurrentRow.Cells[0].Value != null)
+                {
+                    string sid = dataGVlistHW.CurrentRow.Cells[0].Value.ToString();
+                    string name = dataGVlistHW.CurrentRow.Cells[1].Value.ToString();
+                    string filename = dataGVlistHW.CurrentRow.Cells[2].Value.ToString();
+                    string grade = dataGVlistHW.CurrentRow.Cells[3].Value.ToString();
 
-                txtIDSTD.Text = sid;
-                txtNameSTD.Text = name;
-                txtGrade.Text = grade;
-                linklblFileName.Text = filename;
+                    txtIDSTD.Text = sid;
+                    txtNameSTD.Text = name;
+                    txtGrade.Text = grade;
+                    linklblFileName.Text = filename;
+                }
             }
+            catch { }
+           
            
         }
 

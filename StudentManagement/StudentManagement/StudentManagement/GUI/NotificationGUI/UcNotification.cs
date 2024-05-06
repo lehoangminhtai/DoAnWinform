@@ -22,7 +22,12 @@ namespace StudentManagement.GUI.NotificationGUI
 
         private void UcNotification_Load(object sender, EventArgs e)
         {
-
+            panelContainer.Controls.Clear();
+           UcNotificationTeacher ucNoti = new UcNotificationTeacher();
+            ucNoti.id_user = id_user;
+            ucNoti.role = role;
+            
+            panelContainer.Controls.Add(ucNoti);
         }
     }
 }

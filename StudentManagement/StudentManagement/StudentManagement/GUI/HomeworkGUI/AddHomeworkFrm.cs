@@ -19,6 +19,7 @@ namespace StudentManagement.GUI.HomeworkGUI
         private string nameFile { get; set; }
         private string homeworkTableName = "BaiTap";
         HomeworkDAO homeworkDAO = new HomeworkDAO();
+        NotificationDAO notificationDAO = new NotificationDAO();
         Data data = new Data();
         public AddHomeworkFrm()
         {
@@ -83,6 +84,15 @@ namespace StudentManagement.GUI.HomeworkGUI
                             };
                             if (homeworkDAO.insert(homeworkTableName, values))
                             {
+                                string tableNameNoti = "ThongBao";
+                                Dictionary<string, object> valueNoti = new Dictionary<string, object>
+                            {
+                                { "MaMH",  course_id},
+                                { "TieuDe", docName },
+                                {"NgayDienRa",deadline }
+
+                            };
+                                notificationDAO.inserNoti(tableNameNoti, valueNoti);
                                 MessageBox.Show("Đã giao bài tập!!!");
                                 DialogResult = DialogResult.OK;
 
@@ -116,6 +126,7 @@ namespace StudentManagement.GUI.HomeworkGUI
         {
             addHomework();
         }
+       
 
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {

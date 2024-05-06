@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -71,23 +71,23 @@
             this.label.TabIndex = 2;
             this.label.Text = "Thông Báo";
             // 
-            // panel2
+            // panelContainer
             // 
-            this.panel2.AutoSize = true;
-            this.panel2.Location = new System.Drawing.Point(82, 168);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1461, 541);
-            this.panel2.TabIndex = 7;
+            this.panelContainer.AutoSize = true;
+            this.panelContainer.Location = new System.Drawing.Point(82, 168);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1461, 675);
+            this.panelContainer.TabIndex = 7;
             // 
             // UcNotification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panel1);
             this.Name = "UcNotification";
-            this.Size = new System.Drawing.Size(1641, 1103);
+            this.Size = new System.Drawing.Size(1641, 865);
             this.Load += new System.EventHandler(this.UcNotification_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -102,6 +102,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelContainer;
     }
 }
