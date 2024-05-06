@@ -88,6 +88,7 @@
   <ItemGroup>
     <Compile Include="DAO\AttendanceDAO.cs" />
     <Compile Include="DAO\Auth.cs" />
+    <Compile Include="DAO\CommentDAO.cs" />
     <Compile Include="DAO\CourseDAO.cs" />
     <Compile Include="DAO\Data.cs" />
     <Compile Include="DAO\DocumentDAO.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="DAO\XJDBC.cs" />
     <Compile Include="Entity\ACCOUNT.cs" />
     <Compile Include="Entity\ATTENDANCE.cs" />
+    <Compile Include="Entity\COMMENT.cs" />
     <Compile Include="Entity\COURSE.cs" />
     <Compile Include="Entity\DOCUMENT.cs" />
     <Compile Include="Entity\FORUM.cs" />
@@ -147,6 +149,12 @@
     <Compile Include="GUI\ForumGUI\ForumCommentFrm.Designer.cs">
       <DependentUpon>ForumCommentFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ForumGUI\ShowImageCmt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ForumGUI\ShowImageCmt.Designer.cs">
+      <DependentUpon>ShowImageCmt.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ForumGUI\UcForum.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +166,12 @@
     </Compile>
     <Compile Include="GUI\HomeworkGUI\AddHomeworkFrm.Designer.cs">
       <DependentUpon>AddHomeworkFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NotificationGUI\UcNotification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\NotificationGUI\UcNotification.Designer.cs">
+      <DependentUpon>UcNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ScoreGUI\EnterStudentScore.cs">
       <SubType>Form</SubType>
@@ -333,12 +347,6 @@
     <Compile Include="GUI\RegisterCourseGUI\UpdateCourseFrm.Designer.cs">
       <DependentUpon>UpdateCourseFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UcNotification.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\UcNotification.Designer.cs">
-      <DependentUpon>UcNotification.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\LoginRegisterGUI\RegisterFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,11 +387,17 @@
     <EmbeddedResource Include="GUI\ForumGUI\ForumCommentFrm.resx">
       <DependentUpon>ForumCommentFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ForumGUI\ShowImageCmt.resx">
+      <DependentUpon>ShowImageCmt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ForumGUI\UcForum.resx">
       <DependentUpon>UcForum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HomeworkGUI\AddHomeworkFrm.resx">
       <DependentUpon>AddHomeworkFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NotificationGUI\UcNotification.resx">
+      <DependentUpon>UcNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ScoreGUI\EnterStudentScore.resx">
       <DependentUpon>EnterStudentScore.cs</DependentUpon>
@@ -471,9 +485,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\RegisterCourseGUI\UpdateCourseFrm.resx">
       <DependentUpon>UpdateCourseFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UcNotification.resx">
-      <DependentUpon>UcNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginRegisterGUI\RegisterFrm.resx">
       <DependentUpon>RegisterFrm.cs</DependentUpon>
@@ -642,7 +653,9 @@
   <ItemGroup>
     <None Include="Image\back.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Image\download.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

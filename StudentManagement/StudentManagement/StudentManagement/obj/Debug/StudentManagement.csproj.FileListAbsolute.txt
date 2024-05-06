@@ -55,7 +55,6 @@ D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\Stude
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.Form1.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.MainForm.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.UcInformation.resources
-D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.UcNotification.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.RegisterFrm.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.UpdateInfor.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.Properties.Resources.resources
@@ -101,3 +100,5 @@ D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\Stude
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.ScoreGUI.UcStudentScore.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.ForumGUI.UcForum.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.ForumGUI.ForumCommentFrm.resources
+D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.ForumGUI.ShowImageCmt.resources
+D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.NotificationGUI.UcNotification.resources

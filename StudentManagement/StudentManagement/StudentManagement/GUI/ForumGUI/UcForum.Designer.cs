@@ -77,9 +77,9 @@
             this.label.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label.Location = new System.Drawing.Point(110, 28);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(136, 32);
+            this.label.Size = new System.Drawing.Size(140, 32);
             this.label.TabIndex = 2;
-            this.label.Text = "Diễn đàn";
+            this.label.Text = "Diễn Đàn";
             // 
             // panelContainer
             // 

@@ -39,7 +39,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.btnADMIN = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNotification = new System.Windows.Forms.Button();
             this.btnForum = new System.Windows.Forms.Button();
             this.btnScore = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -163,7 +163,7 @@
             this.panel9.AutoSize = true;
             this.panel9.Controls.Add(this.button7);
             this.panel9.Controls.Add(this.btnADMIN);
-            this.panel9.Controls.Add(this.button1);
+            this.panel9.Controls.Add(this.btnNotification);
             this.panel9.Controls.Add(this.btnForum);
             this.panel9.Controls.Add(this.btnScore);
             this.panel9.Controls.Add(this.button4);
@@ -200,16 +200,17 @@
             this.btnADMIN.UseVisualStyleBackColor = true;
             this.btnADMIN.Click += new System.EventHandler(this.btnADMIN_Click);
             // 
-            // button1
+            // btnNotification
             // 
-            this.button1.AutoSize = true;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 498);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 83);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Thông báo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNotification.AutoSize = true;
+            this.btnNotification.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotification.Location = new System.Drawing.Point(0, 498);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(240, 83);
+            this.btnNotification.TabIndex = 6;
+            this.btnNotification.Text = "Thông báo";
+            this.btnNotification.UseVisualStyleBackColor = true;
+            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
             // 
             // btnForum
             // 
@@ -300,21 +301,22 @@
             // 
             // lblHoTen
             // 
-            this.lblHoTen.AutoSize = true;
-            this.lblHoTen.Location = new System.Drawing.Point(34, 53);
+            this.lblHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTen.Location = new System.Drawing.Point(15, 48);
             this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(61, 20);
+            this.lblHoTen.Size = new System.Drawing.Size(228, 37);
             this.lblHoTen.TabIndex = 0;
             this.lblHoTen.Text = "Họ Tên";
+            this.lblHoTen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblChucVu
             // 
-            this.lblChucVu.AutoSize = true;
             this.lblChucVu.Location = new System.Drawing.Point(84, 12);
             this.lblChucVu.Name = "lblChucVu";
-            this.lblChucVu.Size = new System.Drawing.Size(77, 20);
+            this.lblChucVu.Size = new System.Drawing.Size(91, 23);
             this.lblChucVu.TabIndex = 0;
             this.lblChucVu.Text = "SV or GV";
+            this.lblChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
@@ -373,7 +375,6 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -403,7 +404,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label lblHoTen;
         private System.Windows.Forms.Label lblChucVu;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button btnADMIN;
         private System.Windows.Forms.Button button7;

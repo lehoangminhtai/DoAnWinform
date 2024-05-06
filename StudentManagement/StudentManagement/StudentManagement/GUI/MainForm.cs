@@ -2,6 +2,7 @@
 using StudentManagement.Entity;
 using StudentManagement.GUI;
 using StudentManagement.GUI.ForumGUI;
+using StudentManagement.GUI.NotificationGUI;
 using StudentManagement.GUI.ScoreGUI;
 using System;
 using System.Collections.Generic;
@@ -37,10 +38,7 @@ namespace StudentManagement
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            UcNotification ucNotification = new UcNotification();
-            ucNotification.Dock = DockStyle.Fill;
-            panelMain.Controls.Clear();
-            panelMain.Controls.Add(ucNotification);
+           
 
         }
 
@@ -169,6 +167,16 @@ namespace StudentManagement
             ucforum.role = role;
             // Thêm panelCourse vào panelMain
             panelMain.Controls.Add(ucforum);
+        }
+
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+            UcNotification ucNoti = new UcNotification();
+            ucNoti.id_user = sid;
+            ucNoti.role = role;
+            // Thêm panelCourse vào panelMain
+            panelMain.Controls.Add(ucNoti);
         }
     }
 }
