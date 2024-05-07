@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
 using StudentManagement.DAO;
+using StudentManagement.GUI.ScoreGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -271,18 +272,29 @@ namespace StudentManagement.GUI
             {
                 if (idCourse != "")
                 {
-                    UCCourse.id = dataGvCourse.CurrentRow.Cells[0].Value.ToString();
-                    UCCourse.name = dataGvCourse.CurrentRow.Cells[1].Value.ToString();
-                    UCCourse.numCrea = dataGvCourse.CurrentRow.Cells[2].Value.ToString();
-                    UCCourse.des = dataGvCourse.CurrentRow.Cells[3].Value.ToString();
+                    /* UCCourse.id = dataGvCourse.CurrentRow.Cells[0].Value.ToString();
+                     UCCourse.name = dataGvCourse.CurrentRow.Cells[1].Value.ToString();
+                     UCCourse.numCrea = dataGvCourse.CurrentRow.Cells[2].Value.ToString();
+                     UCCourse.des = dataGvCourse.CurrentRow.Cells[3].Value.ToString();
 
-                    UCCourse.semester = dataGvCourse.CurrentRow.Cells[4].Value.ToString();
-                    UCCourse.year = dataGvCourse.CurrentRow.Cells[5].Value.ToString();
-                    UCCourse.filename = dataGvCourse.CurrentRow.Cells[6].Value.ToString();
-                    UCCourse.teacherName = dataGvCourse.CurrentRow.Cells[7].Value.ToString();
+                     UCCourse.semester = dataGvCourse.CurrentRow.Cells[4].Value.ToString();
+                     UCCourse.year = dataGvCourse.CurrentRow.Cells[5].Value.ToString();
+                     UCCourse.filename = dataGvCourse.CurrentRow.Cells[6].Value.ToString();
+                     UCCourse.teacherName = dataGvCourse.CurrentRow.Cells[7].Value.ToString();
 
-                    ADMINCourse coursefrm = new ADMINCourse();
-                    coursefrm.Show();
+                     ADMINCourse coursefrm = new ADMINCourse();
+                     coursefrm.Show();*/
+
+                    string cid = dataGvCourse.CurrentRow.Cells[0].Value.ToString();
+                    string cName = dataGvCourse.CurrentRow.Cells[1].Value.ToString();
+                    if (cid != null && cid != "")
+                    {
+                        StudentScore frmStdScore = new StudentScore();
+
+                        frmStdScore.courseId = cid;
+                        frmStdScore.courseName = cName;
+                        frmStdScore.Show();
+                    }
                 }
             }
             catch

@@ -216,6 +216,12 @@
     <Compile Include="GUI\ForumGUI\UcForum.Designer.cs">
       <DependentUpon>UcForum.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\HomeGUI\UcHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HomeGUI\UcHome.Designer.cs">
+      <DependentUpon>UcHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HomeworkGUI\AddHomeworkFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ForumGUI\UcForum.resx">
       <DependentUpon>UcForum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HomeGUI\UcHome.resx">
+      <DependentUpon>UcHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HomeworkGUI\AddHomeworkFrm.resx">
       <DependentUpon>AddHomeworkFrm.cs</DependentUpon>

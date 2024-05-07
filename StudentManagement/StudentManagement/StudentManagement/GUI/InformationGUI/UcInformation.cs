@@ -73,7 +73,7 @@ namespace StudentManagement.GUI
                 condition = "MaSV = '" + id + "'";
                 results = data.SelectData(tableName, columns, condition);
             }
-            if(role==2)
+            if(role==2 || role==3)
             {
                 tableName = "GiangVien";
                 columns = new List<string> { "MaGV", "CONCAT(Ho,' ',Ten) as HoTen",

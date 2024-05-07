@@ -146,10 +146,17 @@ namespace StudentManagement.GUI
 
         private void dataGVlistCourse_Click(object sender, EventArgs e)
         {
-            cid = dataGVlistCourse.CurrentRow.Cells[0].Value.ToString();
-             name = dataGVlistCourse.CurrentRow.Cells[1].Value.ToString();
-             numcre = dataGVlistCourse.CurrentRow.Cells[2].Value.ToString();
-             des = dataGVlistCourse.CurrentRow.Cells[3].Value.ToString();
+            try
+            {
+                cid = dataGVlistCourse.CurrentRow.Cells[0].Value.ToString();
+                name = dataGVlistCourse.CurrentRow.Cells[1].Value.ToString();
+                numcre = dataGVlistCourse.CurrentRow.Cells[2].Value.ToString();
+                des = dataGVlistCourse.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch
+            {
+
+            }
         }
 
         private void dataGVlistCourse_CellContentClick(object sender, DataGridViewCellEventArgs e)

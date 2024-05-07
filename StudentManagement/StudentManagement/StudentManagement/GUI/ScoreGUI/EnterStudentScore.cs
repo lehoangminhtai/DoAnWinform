@@ -149,7 +149,7 @@ namespace StudentManagement.GUI.ScoreGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Looix!!");
+                
             }
 
         }

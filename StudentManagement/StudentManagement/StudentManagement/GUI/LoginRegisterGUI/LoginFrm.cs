@@ -92,7 +92,12 @@ namespace StudentManagement
                     ACCOUNT.id = id_user;
                     ACCOUNT.role= getRole();
                     if (ACCOUNT.role != -1 && getStatus())
+                    {
+                        txtIdLogin.Text = "";
+                        txtPassLogin.Text = "";
                         this.DialogResult = DialogResult.OK;
+                    }
+                       
                     else
                     {
                         MessageBox.Show("Tài Khoản của bạn đã bị khoá!!!");

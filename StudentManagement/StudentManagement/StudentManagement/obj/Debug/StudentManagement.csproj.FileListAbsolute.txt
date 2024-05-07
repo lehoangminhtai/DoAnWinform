@@ -178,3 +178,4 @@ D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\Stude
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.InformationGUI.LoginByFace.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.LoginFaceGUI.RegisterFaceFrm.resources
 D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.LoginRegisterGUI.ForgotPassFrm.resources
+D:\Winform\Winform\PROJECT\DoAnWinform\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.GUI.HomeGUI.UcHome.resources

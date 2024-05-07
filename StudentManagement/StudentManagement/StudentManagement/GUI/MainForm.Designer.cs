@@ -182,9 +182,10 @@
             this.btnLogout.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(0, 664);
+            this.btnLogout.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnLogout.Location = new System.Drawing.Point(0, 896);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(240, 83);
+            this.btnLogout.Size = new System.Drawing.Size(240, 112);
             this.btnLogout.TabIndex = 8;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -196,9 +197,10 @@
             this.btnADMIN.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnADMIN.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnADMIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnADMIN.Location = new System.Drawing.Point(0, 581);
+            this.btnADMIN.ForeColor = System.Drawing.Color.IndianRed;
+            this.btnADMIN.Location = new System.Drawing.Point(0, 784);
             this.btnADMIN.Name = "btnADMIN";
-            this.btnADMIN.Size = new System.Drawing.Size(240, 83);
+            this.btnADMIN.Size = new System.Drawing.Size(240, 112);
             this.btnADMIN.TabIndex = 7;
             this.btnADMIN.Text = "Admin";
             this.btnADMIN.UseVisualStyleBackColor = false;
@@ -210,9 +212,10 @@
             this.btnNotification.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNotification.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotification.Location = new System.Drawing.Point(0, 498);
+            this.btnNotification.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnNotification.Location = new System.Drawing.Point(0, 672);
             this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(240, 83);
+            this.btnNotification.Size = new System.Drawing.Size(240, 112);
             this.btnNotification.TabIndex = 6;
             this.btnNotification.Text = "Thông báo";
             this.btnNotification.UseVisualStyleBackColor = false;
@@ -224,9 +227,10 @@
             this.btnForum.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnForum.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnForum.Location = new System.Drawing.Point(0, 415);
+            this.btnForum.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnForum.Location = new System.Drawing.Point(0, 560);
             this.btnForum.Name = "btnForum";
-            this.btnForum.Size = new System.Drawing.Size(240, 83);
+            this.btnForum.Size = new System.Drawing.Size(240, 112);
             this.btnForum.TabIndex = 5;
             this.btnForum.Text = "Diễn đàn";
             this.btnForum.UseVisualStyleBackColor = false;
@@ -238,9 +242,10 @@
             this.btnScore.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnScore.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnScore.Location = new System.Drawing.Point(0, 332);
+            this.btnScore.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnScore.Location = new System.Drawing.Point(0, 448);
             this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(240, 83);
+            this.btnScore.Size = new System.Drawing.Size(240, 112);
             this.btnScore.TabIndex = 4;
             this.btnScore.Text = "Xem điểm";
             this.btnScore.UseVisualStyleBackColor = false;
@@ -252,9 +257,10 @@
             this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(0, 249);
+            this.button4.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button4.Location = new System.Drawing.Point(0, 336);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(240, 83);
+            this.button4.Size = new System.Drawing.Size(240, 112);
             this.button4.TabIndex = 3;
             this.button4.Text = "Danh sách khoá học";
             this.button4.UseVisualStyleBackColor = false;
@@ -266,9 +272,10 @@
             this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(0, 166);
+            this.button3.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button3.Location = new System.Drawing.Point(0, 224);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(240, 83);
+            this.button3.Size = new System.Drawing.Size(240, 112);
             this.button3.TabIndex = 2;
             this.button3.Text = "Đăng ký học phần";
             this.button3.UseVisualStyleBackColor = false;
@@ -280,9 +287,10 @@
             this.btnInfor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnInfor.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfor.Location = new System.Drawing.Point(0, 83);
+            this.btnInfor.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnInfor.Location = new System.Drawing.Point(0, 112);
             this.btnInfor.Name = "btnInfor";
-            this.btnInfor.Size = new System.Drawing.Size(240, 83);
+            this.btnInfor.Size = new System.Drawing.Size(240, 112);
             this.btnInfor.TabIndex = 1;
             this.btnInfor.Text = "Thông tin cá nhân";
             this.btnInfor.UseVisualStyleBackColor = false;
@@ -294,11 +302,13 @@
             this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHome.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Name = "btnHome";
             this.btnHome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnHome.Size = new System.Drawing.Size(240, 83);
+            this.btnHome.Size = new System.Drawing.Size(240, 112);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.UseVisualStyleBackColor = false;
@@ -317,8 +327,8 @@
             // 
             // lblHoTen
             // 
-            this.lblHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoTen.Location = new System.Drawing.Point(15, 48);
+            this.lblHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTen.Location = new System.Drawing.Point(15, 50);
             this.lblHoTen.Name = "lblHoTen";
             this.lblHoTen.Size = new System.Drawing.Size(228, 37);
             this.lblHoTen.TabIndex = 0;
@@ -327,9 +337,10 @@
             // 
             // lblChucVu
             // 
-            this.lblChucVu.Location = new System.Drawing.Point(84, 12);
+            this.lblChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChucVu.Location = new System.Drawing.Point(24, 4);
             this.lblChucVu.Name = "lblChucVu";
-            this.lblChucVu.Size = new System.Drawing.Size(91, 23);
+            this.lblChucVu.Size = new System.Drawing.Size(215, 36);
             this.lblChucVu.TabIndex = 0;
             this.lblChucVu.Text = "SV or GV";
             this.lblChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -2,6 +2,7 @@
 using StudentManagement.Entity;
 using StudentManagement.GUI;
 using StudentManagement.GUI.ForumGUI;
+using StudentManagement.GUI.HomeGUI;
 using StudentManagement.GUI.NotificationGUI;
 using StudentManagement.GUI.ScoreGUI;
 using System;
@@ -38,8 +39,10 @@ namespace StudentManagement
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-           
 
+            panelMain.Controls.Clear();
+           UcHome ucHome = new UcHome();
+            panelMain.Controls.Add(ucHome);
         }
 
         private void btnInfor_Click(object sender, EventArgs e)
@@ -105,11 +108,26 @@ namespace StudentManagement
             
             sid = ACCOUNT.id;
             role = ACCOUNT.role;
+            getInfor();
             if (role != 3)
             {
                 btnADMIN.Visible = false;
             }
-            getInfor();
+            if (role == 3)
+            {
+                lblChucVu.Text = "ADMIN";
+                lblHoTen.Text = "ADMIN";
+                button3.Visible=false;
+                button4.Visible=false;
+                btnScore.Visible=false;
+                btnNotification.Visible=false;
+                btnForum.Visible=false;
+            }
+           
+            panelMain.Controls.Clear();
+            UcHome ucHome = new UcHome();
+            panelMain.Controls.Add(ucHome);
+
         }
 
         private void panelMain_Paint(object sender, PaintEventArgs e)
@@ -179,6 +197,8 @@ namespace StudentManagement
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            ACCOUNT.id = "";
+            ACCOUNT.role = -1;
             DialogResult = DialogResult.Cancel;
             Close();
         }

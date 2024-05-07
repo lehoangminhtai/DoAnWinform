@@ -48,7 +48,7 @@ namespace StudentManagement.GUI.LoginRegisterGUI
                     {
                         receiveMail = id_user + "@hcmute.edu.vn";
                     }
-                    //receiveMail = "21102003tai@gmail.com";
+                    receiveMail = "21102003tai@gmail.com";
                     OTP.Email = receiveMail;
                     OTP.role = role; 
 
