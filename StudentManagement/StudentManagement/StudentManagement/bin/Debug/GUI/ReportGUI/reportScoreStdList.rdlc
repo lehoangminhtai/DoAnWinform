@@ -209,7 +209,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Mã sinh viên</Value>
-                              <Style />
+                              <Style>
+                                <Color>Brown</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -221,6 +223,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -239,7 +242,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Họ</Value>
-                              <Style />
+                              <Style>
+                                <Color>Brown</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -251,6 +256,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -269,7 +275,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Tên</Value>
-                              <Style />
+                              <Style>
+                                <Color>Brown</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -281,6 +289,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -299,7 +308,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Điểm quá trình</Value>
-                              <Style />
+                              <Style>
+                                <Color>Brown</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -311,6 +322,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -329,7 +341,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Điểm cuối kỳ</Value>
-                              <Style />
+                              <Style>
+                                <Color>Brown</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -341,6 +355,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -359,7 +374,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Điểm tổng kết</Value>
-                              <Style />
+                              <Style>
+                                <Color>Brown</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -371,6 +388,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -389,7 +407,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Xếp loại</Value>
-                              <Style />
+                              <Style>
+                                <Color>Brown</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -401,6 +421,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>

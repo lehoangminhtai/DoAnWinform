@@ -162,6 +162,7 @@
             this.lnkForgotPass.TabIndex = 3;
             this.lnkForgotPass.TabStop = true;
             this.lnkForgotPass.Text = "Quên mật khẩu?";
+            this.lnkForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkForgotPass_LinkClicked);
             // 
             // btnLoginByFace
             // 
@@ -191,7 +192,7 @@
             // 
             // txtPassLogin
             // 
-            this.txtPassLogin.Font = new System.Drawing.Font("Microsoft YaHei Light", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassLogin.Location = new System.Drawing.Point(120, 181);
             this.txtPassLogin.Multiline = true;
             this.txtPassLogin.Name = "txtPassLogin";
@@ -199,18 +200,19 @@
             this.txtPassLogin.Size = new System.Drawing.Size(395, 44);
             this.txtPassLogin.TabIndex = 1;
             this.txtPassLogin.Text = "YOUR_PASSWORD";
+            this.txtPassLogin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPassLogin_MouseClick);
             this.txtPassLogin.TextChanged += new System.EventHandler(this.txtPassLogin_TextChanged);
             this.txtPassLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassLogin_KeyPress);
             // 
             // txtIdLogin
             // 
-            this.txtIdLogin.Font = new System.Drawing.Font("Microsoft YaHei Light", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdLogin.Location = new System.Drawing.Point(120, 105);
             this.txtIdLogin.Multiline = true;
             this.txtIdLogin.Name = "txtIdLogin";
             this.txtIdLogin.Size = new System.Drawing.Size(395, 44);
             this.txtIdLogin.TabIndex = 1;
-            this.txtIdLogin.Text = "YOUR_ID";
+            this.txtIdLogin.Text = "Mã Đăng Nhập";
             this.txtIdLogin.TextChanged += new System.EventHandler(this.txtIdLogin_TextChanged);
             // 
             // label2

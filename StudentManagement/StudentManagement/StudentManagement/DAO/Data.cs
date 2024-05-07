@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -424,7 +425,25 @@ namespace StudentManagement.DAO
             catch { }
             return sum;
         }
+        public  string HashPassword(string password)
+        {
+            using (SHA512 sha512 = SHA512.Create())
+            {
+                // Chuyển đổi mật khẩu thành mảng byte
+                byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
 
+                // Tính toán hash SHA-512 cho mật khẩu
+                byte[] hashBytes = sha512.ComputeHash(passwordBytes);
+
+                // Chuyển đổi hash thành chuỗi hexa
+                StringBuilder stringBuilder = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    stringBuilder.Append(hashBytes[i].ToString("x2"));
+                }
+                return stringBuilder.ToString();
+            }
+        }
 
     }
 

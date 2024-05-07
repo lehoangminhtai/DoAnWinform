@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudentManagement.GUI.LoginFaceGUI;
 
 namespace StudentManagement.DAO
 {
@@ -48,6 +49,7 @@ namespace StudentManagement.DAO
         private EigenFaceRecognizer eigenFaceRecognizer;
 
         private IContainer components = null;
+        private Rectangle[] detectedFaces;
 
         public FaceRec()
         {
@@ -85,6 +87,16 @@ namespace StudentManagement.DAO
             camera.ImageGrabbed += Camera_ImageGrabbed;
             camera.Start();
         }
+        public void CloseCamera()
+        {
+            if (camera != null)
+            {
+                camera.ImageGrabbed -= Camera_ImageGrabbed; // Bỏ kết nối sự kiện
+                camera.Stop(); // Dừng camera
+                camera.Dispose(); // Giải phóng tài nguyên camera
+                camera = null; // Đặt camera thành null để giải phóng bộ nhớ
+            }
+        }
 
         public void Save_IMAGE(string imageName)
         {
@@ -108,8 +120,10 @@ namespace StudentManagement.DAO
             CvInvoke.CvtColor(Frame, mat, ColorConversion.Bgr2Gray);
             CvInvoke.EqualizeHist(mat, mat);
             Rectangle[] array = CascadeClassifier.DetectMultiScale(mat, 1.1, 4);
+            detectedFaces = array;
             if (array.Length != 0)
             {
+               
                 Rectangle[] array2 = array;
                 foreach (Rectangle rectangle in array2)
                 {
@@ -123,6 +137,9 @@ namespace StudentManagement.DAO
             else
             {
                 setPersonName = "";
+                 MessageBox.Show("Không nhận diện được khuôn mặt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+               // return; // Thoát khỏi phương thức nếu không có khuôn mặt được nhận diện
             }
         }
 
@@ -130,13 +147,14 @@ namespace StudentManagement.DAO
         {
             if (isEnable_SaveImage)
             {
-                Image<Bgr, byte> image = Frame.Convert<Bgr, byte>();
-                image.ROI = face;
-                image.Resize(100, 100, Inter.Cubic).Save(Environment.CurrentDirectory + "\\Image\\" + ImageName + ".jpg");
-                MemoryStream pic =new MemoryStream();
+                    Image<Bgr, byte> image = Frame.Convert<Bgr, byte>();
+                    image.ROI = face;
+                    image.Resize(100, 100, Inter.Cubic).Save(Environment.CurrentDirectory + "\\Image\\" + ImageName + ".jpg");
+                    MemoryStream pic = new MemoryStream();
+              
+                    isEnable_SaveImage = false;
+                    trainedIamge();
                 
-                isEnable_SaveImage = false;
-                trainedIamge();
             }
         }
 

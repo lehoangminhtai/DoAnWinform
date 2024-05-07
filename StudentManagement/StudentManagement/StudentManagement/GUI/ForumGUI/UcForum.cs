@@ -38,12 +38,21 @@ namespace StudentManagement.GUI.ForumGUI
         }
         private void fillData()
         {
-            cmbUser.SelectedIndex = 0;
-            fillCmbCourse();
-            idCourse = cmbCourse.SelectedValue.ToString();
+            try
+            {
 
-            
-            fillListForum();
+
+                cmbUser.SelectedIndex = 0;
+                fillCmbCourse();
+                idCourse = cmbCourse.SelectedValue.ToString();
+
+
+                fillListForum();
+            }
+            catch
+            {
+
+            }
             
         }
         private void fillListForum( )

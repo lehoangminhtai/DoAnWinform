@@ -39,6 +39,7 @@
             this.cmbYear = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblAvgScore = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGvScore)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,11 +170,25 @@
             this.lblAvgScore.TabIndex = 11;
             this.lblAvgScore.Text = "<>";
             // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.Turquoise;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPrint.Location = new System.Drawing.Point(619, 817);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(302, 90);
+            this.btnPrint.TabIndex = 12;
+            this.btnPrint.Text = "In Kết Quả";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // UcStudentScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lblAvgScore);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbYear);
@@ -206,5 +221,6 @@
         private System.Windows.Forms.ComboBox cmbYear;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblAvgScore;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

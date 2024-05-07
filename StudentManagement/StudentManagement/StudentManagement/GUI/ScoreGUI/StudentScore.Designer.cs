@@ -32,8 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGvStdListCourse = new System.Windows.Forms.DataGridView();
-            this.btnBack = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnImportExcel = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGvStdListCourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +87,46 @@
             this.dataGvStdListCourse.TabIndex = 5;
             this.dataGvStdListCourse.DoubleClick += new System.EventHandler(this.dataGvStdListCourse_DoubleClick);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.Turquoise;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPrint.Location = new System.Drawing.Point(1189, 896);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(302, 90);
+            this.btnPrint.TabIndex = 11;
+            this.btnPrint.Text = "In Danh Sách";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefresh.Image = global::StudentManagement.Properties.Resources.refresh_button__1_;
+            this.btnRefresh.Location = new System.Drawing.Point(1117, 19);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(60, 55);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnImportExcel
+            // 
+            this.btnImportExcel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnImportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportExcel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnImportExcel.Image = global::StudentManagement.Properties.Resources.logo__1_;
+            this.btnImportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImportExcel.Location = new System.Drawing.Point(417, 896);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.Size = new System.Drawing.Size(286, 90);
+            this.btnImportExcel.TabIndex = 11;
+            this.btnImportExcel.Text = "Nhập file Excel";
+            this.btnImportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImportExcel.UseVisualStyleBackColor = false;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
+            // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -97,22 +139,14 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(548, 884);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(151, 47);
-            this.btnPrint.TabIndex = 11;
-            this.btnPrint.Text = "In Danh Sách";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // StudentScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1860, 998);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCourseName);
@@ -140,5 +174,7 @@
         private System.Windows.Forms.DataGridView dataGvStdListCourse;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnImportExcel;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

@@ -8,7 +8,7 @@ namespace StudentManagement.Entity
 {
     public class ACCOUNT
     {
-        public static string id = "minhtai";// {  get; set; }
-        public static int role = 2; //{  get; set; }
+        public static string id = "";// {  get; set; }
+        public static int role = -1; //{  get; set; }
     }
 }

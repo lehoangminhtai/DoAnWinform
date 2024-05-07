@@ -1,4 +1,5 @@
 ﻿using StudentManagement.DAO;
+using StudentManagement.GUI.InformationGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -255,12 +256,24 @@ namespace StudentManagement.GUI
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-
+            LoginByFace frm = new LoginByFace();
+            frm.id_user = id;
+            frm.ShowDialog();
         }
 
         private void label14_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnChangPass_Click(object sender, EventArgs e)
+        {
+            ChangPassFrm frm = new ChangPassFrm();
+            frm.id_user = id;
+            if(frm.ShowDialog()== DialogResult.OK )
+            {
+                MessageBox.Show("Đổi mật khẩu thành công !!!");
+            }
         }
     }
 }

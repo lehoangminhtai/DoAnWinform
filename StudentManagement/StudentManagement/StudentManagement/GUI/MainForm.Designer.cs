@@ -37,7 +37,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.btnADMIN = new System.Windows.Forms.Button();
             this.btnNotification = new System.Windows.Forms.Button();
             this.btnForum = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1678, 773);
+            this.panel1.Size = new System.Drawing.Size(1678, 744);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -85,7 +85,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(266, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1412, 773);
+            this.panel3.Size = new System.Drawing.Size(1412, 744);
             this.panel3.TabIndex = 1;
             // 
             // panelMain
@@ -95,7 +95,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 69);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1412, 704);
+            this.panelMain.Size = new System.Drawing.Size(1412, 675);
             this.panelMain.TabIndex = 2;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
@@ -143,7 +143,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 773);
+            this.panel2.Size = new System.Drawing.Size(266, 744);
             this.panel2.TabIndex = 0;
             // 
             // panel6
@@ -154,14 +154,14 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 100);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(266, 673);
+            this.panel6.Size = new System.Drawing.Size(266, 644);
             this.panel6.TabIndex = 1;
             // 
             // panel9
             // 
             this.panel9.AutoScroll = true;
             this.panel9.AutoSize = true;
-            this.panel9.Controls.Add(this.button7);
+            this.panel9.Controls.Add(this.btnLogout);
             this.panel9.Controls.Add(this.btnADMIN);
             this.panel9.Controls.Add(this.btnNotification);
             this.panel9.Controls.Add(this.btnForum);
@@ -173,103 +173,119 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 96);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(266, 577);
+            this.panel9.Size = new System.Drawing.Size(266, 548);
             this.panel9.TabIndex = 1;
             // 
-            // button7
+            // btnLogout
             // 
-            this.button7.AutoSize = true;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.Location = new System.Drawing.Point(0, 664);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(240, 83);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "Đăng xuất";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnLogout.AutoSize = true;
+            this.btnLogout.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(0, 664);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(240, 83);
+            this.btnLogout.TabIndex = 8;
+            this.btnLogout.Text = "Đăng xuất";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnADMIN
             // 
             this.btnADMIN.AutoSize = true;
+            this.btnADMIN.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnADMIN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnADMIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnADMIN.Location = new System.Drawing.Point(0, 581);
             this.btnADMIN.Name = "btnADMIN";
             this.btnADMIN.Size = new System.Drawing.Size(240, 83);
             this.btnADMIN.TabIndex = 7;
             this.btnADMIN.Text = "Admin";
-            this.btnADMIN.UseVisualStyleBackColor = true;
+            this.btnADMIN.UseVisualStyleBackColor = false;
             this.btnADMIN.Click += new System.EventHandler(this.btnADMIN_Click);
             // 
             // btnNotification
             // 
             this.btnNotification.AutoSize = true;
+            this.btnNotification.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNotification.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotification.Location = new System.Drawing.Point(0, 498);
             this.btnNotification.Name = "btnNotification";
             this.btnNotification.Size = new System.Drawing.Size(240, 83);
             this.btnNotification.TabIndex = 6;
             this.btnNotification.Text = "Thông báo";
-            this.btnNotification.UseVisualStyleBackColor = true;
+            this.btnNotification.UseVisualStyleBackColor = false;
             this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
             // 
             // btnForum
             // 
             this.btnForum.AutoSize = true;
+            this.btnForum.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnForum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForum.Location = new System.Drawing.Point(0, 415);
             this.btnForum.Name = "btnForum";
             this.btnForum.Size = new System.Drawing.Size(240, 83);
             this.btnForum.TabIndex = 5;
             this.btnForum.Text = "Diễn đàn";
-            this.btnForum.UseVisualStyleBackColor = true;
+            this.btnForum.UseVisualStyleBackColor = false;
             this.btnForum.Click += new System.EventHandler(this.btnForum_Click);
             // 
             // btnScore
             // 
             this.btnScore.AutoSize = true;
+            this.btnScore.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnScore.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnScore.Location = new System.Drawing.Point(0, 332);
             this.btnScore.Name = "btnScore";
             this.btnScore.Size = new System.Drawing.Size(240, 83);
             this.btnScore.TabIndex = 4;
             this.btnScore.Text = "Xem điểm";
-            this.btnScore.UseVisualStyleBackColor = true;
+            this.btnScore.UseVisualStyleBackColor = false;
             this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
             // 
             // button4
             // 
             this.button4.AutoSize = true;
+            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(0, 249);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(240, 83);
             this.button4.TabIndex = 3;
             this.button4.Text = "Danh sách khoá học";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
             this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(0, 166);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(240, 83);
             this.button3.TabIndex = 2;
             this.button3.Text = "Đăng ký học phần";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnInfor
             // 
             this.btnInfor.AutoSize = true;
+            this.btnInfor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnInfor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInfor.Location = new System.Drawing.Point(0, 83);
             this.btnInfor.Name = "btnInfor";
             this.btnInfor.Size = new System.Drawing.Size(240, 83);
             this.btnInfor.TabIndex = 1;
             this.btnInfor.Text = "Thông tin cá nhân";
-            this.btnInfor.UseVisualStyleBackColor = true;
+            this.btnInfor.UseVisualStyleBackColor = false;
             this.btnInfor.Click += new System.EventHandler(this.btnInfor_Click);
             // 
             // btnHome
@@ -355,7 +371,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1678, 773);
+            this.ClientSize = new System.Drawing.Size(1678, 744);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(1700, 800);
             this.Name = "MainForm";
@@ -407,6 +423,6 @@
         private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button btnADMIN;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

@@ -153,9 +153,9 @@ namespace StudentManagement
                                 OTP.Email = receiveMail;
                             
                                 OTP.SendEmail(receiveMail);
-                                //frmOTP otp = new frmOTP();
-
-                                this.DialogResult = DialogResult.OK;
+                               /* frmOTP otp = new frmOTP();
+                                if(otp.ShowDialog()==DialogResult.OK)*/
+                                    this.DialogResult = DialogResult.OK;
                             
                           
                             //otp.ShowDialog();
@@ -462,9 +462,12 @@ namespace StudentManagement
                                 OTP.role = 2; //là giáo viên
 
                                 OTP.SendEmail(receiveMail);
-                                //frmOTP otp = new frmOTP();
+                               /* frmOTP otp = new frmOTP();
+                                
+                            if (otp.ShowDialog() == DialogResult.OK)*/
+                            
                                 this.DialogResult = DialogResult.OK;
-                                //otp.ShowDialog();
+                            
                             }
                             else
                             {

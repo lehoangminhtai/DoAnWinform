@@ -105,6 +105,10 @@ namespace StudentManagement
             
             sid = ACCOUNT.id;
             role = ACCOUNT.role;
+            if (role != 3)
+            {
+                btnADMIN.Visible = false;
+            }
             getInfor();
         }
 
@@ -153,12 +157,6 @@ namespace StudentManagement
             panelMain.Controls.Add(ucScore);
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            role = 2;
-            sid = "minhtai";
-        }
-
         private void btnForum_Click(object sender, EventArgs e)
         {
             panelMain.Controls.Clear();
@@ -177,6 +175,12 @@ namespace StudentManagement
             ucNoti.role = role;
             // Thêm panelCourse vào panelMain
             panelMain.Controls.Add(ucNoti);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

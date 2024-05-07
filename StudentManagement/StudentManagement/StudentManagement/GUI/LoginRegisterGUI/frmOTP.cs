@@ -15,6 +15,7 @@ namespace StudentManagement
     {
         StudentDAO studentDAO = new StudentDAO();
         TeacherDao teacherDao = new TeacherDao();
+        public bool isForgotPass {  get; set; }
         public frmOTP()
         {
             InitializeComponent();
@@ -160,28 +161,13 @@ namespace StudentManagement
             {
                 if(OTP.numOTP ==OTP.numOTP_Client)
                 {
-                    if (OTP.role == 1)//là học sinh
-                    {
-                        if (studentDAO.Insert())
-                        {
-                            MessageBox.Show("Đăng ký thành công, vui lòng chờ thông báo xác nhận admin qua email!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.DialogResult = DialogResult.OK;
-                        }
+                    if (isForgotPass) {
+                        this.DialogResult= DialogResult.OK;
                     }
-                    if (OTP.role == 2)//là giáo viên
+                    else
                     {
-                        if (teacherDao.Insert())
-                        {
-                            MessageBox.Show("Đăng ký thành công, vui lòng chờ thông báo xác nhận admin qua email!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.DialogResult= DialogResult.OK;
-                        }
+                        insert();
                     }
-                    if(OTP.role == 3)//nhận thông báo xác thực khuôn mặt
-                    {
-                        MessageBox.Show("Xác thực thành công!", "Xác thực", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.DialogResult = DialogResult.OK;
-                    }
-
                    
                 }
                 else
@@ -196,6 +182,34 @@ namespace StudentManagement
                 MessageBox.Show("Mã OTP đã hết hạn\n Vui lòng chọn gửi lại mã", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void insert()
+        {
+            if (OTP.role == 1)//là học sinh
+            {
+                if (studentDAO.Insert())
+                {
+                    MessageBox.Show("Đăng ký thành công, vui lòng chờ thông báo xác nhận admin qua email!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
+            if (OTP.role == 2)//là giáo viên
+            {
+                if (teacherDao.Insert())
+                {
+                    MessageBox.Show("Đăng ký thành công, vui lòng chờ thông báo xác nhận admin qua email!!!", "Đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
+            if (OTP.role == 3)//nhận thông báo xác thực khuôn mặt
+            {
+                MessageBox.Show("Xác thực thành công!", "Xác thực", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
+            }
+
+        }
+
+        
 
         private void label2_Click(object sender, EventArgs e)
         {

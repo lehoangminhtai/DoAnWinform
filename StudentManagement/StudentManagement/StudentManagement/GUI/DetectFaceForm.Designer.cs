@@ -49,23 +49,25 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label5.Location = new System.Drawing.Point(86, 28);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(719, 53);
+            this.label5.Size = new System.Drawing.Size(752, 53);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Facial Recognition System in C#";
+            this.label5.Text = "Đăng Nhập Nhận Diện Khuôn Mặt";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(530, 442);
+            this.label4.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label4.Location = new System.Drawing.Point(510, 442);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(179, 25);
+            this.label4.Size = new System.Drawing.Size(120, 25);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Detected Person:";
+            this.label4.Text = "Nhận Diện:";
             // 
             // lblName
             // 
@@ -89,38 +91,43 @@
             // 
             // btnDetectFace
             // 
-            this.btnDetectFace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetectFace.Location = new System.Drawing.Point(409, 530);
+            this.btnDetectFace.BackColor = System.Drawing.Color.Purple;
+            this.btnDetectFace.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetectFace.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDetectFace.Location = new System.Drawing.Point(382, 530);
             this.btnDetectFace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDetectFace.Name = "btnDetectFace";
             this.btnDetectFace.Size = new System.Drawing.Size(178, 72);
             this.btnDetectFace.TabIndex = 6;
-            this.btnDetectFace.Text = "Detect Face";
-            this.btnDetectFace.UseVisualStyleBackColor = true;
+            this.btnDetectFace.Text = "Nhận Diện ";
+            this.btnDetectFace.UseVisualStyleBackColor = false;
             this.btnDetectFace.Click += new System.EventHandler(this.btnDetectFace_Click);
             // 
             // btnCamera
             // 
-            this.btnCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCamera.Location = new System.Drawing.Point(152, 530);
+            this.btnCamera.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCamera.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCamera.Location = new System.Drawing.Point(131, 530);
             this.btnCamera.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCamera.Name = "btnCamera";
             this.btnCamera.Size = new System.Drawing.Size(184, 72);
             this.btnCamera.TabIndex = 4;
-            this.btnCamera.Text = "Camera";
-            this.btnCamera.UseVisualStyleBackColor = true;
+            this.btnCamera.Text = "Mở Camera";
+            this.btnCamera.UseVisualStyleBackColor = false;
             this.btnCamera.Click += new System.EventHandler(this.btnCamera_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkOrange;
             this.label2.Location = new System.Drawing.Point(510, 115);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 25);
+            this.label2.Size = new System.Drawing.Size(158, 25);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Captured Face";
+            this.label2.Text = "Ảnh Nhận Diện";
             // 
             // pictureBoxCaptured
             // 
@@ -136,6 +143,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Lime;
             this.label1.Location = new System.Drawing.Point(33, 115);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -155,6 +163,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lblName);
@@ -178,14 +187,16 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.BackColor = System.Drawing.Color.Gold;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnLogin.Location = new System.Drawing.Point(627, 530);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(178, 72);
             this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "OK";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Text = "Đăng Nhập";
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // DetectFaceForm

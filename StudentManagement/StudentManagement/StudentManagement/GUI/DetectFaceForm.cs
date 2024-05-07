@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace StudentManagement.GUI
     public partial class DetectFaceForm : Form
     {
         FaceRec faceRec = new FaceRec();
+        XJDBC db = new XJDBC();
+        public string id {  get; set; }
         //private Capture capture = new Capture();
         public DetectFaceForm()
         {
@@ -56,11 +59,65 @@ namespace StudentManagement.GUI
             if (lblName.Text.Trim() != "")
             {
                 ACCOUNT.id = lblName.Text.Trim();
-                ACCOUNT.role = 1;
-                this.DialogResult = DialogResult.OK;
+                ACCOUNT.role = getRole();
+                if(ACCOUNT.role!=-1 && getStatus())
+                    this.DialogResult = DialogResult.OK;
                
             }
               
+        }
+        private bool getStatus()
+        {
+            try
+            {
+
+                int status = -1;
+                SqlCommand cmd = new SqlCommand($"select TrangThai from TaiKhoan where MaNguoiDung = '{ACCOUNT.id}'", db.getConnection);
+                db.openConnection();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        status = reader.GetInt32(0);
+                    }
+                }
+                if (status == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        private int getRole()
+        {
+            try
+            {
+
+                int role = -1;
+                SqlCommand cmd = new SqlCommand($"select Quyen from TaiKhoan where MaNguoiDung = '{ACCOUNT.id}'", db.getConnection);
+                db.openConnection();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        role = reader.GetInt32(0);
+                    }
+                }
+                return role;
+            }
+            catch
+            {
+                return -1;
+            }
+
         }
     }
 }

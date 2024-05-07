@@ -453,6 +453,7 @@
             this.btnChangPass.Text = "Đổi mật khẩu";
             this.btnChangPass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnChangPass.UseVisualStyleBackColor = false;
+            this.btnChangPass.Click += new System.EventHandler(this.btnChangPass_Click);
             // 
             // picBoxAnhSV
             // 

@@ -1,4 +1,6 @@
 ﻿using StudentManagement.DAO;
+using StudentManagement.Entity;
+using StudentManagement.GUI.ReportGUI;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -131,6 +133,28 @@ namespace StudentManagement.GUI.ScoreGUI
             string sql = $@"select d.MaKH as ""Mã Khoá Học"", k.TenKH as ""Tên Khoá Học"",k.HocKy as ""Học Kỳ"",k.NamHoc as ""Năm Học"", d.DiemQT as ""Điểm Quá Trình"", d.DiemCuoiKy as ""Điểm Cuối Kỳ"", d.DiemTongKet as ""Điểm Tổng Kết"", d.TrangThai as ""Xếp Loại""  from Diem d join KhoaHoc k on d.MaKH = k.MaKH where "+condition;
             lblAvgScore.Text = scoreDAO.fillDataGvChange(sql,dataGvScore).ToString();
                
-        } 
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            printResult();
+        }
+        private void printResult()
+        {
+            Report report = new Report();
+
+            report.reportpath = "D:\\Winform\\Winform\\PROJECT\\DoAnWinform\\StudentManagement\\StudentManagement\\StudentManagement\\GUI\\ReportGUI\\ReportStudentResult.rdlc";
+            report.dataset = "DataSetResult";
+            XJDBC db = new XJDBC();
+            SqlCommand cmd = new SqlCommand($"select * from Diem d join HocSinh hs on d.MaSV = hs.MaSV join KhoaHoc kh on d.MaKH = kh.MaKH where d.MaSV = '{id_student}'", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            db.openConnection();
+            System.Data.DataTable dt = new System.Data.DataTable();
+            adapter.Fill(dt);
+            report.dataTable = dt;
+
+            db.closeConnection();
+            report.ShowDialog();
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace StudentManagement.DAO
 {
     public class GenerateRandomPass
     {
-        static string GenerateRandomPassword(int length)
+       public static string GenerateRandomPassword(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             Random random = new Random();
